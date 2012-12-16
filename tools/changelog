@@ -1,0 +1,11 @@
+teresa1963
+
+Ganbarou changes in Settings: Removed profiles, updates, statistics, changelog. Enabled screen on while charging even if a max time to lock is defined.
+
+Ganbarou changes in Framework: Changed default wallpapers and power menu. Reboot & Reboot into Recovery direct accessible from power menu.
+
+Remove last tracks of profiles from settings. (this time from the correct file)
+
+Included Gallery2 back as the camera is included now
+Updated proprietary files list for N7000 so that it can be compiled again
+Added tools, patches and changelog to ganbarou_tools
