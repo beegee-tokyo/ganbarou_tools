@@ -36,6 +36,34 @@ git commit -a
 git push git@github.com:beegee-tokyo/android_vendor_samsung_p4wifi.git jellybean
 cd ../../..
 echo ============================================
+echo 'Push latest changes to beegee-tokyo vendor_n7000'
+echo ============================================
+cd vendor
+cd samsung
+cd n7000
+#repo start ics .
+repo start master .
+git checkout master
+git pull
+git add -A
+git commit -a
+git push git@github.com:beegee-tokyo/android_vendor_samsung_n7000.git master
+cd ../../..
+echo ============================================
+echo 'Push latest changes to beegee-tokyo vendor_galaxys2-common'
+echo ============================================
+cd vendor
+cd samsung
+cd galaxys2-common
+#repo start ics .
+repo start master .
+git checkout master
+git pull
+git add -A
+git commit -a
+git push git@github.com:beegee-tokyo/android_vendor_samsung_galaxys2-common.git master
+cd ../../..
+echo ============================================
 echo 'Push latest changes to Wallpapers'
 echo ============================================
 cd packages
@@ -77,15 +105,14 @@ cd ../..
 echo ============================================
 echo 'Push latest changes to Ganbarou Tools'
 echo ============================================
-cd vendor
-cd samsung
+cd ganbarou_tools
 repo start master .
 git checkout master
 git pull
 git add -A
 git commit -a
 git push git@github.com:beegee-tokyo/ganbarou_tools.git master
-cd ../../..
+cd ..
 
 echo ============================================
 echo 'Temporary exit'
