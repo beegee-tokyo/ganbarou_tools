@@ -1,13 +1,18 @@
 Ganbarou Tools
-My tools and files used to build a CM10 based Ganbarou ROM for Samsung Galaxy Tab 10.1 and Galaxy Note
 ======================================================================================================
+My tools and files used to build a CM10 based Ganbarou ROM for Samsung Galaxy Tab 10.1 and Galaxy Note
+------------------------------------------------------------------------------------------------------
+In <https://github.com/beegee-tokyo/ganbarou-jb/blob/master/README.md> you can find a description of the batch files 
+and how to build the Ganbarou ROM by yourself.    
+     
 In tools:
----------
-custom squisher 
+---------    
+custom squisher     
 - out file name changed to cm-base_for_ganbarou.zip for easier post-processing in ganbarou.sh
-- removed creation of md5 checksum because this will be done in the post-processing
-Added all batch files that are used to make the ROMs. Need to be copied as link to the top build directory
-Added copy of local_manifest.xml and changelog
+- removed creation of md5 checksum because this will be done in the post-processing    
+    
+Added all batch files that are used to make the ROMs. Need to be copied as link to the top build directory    
+Added copy of local_manifest.xml and changelog    
 
 In patches
 ----------
