@@ -29,7 +29,6 @@ else
    echo ============================================
    exit $?
 fi
-   exit $?
 echo ============================================
 echo 'Get prebuilts'
 echo './vendor/cm/get-prebuilts'
