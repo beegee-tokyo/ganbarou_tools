@@ -11,4 +11,8 @@ Updated proprietary files list for N7000 so that it can be compiled again
 Added tools, patches and changelog to ganbarou_tools
 
 Removed last tracks of profiles from settings (powermenu.java) This time correct and no more crash of settings.
+
 Corrected MDPI icon for recovery in power menu
+
+Changed branch name to jb-4.1
+Added script files sync.sh and makeit.sh for my laptop environment
