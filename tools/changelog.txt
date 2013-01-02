@@ -16,3 +16,7 @@ Corrected MDPI icon for recovery in power menu
 
 Changed branch name to jb-4.1
 Added script files sync.sh and makeit.sh for my laptop environment
+
+Makeit.sh is now more flexible. No more need to change paths if used by another user or/and in another folder. Patches in the ROMs are exported to patchit.sh for easier maintenance.
+
+
