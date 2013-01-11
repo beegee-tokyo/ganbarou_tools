@@ -1,8 +1,8 @@
 echo ============================================
 echo 'Init sync CM10 with Github'
-echo 'repo init -u git://github.com/beegee-tokyo/ganbarou-jb.git -b jb-4.1'
+echo 'repo init -u git://github.com/beegee-tokyo/ganbarou-jb.git -b jb-4.2'
 echo ============================================
-repo init -u git://github.com/beegee-tokyo/ganbarou-jb.git -b jb-4.1
+repo init -u git://github.com/beegee-tokyo/ganbarou-jb.git -b jb-4.2
 if [ $? -eq 0 ]; then
    echo ============================================
    echo 'Repo init successfull'
