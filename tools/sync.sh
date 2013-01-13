@@ -30,11 +30,6 @@ else
    exit $?
 fi
 echo ============================================
-echo 'Get prebuilts seems to be broken'
-echo 'therefor we skip it'
-echo ============================================
-exit $?
-echo ============================================
 echo 'Get prebuilts'
 echo './vendor/cm/get-prebuilts'
 echo ============================================

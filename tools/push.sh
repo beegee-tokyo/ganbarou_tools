@@ -1,4 +1,4 @@
-_CURRENTPATH = ${PWD##*/}
+_CURRENTPATH=${PWD##*/}
 echo ============================================
 echo 'Clean up directories from tmp files'
 echo ============================================

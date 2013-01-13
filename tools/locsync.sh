@@ -15,7 +15,7 @@ else
 fi
 echo ============================================
 echo 'Sync CM10.1'
-echo 'repo sync -f'
+echo 'repo sync -f -c -l'
 echo ============================================
 repo sync -f -c -l
 echo $?
