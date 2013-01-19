@@ -90,7 +90,7 @@ esac
 echo ============================================
 echo 'set GooManager ROM version'
 echo ============================================
-export gooversion_t="2"
+export gooversion_t="3"
 export goobuild_t="00"
 export gooversion_build_t=$gooversion_t$goobuild_t
 echo ============================================

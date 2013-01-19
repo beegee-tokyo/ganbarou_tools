@@ -1,5 +1,15 @@
 teresa1963
 
+How to get Developer options in Settings:
+Click on Build number several times until it says that you are a developer
+
+How to enable MTP:
+Settings->Storage->Menu (3 dots top right)->USB computer connection->Tick Media device (MTP)
+
+Organisation SD-card:
+The original content of your SD-card is now in sdcard0/0
+Comes from the kernel and I cannot change it. Applications that search for their settings/files/... on the root of the SD-card cannot find them anymore. You need to copy the folders from sdcard0/0 to sdcard0
+
 Ganbarou changes in Settings: Removed profiles, updates, statistics, changelog. Enabled screen on while charging even if a max time to lock is defined.
 
 Ganbarou changes in Framework: Changed default wallpapers and power menu. Reboot & Reboot into Recovery direct accessible from power menu.
