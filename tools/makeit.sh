@@ -91,7 +91,7 @@ echo ============================================
 echo 'set GooManager ROM version'
 echo ============================================
 export gooversion_t="3"
-export goobuild_t="00"
+export goobuild_t="01"
 export gooversion_build_t=$gooversion_t$goobuild_t
 echo ============================================
 echo 'Setup ccache'
