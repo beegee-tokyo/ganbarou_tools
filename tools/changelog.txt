@@ -30,3 +30,5 @@ Added script files sync.sh and makeit.sh for my laptop environment
 Makeit.sh is now more flexible. No more need to change paths if used by another user or/and in another folder. Patches in the ROMs are exported to patchit.sh for easier maintenance.
 
 Added branch jb-4.2 and prepared 3G tablet for new ROM
+
+Corrected reboot bug in power menu

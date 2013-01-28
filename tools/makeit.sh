@@ -6,7 +6,8 @@ echo ============================================
 export DO_CLEAN=1
 export DO_P7500=1 
 export DO_P7510=1 
-export DO_N7000=1 
+export DO_N7000=1
+export DO_P6800=1 
 
 # Check the parameters given
 for PARAM in "$@"
@@ -19,6 +20,7 @@ do
       echo 'b) with one or several of the following parameters'
       echo '   <all> ==> builds the ROMs for GT-P7500/P7501/P7510/P7511 and for the GT-N7000'
       echo '   <tab> ==> builds the ROMs for GT-P7500/P7501/P7510/P7511 only, not for the GT-N7000'
+      echo '   <7> ==> builds the ROMs for GT-P6800 only, not for the GT-N7000 nor for GT-P7500/P7501/P7510/P7511'
       echo '   <3g> ==> builds the ROMs for GT-P7500/P7501 only, not for the GT-P7510/P7511 or GT-N7000'
       echo '   <wifi> ==> builds the ROMs for GT-P7510/P7511 only, not for the GT-P7500/P7501 or GT-N7000'
       echo '   <phone> ==> build the ROM for GT-N7000 only, not for the GT-P7500/P7501/P7510/P7511'
@@ -51,19 +53,22 @@ do
    if [[ $PARAM == phone ]]; then 
       export DO_N7000=0 
    fi
+   if [[ $PARAM == 7 ]]; then 
+      export DO_P6800=0 
+   fi
    if [[ $PARAM == all ]]; then 
       export DO_N7000=0 
       export DO_P7500=0 
       export DO_P7510=0 
    fi
 done
-if [ $DO_P7500 -eq 1 ] && [ $DO_P7510 -eq 1 ] && [ $DO_N7000 -eq 1 ]; then
+if [ $DO_P7500 -eq 1 ] && [ $DO_P7510 -eq 1 ] && [ $DO_N7000 -eq 1 ] && [ $DO_P6800 -eq 1 ]; then
       export DO_N7000=0 
       export DO_P7500=0 
       export DO_P7510=0 
 fi   
 if [ $DO_CLEAN -eq 0 ]; then
-   CLEAN_TXT='a clean build of'
+   CLEAN_TXT='a CLEAN build of'
 else
    CLEAN_TXT='the build of'
 fi
@@ -76,7 +81,10 @@ fi
 if [ $DO_N7000 -eq 0 ]; then
    N7000_TXT=' GT-N7000'
 fi
-echo -n "Start $CLEAN_TXT$P7500_TXT$P7510_TXT$N7000_TXT? [Y/n]: "
+if [ $DO_P6800 -eq 0 ]; then
+   P6800_TXT=' GT-P6800'
+fi
+echo -n "Start $CLEAN_TXT$P7500_TXT$P7510_TXT$N7000_TXT$P6800_TXT? [Y/n]: "
 read yno
 case $yno in
         [nN] | [n|N][O|o] )
@@ -110,6 +118,26 @@ fi
 # $OLD_DEVICE = p4 or p4wifi or n7000
 # all 4 params must be given!
 
+if [ $DO_P6800 -eq 0 ]; then
+   echo ============================================
+   echo 'Start the build for GT-P6800'
+   echo ============================================
+   . build/envsetup.sh && brunch p6800
+   if [ $? -eq 0 ]; then
+      echo ============================================
+      echo 'Build for GT-P6800 successfull'
+      echo ============================================
+      export P6800RESULT=0
+      ./patchit.sh GT-P6800 GT-P6800 0 p6800
+   else
+      echo ============================================
+      echo 'Build for GT-P7500 failed'
+      echo ============================================
+      export P6800RESULT=1
+   fi
+else
+   export P7500RESULT=1
+fi
 if [ $DO_P7500 -eq 0 ]; then
    echo ============================================
    echo 'Start the build for GT-P7500'
@@ -195,6 +223,17 @@ if [ $DO_P7510 -eq 0 ]; then
    else
       echo ============================================
       echo 'Build for GT-P7510/7511 failed'
+      echo ============================================
+   fi
+fi
+if [ $DO_P6800 -eq 0 ]; then
+   if [ $P6800RESULT -eq 0 ]; then
+      echo ============================================
+      echo 'Build for GT-P6800 done'
+      echo ============================================
+   else
+      echo ============================================
+      echo 'Build for GT-P6800 failed'
       echo ============================================
    fi
 fi
