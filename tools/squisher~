@@ -7,6 +7,9 @@
 printf "##########################\n"
 printf "Running custom squisher...\n"
 printf "##########################\n"
+
+. vendor/cm/tools/functions
+
 OUT_TARGET_HOST=`uname -a | grep Darwin`
 if [ -z "$OUT_TARGET_HOST" ]
 then
@@ -22,7 +25,7 @@ else
 fi
 
 if [ -z "$OUT" -o ! -d "$OUT" ]; then
-	echo "ERROR: $0 only works with a full build environment. $OUT should exist."
+	echo -e "\033[31m""ERROR: $0 only works with a full build environment. $OUT should exist.""\033[0m"
 	exit 1
 fi
 
@@ -34,16 +37,16 @@ else
     OTAPACKAGE=$OUT/$TARGET_PRODUCT-ota-$TARGET_BUILD_VARIANT.$USER.zip
 fi
 if [ ! -f "$OTAPACKAGE" ]; then
-	echo "$OTAPACKAGE doesn't exist!";
+	echo -e "\033[31m""$OTAPACKAGE doesn't exist!""\033[0m";
 	exit 1
 fi
 
-OPTICHARGER=$ANDROID_BUILD_TOP/vendor/cm/tools/opticharger
+OPTICHARGER=$ANDROID_BUILD_TOP/ganbarou_tools/tools/opticharger
 QUIET=-q
 DELETE_BINS="applypatch applypatch_static check_prereq recovery updater"
 
 REPACK=$OUT/repack.d
-printf "Sanitizing environment..."
+echo -e "\033[33m""Sanitizing environment...""\033[0m"
 rm -rf $REPACK
 mkdir -p $REPACK
 echo
@@ -53,7 +56,7 @@ echo
 mkdir $REPACK/ota
 (
 cd $REPACK/ota
-printf "Unpacking $OTAPACKAGE..."
+echo -e "\033[33m""Unpacking $OTAPACKAGE...""\033[0m"
 unzip $QUIET $OTAPACKAGE
 echo
 cd $REPACK/ota/system/framework
@@ -70,7 +73,7 @@ $SED -i \
 
 
 # Delete unnecessary binaries
-( cd $REPACK/ota/system/bin; echo $DELETE_BINS | xargs rm -f; )
+( cd $REPACK/ota/system/bin; echo -e $DELETE_BINS | xargs rm -f; )
 
 # No need for recovery
 rm -rf $REPACK/ota/recovery
@@ -82,12 +85,11 @@ rm -rf $REPACK/ota/recovery
 # Determine what to name the new signed package
 MODVERSION=`sed -n -e'/ro\.cm\.version/s/^.*=//p' $REPACK/ota/system/build.prop`
 OUTFILE=$OUT/cm-base_for_ganbarou.zip
-echo MODVERSION: $MODVERSION
+echo -e "\033[33m""MODVERSION:" "\033[35m""$MODVERSION""\033[0m"
 
 # Pack it up and sign
-printf "Zipping package..."
-#( cd $REPACK/ota; zip $QUIET -r $REPACK/update.zip . )
-( cd $REPACK/ota; zip $QUIET -r $REPACK/$OUTFILE . )
+echo -e "\033[33m""Zipping package...""\033[0m"
+( cd $REPACK/ota; zip $QUIET -r $REPACK/update.zip . )
 echo
 #printf "Signing package..." ==> We do this later in patchit.sh again, so no need now!
 #SECURITYDIR=$ANDROID_BUILD_TOP/build/target/product/security
@@ -96,7 +98,7 @@ echo
 #	-w $SECURITYDIR/testkey.x509.pem $SECURITYDIR/testkey.pk8 \
 #	$REPACK/update.zip $OUTFILE
 #echo
-printf "Cleaning up..."
+echo -e "\033[33m""Cleaning up...""\033[0m"
 rm -rf $REPACK
 echo
 
@@ -106,9 +108,72 @@ echo
 #cd `dirname $OUTFILE`
 #$MD5 $img >$img.md5sum
 echo
-echo "Package complete: $OUTFILE"
+echo -e "\033[32m""Package complete: $OUTFILE""\033[0m"
 #cat $img.md5sum
 #echo
 #)
 
 exit 0
+
+#
+# This is the new squisher, not sure if it is more effective
+#
+#!/bin/bash
+#
+# Squish a CM otapackage for distribution
+# cyanogen
+#
+
+printf "##########################\n"
+printf "Running custom squisher...\n"
+printf "##########################\n"
+
+. $ANDROID_BUILD_TOP/vendor/cm/tools/functions
+
+OUT_TARGET_HOST=`uname -a | grep Darwin`
+if [ -z "$OUT_TARGET_HOST" ]
+then
+   OUT_TARGET_HOST=linux-x86
+   MD5=md5sum
+   XARGS="xargs --max-args=1 --max-procs `grep 'processor' /proc/cpuinfo|wc -l`"
+   SED=sed
+else
+   OUT_TARGET_HOST=darwin-x86
+   MD5=md5
+   XARGS="xargs -n 1 -P `sysctl hw.ncpu | awk '{print $2}'`"
+   SED=gsed
+fi
+
+if [ -z "$OUT" -o ! -d "$OUT" ]; then
+	echo -e "\033[31m""ERROR: $0 only works with a full build environment. $OUT should exist.""\033[0m"
+	exit 1
+fi
+
+if [ ! -f "$OTAPACKAGE" ]; then
+	echo -e "\033[31m""$OTAPACKAGE doesn't exist!""\033[0m";
+	exit 1
+fi
+
+# Determine what to name the new package
+MODVERSION=`sed -n -e'/ro\.cm\.version/s/^.*=//p' $OUT/system/build.prop`
+echo -e "\033[36m""MODVERSION: $MODVERSION""\033[0m"
+OUTFILE=$OUT/cm-base_for_ganbarou.zip
+#OUTFILE=$OUT/cm-$MODVERSION.zip
+
+ln -f $OTAPACKAGE $OUTFILE
+
+# Create a md5 checksum image of the repacked package
+(
+#img=`basename $OUTFILE`
+#cd `dirname $OUTFILE`
+#$MD5 $img >$img.md5sum
+echo
+echo -e "\033[32m""Package complete: $OUTFILE""\033[0m"
+#echo -e "\033[32m""md5: $(cat $img.md5sum | awk '{ print $1 }')""\033[0m"
+echo
+)
+
+exit 0
+
+
+

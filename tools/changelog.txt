@@ -32,3 +32,5 @@ Makeit.sh is now more flexible. No more need to change paths if used by another 
 Added branch jb-4.2 and prepared 3G tablet for new ROM
 
 Corrected reboot bug in power menu & updated to latest Cm10.1 sources.
+
+Added switch for Phone UI and Tablet UI in settings. Thanks to SGT7
