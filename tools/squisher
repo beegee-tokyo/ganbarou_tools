@@ -91,13 +91,13 @@ echo $CL_YLW"MODVERSION:" $CL_MAG"$MODVERSION"$CL_RST
 echo $CL_YLW"Zipping package..."$CL_RST
 ( cd $REPACK/ota; zip $QUIET -r $REPACK/update.zip . )
 echo
-#printf "Signing package..." ==> We do this later in patchit.sh again, so no need now!
-#SECURITYDIR=$ANDROID_BUILD_TOP/build/target/product/security
-#java -Xmx1024m \
-#	-jar $ANDROID_BUILD_TOP/out/host/$OUT_TARGET_HOST/framework/signapk.jar \
-#	-w $SECURITYDIR/testkey.x509.pem $SECURITYDIR/testkey.pk8 \
-#	$REPACK/update.zip $OUTFILE
-#echo
+echo $CL_YLW"Signing package..."$CL_RST
+SECURITYDIR=$ANDROID_BUILD_TOP/build/target/product/security
+java -Xmx1024m \
+	-jar $ANDROID_BUILD_TOP/out/host/$OUT_TARGET_HOST/framework/signapk.jar \
+	-w $SECURITYDIR/testkey.x509.pem $SECURITYDIR/testkey.pk8 \
+	$REPACK/update.zip $OUTFILE
+echo
 echo $CL_YLW"Cleaning up..."$CL_RST
 rm -rf $REPACK
 echo
