@@ -120,7 +120,7 @@ echo "net.tcp.buffersize.umts=4096,87380,256960,4096,16384,256960" >> $REPACK/ot
 echo "net.tcp.buffersize.gprs=4096,87380,256960,4096,16384,256960" >> $REPACK/ota/system/build.prop
 echo "net.tcp.buffersize.edge=4096,87380,256960,4096,16384,256960" >> $REPACK/ota/system/build.prop
 if [ $NEW_DEVICE2 -eq 1 ]; then
-   echo "tablet.mode=1" >> $REPACK/ota/system/build.prop
+   echo "sys.tablet.mode=1" >> $REPACK/ota/system/build.prop
 fi
 echo " " >> $REPACK/ota/system/build.prop
 echo "#" >> $REPACK/ota/system/build.prop
@@ -133,18 +133,6 @@ RO_GOO_ROM="ro.goo.rom=Ganbarou_$NEW_DEVICE"
 echo $RO_GOO_ROM >> $REPACK/ota/system/build.prop
 GOO_BUILD_VERSION="ro.goo.version=$gooversion_build_t"
 echo $GOO_BUILD_VERSION >> $REPACK/ota/system/build.prop
-#echo -e $CL_GRN"============================================"$CL_RST
-#echo "Put Samsung Specific Properties into build.prop"
-#echo -e $CL_GRN"============================================"$CL_RST
-#echo " " >> $REPACK/ota/system/build.prop
-#echo "# Samsung Specific Properties" >> $REPACK/ota/system/build.prop
-#NEW_DEVICE_SHORT=$NEW_DEVICE | cut -c4-8
-#NEW_BUILD_ID="JZO54K"
-#GanbarouBuildID="ro.build.PDA=$NEW_DEVICE_SHORT$BUILD_ID"
-#echo $GanbarouBuildID >> $REPACK/ota/system/build.prop
-#GanbarouBuildIDHidden="ro.build.hidden_ver=$NEW_DEVICE_SHORT$BUILD_ID"
-#echo $GanbarouBuildIDHidden >> $REPACK/ota/system/build.prop
-#echo "ro.build.changelist=396106" >> $REPACK/ota/system/build.prop
 echo -e $CL_GRN"============================================"$CL_RST
 echo -e $CL_GRN"Add Ganbarou specific data files"
 echo -e $CL_GRN"============================================"$CL_RST
@@ -172,7 +160,6 @@ $SED -i \
 echo -e $CL_GRN"============================================"$CL_RST
 echo -e $CL_GRN"Remove duplicate files for GApps"
 echo -e $CL_GRN"============================================"$CL_RST
-#rm $REPACK/ota/system/app/Gallery2.apk
 rm $REPACK/ota/system/app/Provision.apk
 rm $REPACK/ota/system/app/QuickSearchBox.apk
 rm $REPACK/ota/system/app/PlusOne.apk

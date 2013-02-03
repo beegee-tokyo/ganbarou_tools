@@ -29,19 +29,19 @@ else
    echo ============================================
    exit $?
 fi
-#echo ============================================
-#echo 'Get prebuilts'
-#echo './vendor/cm/get-prebuilts'
-#echo ============================================
-#./vendor/cm/get-prebuilts
-#if [ $? -eq 0 ]; then
-#   echo ============================================
-#   echo 'Get prebuilts init successfull'
-#   echo ============================================
-#else
-#   echo ============================================
-#   echo 'Get prebuilts failed'
-#   echo ============================================
-#   exit $?
-#fi
+echo ============================================
+echo 'Get prebuilts'
+echo './vendor/cm/get-prebuilts'
+echo ============================================
+./vendor/cm/get-prebuilts
+if [ $? -eq 0 ]; then
+   echo ============================================
+   echo 'Get prebuilts init successfull'
+   echo ============================================
+else
+   echo ============================================
+   echo 'Get prebuilts failed'
+   echo ============================================
+   exit $?
+fi
 
