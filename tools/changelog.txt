@@ -1,38 +1,13 @@
 teresa1963
 
-How to get Developer options in Settings:
-Click on Build number several times until it says that you are a developer
-
-How to enable MTP:
-Settings->Storage->Menu (3 dots top right)->USB computer connection->Tick Media device (MTP)
-
-Organisation SD-card:
-The original content of your SD-card is now in sdcard0/0
-Comes from the kernel and I cannot change it. Applications that search for their settings/files/... on the root of the SD-card cannot find them anymore. You need to copy the folders from sdcard0/0 to sdcard0
-
+V3.00
 Ganbarou changes in Settings: Removed profiles, updates, statistics, changelog. Enabled screen on while charging even if a max time to lock is defined.
-
 Ganbarou changes in Framework: Changed default wallpapers and power menu. Reboot & Reboot into Recovery direct accessible from power menu.
 
-Remove last tracks of profiles from settings. (this time from the correct file)
-
-Included Gallery2 back as the camera is included now
-Updated proprietary files list for N7000 so that it can be compiled again
-Added tools, patches and changelog to ganbarou_tools
-
-Removed last tracks of profiles from settings (powermenu.java) This time correct and no more crash of settings.
-
-Corrected MDPI icon for recovery in power menu
-
-Changed branch name to jb-4.1
-Added script files sync.sh and makeit.sh for my laptop environment
-
-Makeit.sh is now more flexible. No more need to change paths if used by another user or/and in another folder. Patches in the ROMs are exported to patchit.sh for easier maintenance.
-
-Added branch jb-4.2 and prepared 3G tablet for new ROM
-
+V3.01
 Corrected reboot bug in power menu & updated to latest Cm10.1 sources.
-
 Added switch for Phone UI and Tablet UI in settings. Thanks to SGT7
-Added default boot into Tablet UI or Phone UI depending on build.prop entry sys.tablet.mode
 
+V3.02
+Added default boot into Tablet UI or Phone UI depending on build.prop entry sys.tablet.mode
+Fixed missing battery percentage
