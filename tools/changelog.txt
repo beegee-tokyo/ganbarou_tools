@@ -11,3 +11,4 @@ Added switch for Phone UI and Tablet UI in settings. Thanks to SGT7
 V3.02
 Added default boot into Tablet UI or Phone UI depending on build.prop entry sys.tablet.mode
 Fixed missing battery percentage
+Fixed wallpaper selection for lockscreen
