@@ -135,6 +135,16 @@ RO_GOO_ROM="ro.goo.rom=Ganbarou_$NEW_DEVICE"
 echo $RO_GOO_ROM >> $REPACK/ota/system/build.prop
 GOO_BUILD_VERSION="ro.goo.version=$gooversion_build_t"
 echo $GOO_BUILD_VERSION >> $REPACK/ota/system/build.prop
+echo " " >> $REPACK/ota/system/build.prop
+echo "#" >> $REPACK/ota/system/build.prop
+echo "# ROM Statistics and ROM Identification" >> $REPACK/ota/system/build.prop
+echo "#" >> $REPACK/ota/system/build.prop
+echo "ro.romstats.url=http://www.desire.giesecke.tk/romstats/" >> $REPACK/ota/system/build.prop
+ROMSTATS_NAME="ro.romstats.name=Ganbarou_$NEW_DEVICE"
+echo $ROMSTATS_NAME >> $REPACK/ota/system/build.prop
+ROMSTATS_VERSION="ro.romstats.version=V$gooversion_t.$goobuild_t"
+echo $ROMSTATS_VERSION >> $REPACK/ota/system/build.prop
+echo "ro.romstats.tframe=7" >> $REPACK/ota/system/build.prop
 echo -e $CL_GRN"============================================"$CL_RST
 echo -e $CL_GRN"Add Ganbarou specific data files"
 echo -e $CL_GRN"============================================"$CL_RST
