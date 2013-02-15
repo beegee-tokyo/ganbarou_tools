@@ -65,7 +65,7 @@ $SED -i \
 	$REPACK/ota/META-INF/com/google/android/updater-script
 
 $SED -i \
-	-e 's:show_progress(0.100000, 0);:show_progress(0.100000, 0);ui_print("=============================");ui_print("All done!");ui_print("Enjoy Ganbarou GT ROM");ui_print("=============================");:' \
+	-e 's:show_progress(0.100000, 0);:show_progress(0.100000, 0);run_program("/sbin/rm", "-rf", "/data/data/android.romstats");ui_print("=============================");ui_print("All done!");ui_print("Enjoy Ganbarou GT ROM");ui_print("=============================");:' \
 	$REPACK/ota/META-INF/com/google/android/updater-script
 if [ $NEW_DEVICE2 -eq 1 ]; then
    echo -e $CL_GRN"============================================"$CL_RST

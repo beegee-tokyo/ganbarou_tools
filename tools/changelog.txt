@@ -12,3 +12,8 @@ V3.02
 Added default boot into Tablet UI or Phone UI depending on build.prop entry sys.tablet.mode
 Fixed missing battery percentage
 Fixed wallpaper selection for lockscreen
+
+V3.03
+Added ROMstats to get some feedback how often my ROM is used.
+Latest CM10.1 sources
+Updated sources for N7000 (Samsung Galaxy Note) and P6800 (Samsung Galaxy Tab 7.7)
