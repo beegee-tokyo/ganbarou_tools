@@ -42,5 +42,16 @@ git fetch upstream
 git merge upstream/cm-10.1
 cd ../..
 echo ============================================
+echo 'Get latest changes from rom_stats'
+echo ============================================
+cd packages
+cd apps
+cd romstats
+git checkout master
+git remote add upstream git://github.com/mcbyte-it/rom_stats.git
+git fetch upstream
+git merge upstream/master
+cd ../../..
+echo ============================================
 echo 'Check output. If all ok start ./push.sh'
 echo ============================================

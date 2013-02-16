@@ -125,6 +125,19 @@ git commit -a
 git push git@github.com:beegee-tokyo/android_frameworks_base.git cm-10.1
 cd ../..
 echo ============================================
+echo 'Push latest changes to rom_stats'
+echo ============================================
+cd packages
+cd apps
+cd rom_stats
+repo start master .
+git checkout master
+git pull
+git add -A
+git commit -a
+git push git@github.com:beegee-tokyo/rom_stats.git master
+cd ../../..
+echo ============================================
 echo 'Push latest changes to Ganbarou Tools'
 echo ============================================
 cd ganbarou_tools
