@@ -46,7 +46,7 @@ echo 'Get latest changes from rom_stats'
 echo ============================================
 cd packages
 cd apps
-cd romstats
+cd rom_stats
 git checkout master
 git remote add upstream git://github.com/mcbyte-it/rom_stats.git
 git fetch upstream
