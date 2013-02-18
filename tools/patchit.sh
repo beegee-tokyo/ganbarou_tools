@@ -119,7 +119,7 @@ echo "net.tcp.buffersize.wifi=4096,87380,256960,4096,16384,256960" >> $REPACK/ot
 echo "net.tcp.buffersize.umts=4096,87380,256960,4096,16384,256960" >> $REPACK/ota/system/build.prop
 echo "net.tcp.buffersize.gprs=4096,87380,256960,4096,16384,256960" >> $REPACK/ota/system/build.prop
 echo "net.tcp.buffersize.edge=4096,87380,256960,4096,16384,256960" >> $REPACK/ota/system/build.prop
-if [ $NEW_DEVICE == "GT-P7500" ] || [ $NEW_DEVICE == "GT-P7510" ]; then
+if [ $NEW_DEVICE == "GT-P7500" ] || [ $NEW_DEVICE == "GT-P7510" ] || [ $NEW_DEVICE == "GT-P6800" ]; then
    echo "tablet.mode=1" >> $REPACK/ota/system/build.prop
 else
    echo "tablet.mode=0" >> $REPACK/ota/system/build.prop
@@ -168,7 +168,15 @@ echo -e $CL_GRN"============================================"$CL_RST
 $SED -i \
 	-e 's:</apns>:<apn carrier="Softbank (BizFlat)" mcc="440" mnc="20" apn="bizflat.softbank" user="biz@bizflat.softbank" password="biz" type="default,supl" /></apns>': \
 	$REPACK/ota/system/etc/apns-conf.xml
-
+echo -e $CL_GRN"============================================"$CL_RST
+echo -e $CL_GRN"Use custom kernel if GT-P6800"
+echo -e $CL_GRN"============================================"$CL_RST
+if [ $NEW_DEVICE == "GT-P6800" ]; then
+   rm $REPACK/ota/boot.img
+   cp -r -f -v $ANDROID_BUILD_TOP/ganbarou_tools/patches/Kernel-P6800/boot.img $REPACK/ota/boot.img 
+else
+   echo "tablet.mode=0" >> $REPACK/ota/system/build.prop
+fi
 echo -e $CL_GRN"============================================"$CL_RST
 echo -e $CL_GRN"Remove duplicate files for GApps"
 echo -e $CL_GRN"============================================"$CL_RST
