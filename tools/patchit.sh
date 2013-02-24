@@ -146,6 +146,12 @@ ROMSTATS_VERSION="ro.romstats.version=V$gooversion_t.$goobuild_t"
 echo $ROMSTATS_VERSION >> $REPACK/ota/system/build.prop
 echo "ro.romstats.tframe=7" >> $REPACK/ota/system/build.prop
 echo -e $CL_GRN"============================================"$CL_RST
+echo -e $CL_GRN"Enable ADB and MTP"
+echo -e $CL_GRN"============================================"$CL_RST
+$SED -i \
+	-e 's:persist.sys.usb.config=mtp:persist.sys.usb.config=mtp,adb': \
+	$REPACK/ota/system/build.prop
+echo -e $CL_GRN"============================================"$CL_RST
 echo -e $CL_GRN"Add Ganbarou specific data files"
 echo -e $CL_GRN"============================================"$CL_RST
 mkdir $REPACK/ota/data

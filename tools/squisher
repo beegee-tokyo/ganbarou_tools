@@ -60,9 +60,10 @@ echo $CL_YLW"Unpacking $OTAPACKAGE..."$CL_RST
 unzip $QUIET $OTAPACKAGE
 echo
 cd $REPACK/ota/system/framework
-$OPTICHARGER framework-res.apk
+# We optimize later in patchit.sh, so no need to do it here.
+#$OPTICHARGER framework-res.apk
 cd $REPACK/ota/system/app
-find ./ -name \*.apk | $XARGS $OPTICHARGER
+#find ./ -name \*.apk | $XARGS $OPTICHARGER
 )
 
 # Fix build.prop

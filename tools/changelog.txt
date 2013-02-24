@@ -14,6 +14,10 @@ Fixed missing battery percentage
 Fixed wallpaper selection for lockscreen
 
 V3.03
+Latest CM10.1 sources (Android 4.2.2 now!)
 Added ROMstats to get some feedback how often my ROM is used.
-Latest CM10.1 sources
 Updated sources for N7000 (Samsung Galaxy Note) and P6800 (Samsung Galaxy Tab 7.7)
+MTP and ADB should now automatically be on after flashing
+Developer options and Performance tabs in Settings are now visible by default
+Removed many developer options that are not important for most users
+
