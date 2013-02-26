@@ -21,3 +21,5 @@ MTP and ADB should now automatically be on after flashing
 Developer options and Performance tabs in Settings are now visible by default
 Removed many developer options that are not important for most users
 
+V3.04
+Corrected problem with TabletUI not working.
