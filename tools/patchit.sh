@@ -180,8 +180,6 @@ echo -e $CL_GRN"============================================"$CL_RST
 if [ $NEW_DEVICE == "GT-P6800" ]; then
    rm $REPACK/ota/boot.img
    cp -r -f -v $ANDROID_BUILD_TOP/ganbarou_tools/patches/Kernel-P6800/boot.img $REPACK/ota/boot.img 
-else
-   echo "tablet.mode=0" >> $REPACK/ota/system/build.prop
 fi
 echo -e $CL_GRN"============================================"$CL_RST
 echo -e $CL_GRN"Remove duplicate files for GApps"
