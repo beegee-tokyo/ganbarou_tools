@@ -1,5 +1,3 @@
-teresa1963
-
 V3.00
 Ganbarou changes in Settings: Removed profiles, updates, statistics, changelog. Enabled screen on while charging even if a max time to lock is defined.
 Ganbarou changes in Framework: Changed default wallpapers and power menu. Reboot & Reboot into Recovery direct accessible from power menu.
