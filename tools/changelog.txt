@@ -22,7 +22,7 @@ Removed many developer options that are not important for most users
 V3.04
 Corrected problem with TabletUI not working.
 Added option to select position of  Navigation bar (left, center, right) in the "standard" Phablet UI.
-Latest CM10.1 sources (Android 4.2.2)
+Latest CM10.1 sources (Android 4.2.2 R1)
 Updated rom_stats to send current country, even if it is a WiFi tablet
 Updated rom_stats to send WiFi if it is a WiFi tablet instead of unknown provider
 Updated ads-free hosts file (credits to BSDgeek_Jake http://forum.xda-developers.com/showthread.php?t=1916098)

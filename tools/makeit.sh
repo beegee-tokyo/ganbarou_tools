@@ -2,7 +2,14 @@ echo -e $CL_MAG"============================================"$CL_RST
 echo -e $CL_MAG"Welcome to <build the Ganbarou ROM> script"
 echo -e $CL_MAG"Use <./makeit.sh help> to see what option you can choose"
 echo -e $CL_MAG"============================================"$CL_RST
-. vendor/cm/tools/functions
+# build with colors!
+CL_RED="\033[31m"
+CL_GRN="\033[32m"
+CL_YLW="\033[33m"
+CL_BLU="\033[34m"
+CL_MAG="\033[35m"
+CL_CYN="\033[36m"
+CL_RST="\033[0m"
 # Initial set of variables to do nothing!
 export DO_CLEAN=1
 export DO_P7500=1 

@@ -6,7 +6,15 @@ NEW_DEVICE=$1
 NEW_DEVICE1=$2
 NEW_DEVICE2=$3
 OLD_DEVICE=$4
-. vendor/cm/tools/functions
+# build with colors!
+CL_RED="\033[31m"
+CL_GRN="\033[32m"
+CL_YLW="\033[33m"
+CL_BLU="\033[34m"
+CL_MAG="\033[35m"
+CL_CYN="\033[36m"
+CL_RST="\033[0m"
+# what are we building
 echo -e $CL_MAG"NEW_DEVICE = "$CL_YLW"$NEW_DEVICE"$CL_RST
 echo -e $CL_MAG"NEW_DEVICE1 = "$CL_YLW"$NEW_DEVICE1"$CL_RST
 echo -e $CL_MAG"NEW_DEVICE2 = "$CL_YLW"$NEW_DEVICE2"$CL_RST
@@ -33,7 +41,8 @@ OUTFILE="$OUT/Ganbarou-$NEW_DEVICE-v$gooversion_t.$goobuild_t-$NOW.zip"
 if [ $NEW_DEVICE2 -eq 1 ]; then
    OUTFILE1="$OUT/Ganbarou-$NEW_DEVICE1-v$gooversion_t.$goobuild_t-$NOW.zip"
 fi
-OTAPACKAGE="$OUT/cm-base_for_ganbarou.zip"
+# was cm-base_for_ganbarou.zip is now cm_p4-ota-eng.beegee.zip p4 can be p4wifi or n7000
+OTAPACKAGE="$OUT/cm_$OLD_DEVICE-ota-eng.beegee.zip"
 mkdir $REPACK
 mkdir $REPACK/ota
 cd $REPACK/ota
@@ -156,8 +165,9 @@ echo -e $CL_GRN"Add Ganbarou specific data files"
 echo -e $CL_GRN"============================================"$CL_RST
 mkdir $REPACK/ota/data
 mkdir $REPACK/ota/data/app
-cp -r -f -v $ANDROID_BUILD_TOP/ganbarou_tools/patches/data/app/. $REPACK/ota/data/app/.
-if [ $NEW_DEVICE2 eq 1 ]; then
+if [ $NEW_DEVICE2 -eq 1 ]; then
+   cp -r -f -v $ANDROID_BUILD_TOP/ganbarou_tools/patches/data/app/. $REPACK/ota/data/app/.
+else
    cp -r -f -v $ANDROID_BUILD_TOP/ganbarou_tools/patches/datap/app/. $REPACK/ota/data/app/.
    cp -r -f -v $ANDROID_BUILD_TOP/ganbarou_tools/patches/systemapp-p/. $REPACK/ota/system/app/.
 fi
