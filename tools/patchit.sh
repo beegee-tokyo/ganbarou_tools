@@ -156,9 +156,8 @@ echo -e $CL_GRN"Add Ganbarou specific data files"
 echo -e $CL_GRN"============================================"$CL_RST
 mkdir $REPACK/ota/data
 mkdir $REPACK/ota/data/app
-if [ $NEW_DEVICE2 -eq 1 ]; then
-   cp -r -f -v $ANDROID_BUILD_TOP/ganbarou_tools/patches/data/app/. $REPACK/ota/data/app/.
-else
+cp -r -f -v $ANDROID_BUILD_TOP/ganbarou_tools/patches/data/app/. $REPACK/ota/data/app/.
+if [ $NEW_DEVICE2 eq 1 ]; then
    cp -r -f -v $ANDROID_BUILD_TOP/ganbarou_tools/patches/datap/app/. $REPACK/ota/data/app/.
    cp -r -f -v $ANDROID_BUILD_TOP/ganbarou_tools/patches/systemapp-p/. $REPACK/ota/system/app/.
 fi
