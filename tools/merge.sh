@@ -53,5 +53,15 @@ git fetch upstream
 git merge upstream/master
 cd ../../..
 echo ============================================
+echo 'Get latest changes from wpa_supplicant_8'
+echo ============================================
+cd external
+cd wpa_supplicant_8
+git checkout cm-10.1
+git remote add upstream git://github.com/CyanogenMod/android_external_wpa_supplicant_8.git
+git fetch upstream
+git merge upstream/cm-10.1
+cd ../..
+echo ============================================
 echo 'Check output. If all ok start ./push.sh'
 echo ============================================
