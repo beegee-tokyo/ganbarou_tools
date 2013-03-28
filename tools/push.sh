@@ -147,7 +147,7 @@ git checkout cm-10.1
 git pull
 git add -A
 git commit -a
-git push git@github.com:beegee-tokyo/android_external_wpa_supplicant_8.git master
+git push git@github.com:beegee-tokyo/android_external_wpa_supplicant_8.git cm-10.1
 git remote add upstream git://github.com/CyanogenMod/android_external_wpa_supplicant_8.git
 cd ../..
 echo ============================================
