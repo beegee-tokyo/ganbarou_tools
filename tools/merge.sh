@@ -53,15 +53,16 @@ git fetch upstream
 git merge upstream/master
 cd ../../..
 echo ============================================
-echo 'Get latest changes from wpa_supplicant_8'
+echo 'Get latest changes from Apollo'
 echo ============================================
-cd external
-cd wpa_supplicant_8
+cd packages
+cd apps
+cd Apollo
 git checkout cm-10.1
-git remote add upstream git://github.com/CyanogenMod/android_external_wpa_supplicant_8.git
+git remote add upstream git://github.com/CyanogenMod/android_packages_apps_Apollo.git
 git fetch upstream
 git merge upstream/cm-10.1
-cd ../..
+cd ../../..
 echo ============================================
 echo 'Check output. If all ok start ./push.sh'
 echo ============================================
