@@ -122,8 +122,10 @@ echo -e $CL_MAG"============================================"$CL_RST
 echo -e $CL_MAG"set GooManager ROM version"$CL_RST
 echo -e $CL_MAG"============================================"$CL_RST
 export gooversion_t="3"
-export goobuild_t="07"
+export goobuild_t="08"
 export gooversion_build_t=$gooversion_t$goobuild_t
+echo -e $CL_GRN"GooVersion = "$gooversion_t"."$goobuild_t""$CL_RST
+
 echo -e $CL_MAG"============================================"$CL_RST
 echo -e $CL_MAG"Setup ccache"$CL_RST
 echo -e $CL_MAG"============================================"$CL_RST
