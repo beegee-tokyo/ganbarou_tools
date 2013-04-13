@@ -53,16 +53,5 @@ git fetch upstream
 git merge upstream/master
 cd ../../..
 echo ============================================
-echo 'Get latest changes from Apollo'
-echo ============================================
-cd packages
-cd apps
-cd Apollo
-git checkout cm-10.1
-git remote add upstream git://github.com/CyanogenMod/android_packages_apps_Apollo.git
-git fetch upstream
-git merge upstream/cm-10.1
-cd ../../..
-echo ============================================
 echo 'Check output. If all ok start ./push.sh'
 echo ============================================

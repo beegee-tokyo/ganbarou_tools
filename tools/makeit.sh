@@ -167,7 +167,7 @@ if [ $DO_P750T -eq 0 ]; then
    echo -e $CL_MAG"============================================"$CL_RST
    echo -e $CL_MAG"Start the build for GT-P7500"$CL_RST
    echo -e $CL_MAG"============================================"$CL_RST
-   . build/envsetup.sh && brunch p4
+   . build/envsetup.sh && brunch p4 && installrecovery
    if [ $? -eq 0 ]; then
       echo -e $CL_MAG"============================================"$CL_RST
       echo -e $CL_GRN"Build for GT-P7500 successfull"$CL_RST

@@ -47,32 +47,32 @@ git add -A
 git commit -a
 git push git@github.com:beegee-tokyo/android_vendor_samsung_n7000.git master
 cd ../../..
-echo ============================================
-echo 'Push latest changes to beegee-tokyo vendor_p6800'
-echo ============================================
-cd vendor
-cd samsung
-cd p6800
-repo start master .
-git checkout master
-git pull
-git add -A
-git commit -a
-git push git@github.com:beegee-tokyo/android_vendor_samsung_p6800.git master
-cd ../../..
-echo ============================================
-echo 'Push latest changes to beegee-tokyo vendor_smdk4210-tab'
-echo ============================================
-cd vendor
-cd samsung
-cd smdk4210-tab
-repo start master .
-git checkout master
-git pull
-git add -A
-git commit -a
-git push git@github.com:beegee-tokyo/android_vendor_samsung_smdk4210-tab.git master
-cd ../../..
+#echo ============================================
+#echo 'Push latest changes to beegee-tokyo vendor_p6800'
+#echo ============================================
+#cd vendor
+#cd samsung
+#cd p6800
+#repo start master .
+#git checkout master
+#git pull
+#git add -A
+#git commit -a
+#git push git@github.com:beegee-tokyo/android_vendor_samsung_p6800.git master
+#cd ../../..
+#echo ============================================
+#echo 'Push latest changes to beegee-tokyo vendor_smdk4210-tab'
+#echo ============================================
+#cd vendor
+#cd samsung
+#cd smdk4210-tab
+#repo start master .
+#git checkout master
+#git pull
+#git add -A
+#git commit -a
+#git push git@github.com:beegee-tokyo/android_vendor_samsung_smdk4210-tab.git master
+#cd ../../..
 echo ============================================
 echo 'Push latest changes to beegee-tokyo vendor_galaxys2-common'
 echo ============================================
@@ -136,20 +136,6 @@ git pull
 git add -A
 git commit -a
 git push git@github.com:beegee-tokyo/rom_stats.git master
-cd ../../..
-echo ============================================
-echo 'Push latest changes to Apollo'
-echo ============================================
-cd packages
-cd apps
-cd Apollo
-repo start cm-10.1 .
-git checkout cm-10.1
-git pull
-git add -A
-git commit -a
-git push git@github.com:beegee-tokyo/android_packages_apps_Apollo.git cm-10.1
-git remote add upstream git://github.com/CyanogenMod/android_packages_apps_Apollo.git
 cd ../../..
 echo ============================================
 echo 'Push latest changes to Ganbarou Tools'
