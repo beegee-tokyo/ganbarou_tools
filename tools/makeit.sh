@@ -16,7 +16,6 @@ export DO_P7500=1
 export DO_P750T=1 
 export DO_P7510=1 
 export DO_N7000=1
-export DO_P6800=1 
 
 # Check the parameters given
 for PARAM in "$@"
@@ -29,7 +28,6 @@ do
       echo "b) with one or several of the following parameters"
       echo -e $CL_YLW"   <all> ==> builds the ROMs for GT-P7500/P7501/P7510/P7511 and for the GT-N7000"
       echo -e $CL_YLW"   <tab> ==> builds the ROMs for GT-P7500/P7501/P7510/P7511 only, not for the GT-N7000"
-      echo -e $CL_YLW"   <7> ==> builds the ROMs for GT-P6800 only, not for the GT-N7000 nor for GT-P7500/P7501/P7510/P7511"
       echo -e $CL_YLW"   <3g> ==> builds the ROMs for GT-P7500/P7501 only, not for the GT-P7510/P7511 or GT-N7000"
       echo -e $CL_YLW"   <wifi> ==> builds the ROMs for GT-P7510/P7511 only, not for the GT-P7500/P7501 or GT-N7000"
       echo -e $CL_YLW"   <phone> ==> build the ROM for GT-N7000 only, not for the GT-P7500/P7501/P7510/P7511"
@@ -65,16 +63,13 @@ do
    if [[ $PARAM == phone ]]; then 
       export DO_N7000=0 
    fi
-   if [[ $PARAM == 7 ]]; then 
-      export DO_P6800=0 
-   fi
    if [[ $PARAM == all ]]; then 
       export DO_N7000=0 
       export DO_P7500=0 
       export DO_P7510=0 
    fi
 done
-if [ $DO_P7500 -eq 1 ] && [ $DO_P750T -eq 1 ] && [ $DO_P7510 -eq 1 ] && [ $DO_N7000 -eq 1 ] && [ $DO_P6800 -eq 1 ]; then
+if [ $DO_P7500 -eq 1 ] && [ $DO_P750T -eq 1 ] && [ $DO_P7510 -eq 1 ] && [ $DO_N7000 -eq 1 ]; then
       export DO_N7000=0 
       export DO_P7500=0 
       export DO_P7510=0 
@@ -104,10 +99,7 @@ fi
 if [ $DO_N7000 -eq 0 ]; then
    N7000_TXT=" GT-N7000"
 fi
-if [ $DO_P6800 -eq 0 ]; then
-   P6800_TXT=" GT-P6800"
-fi
-echo -n -e $CL_GRN"Start $CLEAN_TXT1$CLEAN_TXT2$CLEAN_TXT3$CLEAN_TXT4$CLEAN_TXT5$P7500_TXT$P7510_TXT$N7000_TXT$P6800_TXT? [Y/n]: "$CL_RST
+echo -n -e $CL_GRN"Start $CLEAN_TXT1$CLEAN_TXT2$CLEAN_TXT3$CLEAN_TXT4$CLEAN_TXT5$P7500_TXT$P7510_TXT$N7000_TXT? [Y/n]: "$CL_RST
 read yno
 case $yno in
         [nN] | [n|N][O|o] )
@@ -118,12 +110,64 @@ case $yno in
             ;;
 esac
 
+# get time of startup
+res1=$(date +%s.%N)
+
 echo -e $CL_MAG"============================================"$CL_RST
 echo -e $CL_MAG"set GooManager ROM version"$CL_RST
 echo -e $CL_MAG"============================================"$CL_RST
-export gooversion_t="3"
-export goobuild_t="08"
+
+DIR="/home/$USER/${PWD##*/}"
+export gooversion_t=$(cat $DIR/ganbarou_tools/tools/changelog.txt | grep 'VERSION_MAJOR = *' | sed  's/VERSION_MAJOR = //g')
+export goobuild_t=$(cat $DIR/ganbarou_tools/tools/changelog.txt | grep 'VERSION_MINOR = *' | sed  's/VERSION_MINOR = //g')
+export changelog_0=$(cat $DIR/ganbarou_tools/tools/changelog.txt | grep 'CHANGELOG_0 = *' | sed  's/CHANGELOG_0 = //g')
+export changelog_1=$(cat $DIR/ganbarou_tools/tools/changelog.txt | grep 'CHANGELOG_1 = *' | sed  's/CHANGELOG_1 = //g')
+export changelog_2=$(cat $DIR/ganbarou_tools/tools/changelog.txt | grep 'CHANGELOG_2 = *' | sed  's/CHANGELOG_2 = //g')
+export changelog_3=$(cat $DIR/ganbarou_tools/tools/changelog.txt | grep 'CHANGELOG_3 = *' | sed  's/CHANGELOG_3 = //g')
+export changelog_4=$(cat $DIR/ganbarou_tools/tools/changelog.txt | grep 'CHANGELOG_4 = *' | sed  's/CHANGELOG_4 = //g')
+export changelog_5=$(cat $DIR/ganbarou_tools/tools/changelog.txt | grep 'CHANGELOG_5 = *' | sed  's/CHANGELOG_5 = //g')
+export changelog_6=$(cat $DIR/ganbarou_tools/tools/changelog.txt | grep 'CHANGELOG_6 = *' | sed  's/CHANGELOG_6 = //g')
+export changelog_7=$(cat $DIR/ganbarou_tools/tools/changelog.txt | grep 'CHANGELOG_7 = *' | sed  's/CHANGELOG_7 = //g')
+export changelog_8=$(cat $DIR/ganbarou_tools/tools/changelog.txt | grep 'CHANGELOG_8 = *' | sed  's/CHANGELOG_8 = //g')
+export changelog_9=$(cat $DIR/ganbarou_tools/tools/changelog.txt | grep 'CHANGELOG_9 = *' | sed  's/CHANGELOG_9 = //g')
+
+#export gooversion_t="3"
+#export goobuild_t="08"
 export gooversion_build_t=$gooversion_t$goobuild_t
+
+LOGFILE="Ganbarou-Changelog_"$gooversion_build_t".txt"
+rm $DIR/$LOGFILE
+
+echo "Changelog V"$gooversion_t"."$goobuild_t >> $LOGFILE
+echo $changelog_0 >> $LOGFILE
+if [ -n "$changelog_1" ]; then
+   echo $changelog_1 >> $LOGFILE
+fi
+if [ -n "$changelog_2" ]; then
+   echo $changelog_2 >> $LOGFILE
+fi
+if [ -n "$changelog_3" ]; then
+   echo $changelog_3 >> $LOGFILE
+fi
+if [ -n "$changelog_4" ]; then
+   echo $changelog_4 >> $LOGFILE
+fi
+if [ -n "$changelog_5" ]; then
+   echo $changelog_5 >> $LOGFILE
+fi
+if [ -n "$changelog_6" ]; then
+   echo $changelog_6 >> $LOGFILE
+fi
+if [ -n "$changelog_7" ]; then
+   echo $changelog_7 >> $LOGFILE
+fi
+if [ -n "$changelog_8" ]; then
+   echo $changelog_8 >> $LOGFILE
+fi
+if [ -n "$changelog_9" ]; then
+   echo $changelog_9 >> $LOGFILE
+fi
+
 echo -e $CL_GRN"GooVersion = "$gooversion_t"."$goobuild_t""$CL_RST
 
 echo -e $CL_MAG"============================================"$CL_RST
@@ -143,30 +187,11 @@ fi
 # $OLD_DEVICE = p4 or p4wifi or n7000
 # all 4 params must be given!
 
-if [ $DO_P6800 -eq 0 ]; then
-   echo -e $CL_MAG"============================================"$CL_RST
-   echo -e $CL_MAG"Start the build for GT-P6800"$CL_RST
-   echo -e $CL_MAG"============================================"$CL_RST
-   . build/envsetup.sh && brunch p6800
-   if [ $? -eq 0 ]; then
-      echo -e $CL_MAG"============================================"$CL_RST
-      echo -e $CL_MAG"Build for GT-P6800 successfull"$CL_RST
-      echo -e $CL_MAG"============================================"$CL_RST
-      export P6800RESULT=0
-      ./patchit.sh GT-P6800 GT-P6800 0 p6800
-   else
-      echo -e $CL_MAG"============================================"$CL_RST
-      echo -e $CL_RED"Build for GT-P7500 failed"$CL_RST
-      echo -e $CL_MAG"============================================"$CL_RST
-      export P6800RESULT=1
-   fi
-else
-   export P6800RESULT=1
-fi
 if [ $DO_P750T -eq 0 ]; then
    echo -e $CL_MAG"============================================"$CL_RST
    echo -e $CL_MAG"Start the build for GT-P7500"$CL_RST
    echo -e $CL_MAG"============================================"$CL_RST
+   res75001=$(date +%s.%N)
    . build/envsetup.sh && brunch p4 && installrecovery
    if [ $? -eq 0 ]; then
       echo -e $CL_MAG"============================================"$CL_RST
@@ -180,6 +205,7 @@ if [ $DO_P750T -eq 0 ]; then
       echo -e $CL_MAG"============================================"$CL_RST
       export P750TRESULT=1
    fi
+   res75002=$(date +%s.%N)
 else
    export P750TRESULT=1
 fi
@@ -187,6 +213,7 @@ if [ $DO_P7500 -eq 0 ]; then
    echo -e $CL_MAG"============================================"$CL_RST
    echo -e $CL_MAG"Start the build for GT-P7500"$CL_RST
    echo -e $CL_MAG"============================================"$CL_RST
+   res75001=$(date +%s.%N)
    . build/envsetup.sh && brunch p4
    if [ $? -eq 0 ]; then
       echo -e $CL_MAG"============================================"$CL_RST
@@ -200,6 +227,7 @@ if [ $DO_P7500 -eq 0 ]; then
       echo -e $CL_MAG"============================================"$CL_RST
       export P7500RESULT=1
    fi
+   res75002=$(date +%s.%N)
 else
    export P7500RESULT=1
 fi
@@ -207,6 +235,7 @@ if [ $DO_P7510 -eq 0 ]; then
    echo -e $CL_MAG"============================================"$CL_RST
    echo -e $CL_MAG"Start the build for GT-P7510"$CL_RST
    echo -e $CL_MAG"============================================"$CL_RST
+   res75101=$(date +%s.%N)
    . build/envsetup.sh && brunch p4wifi
    if [ $? -eq 0 ]; then
       echo -e $CL_MAG"============================================"$CL_RST
@@ -220,6 +249,7 @@ if [ $DO_P7510 -eq 0 ]; then
       echo -e $CL_MAG"============================================"$CL_RST
       export P7510RESULT=1
    fi
+   res75102=$(date +%s.%N)
 else
    export P7510RESULT=1
 fi
@@ -227,6 +257,7 @@ if [ $DO_N7000 -eq 0 ]; then
    echo -e $CL_MAG"============================================"$CL_RST
    echo -e $CL_MAG"Start the build for GT-N7000"$CL_RST
    echo -e $CL_MAG"============================================"$CL_RST
+   res70001=$(date +%s.%N)
    . build/envsetup.sh && brunch n7000
    if [ $? -eq 0 ]; then
       echo -e $CL_MAG"============================================"$CL_RST
@@ -240,6 +271,7 @@ if [ $DO_N7000 -eq 0 ]; then
       echo -e $CL_MAG"============================================"$CL_RST
       export N7000RESULT=1
    fi
+   res70002=$(date +%s.%N)
 else
    export N7000RESULT=1
 fi
@@ -247,12 +279,16 @@ fi
 echo -e $CL_MAG"============================================"$CL_RST
 echo -e $CL_MAG"Build & Patch of Ganbarou ROM done"$CL_RST
 echo -e $CL_MAG"============================================"$CL_RST
-echo "gooversion Tablet=$gooversion_t.$goobuild_t"
-echo "gooversion Tablet=$gooversion_build_t"
+
+# finished? get elapsed time
+res2=$(date +%s.%N)
+echo -e $CL_GRN"${bldgrn}Total time elapsed: ${txtrst}${grn}$(echo "($res2 - $res1) / 60"|bc ) minutes ($(echo "$res2 - $res1"|bc ) seconds) ${txtrst}"$CL_RST
+
 if [ $DO_P750T -eq 0 ]; then
    if [ $P750TRESULT -eq 0 ]; then
       echo -e $CL_MAG"============================================"$CL_RST
       echo -e $CL_GRN"Build for GT-P7500 done"$CL_RST
+      echo -e $CL_GRN"${bldgrn}Total time elapsed: ${txtrst}${grn}$(echo "($res75002 - $res75001) / 60"|bc ) minutes ($(echo "$res75002 - $res75001"|bc ) seconds) ${txtrst}"$CL_RST
       echo -e $CL_MAG"============================================"$CL_RST
    else
       echo -e $CL_MAG"============================================"$CL_RST
@@ -264,6 +300,7 @@ if [ $DO_P7500 -eq 0 ]; then
    if [ $P7500RESULT -eq 0 ]; then
       echo -e $CL_MAG"============================================"$CL_RST
       echo -e $CL_GRN"Build for GT-P7500/7501 done"$CL_RST
+      echo -e $CL_GRN"${bldgrn}Total time elapsed: ${txtrst}${grn}$(echo "($res75002 - $res75001) / 60"|bc ) minutes ($(echo "$res75002 - $res75001"|bc ) seconds) ${txtrst}"$CL_RST
       echo -e $CL_MAG"============================================"$CL_RST
    else
       echo -e $CL_MAG"============================================"$CL_RST
@@ -275,6 +312,7 @@ if [ $DO_P7510 -eq 0 ]; then
    if [ $P7510RESULT -eq 0 ]; then
       echo -e $CL_MAG"============================================"$CL_RST
       echo -e $CL_GRN"Build for GT-P7510/7511 done"$CL_RST
+      echo -e $CL_GRN"${bldgrn}Total time elapsed: ${txtrst}${grn}$(echo "($res75102 - $res75101) / 60"|bc ) minutes ($(echo "$res75102 - $res75101"|bc ) seconds) ${txtrst}"$CL_RST
       echo -e $CL_MAG"============================================"$CL_RST
    else
       echo -e $CL_MAG"============================================"$CL_RST
@@ -282,21 +320,11 @@ if [ $DO_P7510 -eq 0 ]; then
       echo -e $CL_MAG"============================================"$CL_RST
    fi
 fi
-if [ $DO_P6800 -eq 0 ]; then
-   if [ $P6800RESULT -eq 0 ]; then
-      echo -e $CL_MAG"============================================"$CL_RST
-      echo -e $CL_GRN"Build for GT-P6800 done"$CL_RST
-      echo -e $CL_MAG"============================================"$CL_RST
-   else
-      echo -e $CL_MAG"============================================"$CL_RST
-      echo -e $CL_RED"Build for GT-P6800 failed"$CL_RST
-      echo -e $CL_MAG"============================================"$CL_RST
-   fi
-fi
 if [ $DO_N7000 -eq 0 ]; then
    if [ $N7000RESULT -eq 0 ]; then
       echo -e $CL_MAG"============================================"$CL_RST
       echo -e $CL_GRN"Build for GT-N7000 done"$CL_RST
+      echo -e $CL_GRN"${bldgrn}Total time elapsed: ${txtrst}${grn}$(echo "($res70002 - $res70001) / 60"|bc ) minutes ($(echo "$res70002 - $res70001"|bc ) seconds) ${txtrst}"$CL_RST
       echo -e $CL_MAG"============================================"$CL_RST
    else
       echo -e $CL_MAG"============================================"$CL_RST
