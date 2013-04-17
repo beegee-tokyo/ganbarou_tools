@@ -1,15 +1,22 @@
 VERSION_MAJOR = 3
-VERSION_MINOR = 08
+VERSION_MINOR = 09
 CHANGELOG_0 = Update: latest CM10.1 sources.
-CHANGELOG_1 = BugFix: Fixed bug in System Settings
-CHANGELOG_2 = Kernel: Switched to INFAMOUSAOKP kernel (GT-P75xx only)
-CHANGELOG_3 = BuildChange: Changelog maintained in changelog.txt
-CHANGELOG_4 = BuildChange: Version number maintained in changelog.txt
+CHANGELOG_1 = 
+CHANGELOG_2 = 
+CHANGELOG_3 = 
+CHANGELOG_4 = 
 CHANGELOG_5 = 
 CHANGELOG_6 = 
 CHANGELOG_7 = 
 CHANGELOG_8 = 
 CHANGELOG_9 = 
+
+V3.08
+Update: latest CM10.1 sources.
+BugFix: Fixed bug in System Settings
+Kernel: Switched to INFAMOUSAOKP kernel (GT-P75xx only)
+BuildChange: Changelog maintained in changelog.txt
+BuildChange: Version number maintained in changelog.txt
 
 V3.07
 New CM10.1 feature: Expanded desktop

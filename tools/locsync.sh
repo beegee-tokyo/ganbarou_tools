@@ -1,8 +1,8 @@
 echo ============================================
 echo 'Init local sync CM10'
-echo 'repo init -u git://github.com/beegee-tokyo/ganbarou-jb.git -b jb-4.2'
+echo 'repo init -u git://github.com/CyanogenMod/android.git -b cm-10.1'
 echo ============================================
-repo init -u git://github.com/beegee-tokyo/ganbarou-jb.git -b jb-4.2
+repo init -u git://github.com/CyanogenMod/android.git -b cm-10.1
 if [ $? -eq 0 ]; then
    echo ============================================
    echo 'Repo init successfull'
