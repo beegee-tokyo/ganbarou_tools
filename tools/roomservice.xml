@@ -27,12 +27,14 @@
   <!-- ################################################# -->
   <!-- P4 & P4wifi specific -->
   <!-- ################################################# -->
-  <project path="device/samsung/p4" name="CyanogenMod/android_device_samsung_p4" remote="github" />
-  <project path="device/samsung/p4-common" name="CyanogenMod/android_device_samsung_p4-common" remote="github" />
-  <project path="device/samsung/p4wifi" name="CyanogenMod/android_device_samsung_p4wifi" remote="github" />
+  <project path="device/samsung/p4" name="beegee-tokyo/android_device_samsung_p4" remote="github" revision="jellybean" />
+  <project path="device/samsung/p4-common" name="beegee-tokyo/android_device_samsung_p4-common" remote="github" revision="jellybean" />
+  <project path="device/samsung/p4wifi" name="beegee-tokyo/android_device_samsung_p4wifi" remote="github" revision="jellybean" />
   <project path="vendor/samsung/p4" name="beegee-tokyo/android_vendor_samsung_p4" remote="github" revision="cm-10.1" />
   <project path="vendor/samsung/p4wifi" name="beegee-tokyo/android_vendor_samsung_p4wifi" remote="github" revision="cm-10.1" />
   <project path="kernel/samsung/p4" name="InfamousAOKP/android_kernel_samsung_p4" remote="github" revision="infamous-jb42" />
+  <remove-project name="CyanogenMod/android_bootable_recovery" />
+  <project path="bootable/recovery" name="TeamWin/Team-Win-Recovery-Project" revision="twrp2.5" />
   <!-- ################################################# -->
   <!-- N7000 specific -->
   <!-- ################################################# -->
