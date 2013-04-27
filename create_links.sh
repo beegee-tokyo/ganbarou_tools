@@ -1,8 +1,8 @@
-ln ./tools/changelog.txt ../changelog.txt
-ln ./tools/locsync.sh ../locsync.sh
-ln ./tools/makeit.sh ../makeit.sh
-ln ./tools/merge.sh ../merge.sh
-ln ./tools/patchit.sh ../patchit.sh
-ln ./tools/push.sh ../push.sh
-ln ./tools/sync.sh ../sync.sh
+ln -f -v ./tools/changelog.txt ../changelog.txt
+ln -f -v ./tools/locsync.sh ../locsync.sh
+ln -f -v ./tools/makeit.sh ../makeit.sh
+ln -f -v ./tools/merge.sh ../merge.sh
+ln -f -v ./tools/patchit.sh ../patchit.sh
+ln -f -v ./tools/push.sh ../push.sh
+ln -f -v ./tools/sync.sh ../sync.sh
 cp ./tools/roomservice.xml ../.repo/local_manifests/roomservice.xml

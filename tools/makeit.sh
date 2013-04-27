@@ -115,6 +115,7 @@ res1=$(date +%s.%N)
 
 echo -e $CL_MAG"============================================"$CL_RST
 echo -e $CL_MAG"set GooManager ROM version"$CL_RST
+echo -e $CL_MAG"and create changelog file"$CL_RST
 echo -e $CL_MAG"============================================"$CL_RST
 
 DIR="/home/$USER/${PWD##*/}"
