@@ -169,6 +169,17 @@ if [ -n "$changelog_9" ]; then
    echo $changelog_9 >> $LOGFILE
 fi
 
+rm $DIR/Ganbarou_Changelog.txt
+cp $DIR/$LOGFILE $DIR/Ganbarou_Changelog.txt
+
+echo " " >> $DIR/Ganbarou_Changelog.txt
+echo "Older versions:" >> $DIR/Ganbarou_Changelog.txt
+echo "===============" >> $DIR/Ganbarou_Changelog.txt
+echo " " >> $DIR/Ganbarou_Changelog.txt
+
+#export changelog_old=$(cat $DIR/ganbarou_tools/tools/changelog.txt | sed -n '15,$ p')
+cat $DIR/ganbarou_tools/tools/changelog.txt | sed -n '15,$ p' >> $DIR/Ganbarou_Changelog.txt
+
 echo -e $CL_GRN"GooVersion = "$gooversion_t"."$goobuild_t""$CL_RST
 
 echo -e $CL_MAG"============================================"$CL_RST

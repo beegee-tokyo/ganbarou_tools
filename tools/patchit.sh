@@ -161,6 +161,16 @@ $SED -i \
 	-e 's:persist.sys.usb.config=mtp:persist.sys.usb.config=mtp,adb': \
 	$REPACK/ota/system/build.prop
 echo -e $CL_GRN"============================================"$CL_RST
+echo -e $CL_GRN"Add Ganbarou specific changelog file"
+echo -e $CL_GRN"============================================"$CL_RST
+echo " " >> $ANDROID_BUILD_TOP/Ganbarou_Changelog.txt
+echo "CM changelog below:" >> $ANDROID_BUILD_TOP/Ganbarou_Changelog.txt
+echo "===================" >> $ANDROID_BUILD_TOP/Ganbarou_Changelog.txt
+echo " " >> $ANDROID_BUILD_TOP/Ganbarou_Changelog.txt
+cat $REPACK/ota/system/etc/CHANGELOG-CM.txt >> $ANDROID_BUILD_TOP/Ganbarou_Changelog.txt
+rm $REPACK/ota/system/etc/CHANGELOG-CM.txt
+cp $ANDROID_BUILD_TOP/Ganbarou_Changelog.txt $REPACK/ota/system/etc/Ganbarou_Changelog.txt
+echo -e $CL_GRN"============================================"$CL_RST
 echo -e $CL_GRN"Add Ganbarou specific data files"
 echo -e $CL_GRN"============================================"$CL_RST
 mkdir $REPACK/ota/data
