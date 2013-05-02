@@ -1,7 +1,7 @@
 VERSION_MAJOR = 3
 VERSION_MINOR = 10
 CHANGELOG_0 = Update: latest CM10.1 sources.
-CHANGELOG_1 =
+CHANGELOG_1 = Fixed: Settings->System on Galaxy Note (N7000)
 CHANGELOG_2 =
 CHANGELOG_3 =
 CHANGELOG_4 =
