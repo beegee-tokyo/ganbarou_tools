@@ -1,17 +1,22 @@
 VERSION_MAJOR = 3
-VERSION_MINOR = 09
+VERSION_MINOR = 10
 CHANGELOG_0 = Update: latest CM10.1 sources.
-CHANGELOG_1 = Feature: Added TV like screen-off animation
-CHANGELOG_2 = Feature: Added Ganbarou changelog in Settings->About tablet
-CHANGELOG_3 = 
-CHANGELOG_4 = 
-CHANGELOG_5 = 
-CHANGELOG_6 = 
-CHANGELOG_7 = 
-CHANGELOG_8 = 
-CHANGELOG_9 = 
+CHANGELOG_1 =
+CHANGELOG_2 =
+CHANGELOG_3 =
+CHANGELOG_4 =
+CHANGELOG_5 =
+CHANGELOG_6 =
+CHANGELOG_7 =
+CHANGELOG_8 =
+CHANGELOG_9 =
 
 OLDVERSION_LOG = 
+V3.09
+Update: latest CM10.1 sources.
+Feature: Added TV like screen-off animation
+Feature: Added Ganbarou changelog in Settings->About tablet
+
 V3.08
 Update: latest CM10.1 sources.
 BugFix: Fixed bug in System Settings
