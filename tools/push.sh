@@ -40,12 +40,12 @@ echo ============================================
 cd device
 cd samsung
 cd p4
-repo start jellybean .
-git checkout jellybean
+repo start cm-10.1 .
+git checkout cm-10.1
 git pull
 git add -A
 git commit -a
-git push git@github.com:beegee-tokyo/android_device_samsung_p4.git jellybean
+git push git@github.com:beegee-tokyo/android_device_samsung_p4.git cm-10.1
 cd ../../..
 echo ============================================
 echo 'Push latest changes to beegee-tokyo device_p4wifi'
@@ -53,12 +53,12 @@ echo ============================================
 cd device
 cd samsung
 cd p4wifi
-repo start jellybean .
-git checkout jellybean
+repo start cm-10.1 .
+git checkout cm-10.1
 git pull
 git add -A
 git commit -a
-git push git@github.com:beegee-tokyo/android_device_samsung_p4wifi.git jellybean
+git push git@github.com:beegee-tokyo/android_device_samsung_p4wifi.git cm-10.1
 cd ../../..
 echo ============================================
 echo 'Push latest changes to beegee-tokyo device_p4-common'
@@ -66,12 +66,12 @@ echo ============================================
 cd device
 cd samsung
 cd p4-common
-repo start jellybean .
-git checkout jellybean
+repo start cm-10.1 .
+git checkout cm-10.1
 git pull
 git add -A
 git commit -a
-git push git@github.com:beegee-tokyo/android_device_samsung_p4-common.git jellybean
+git push git@github.com:beegee-tokyo/android_device_samsung_p4-common.git cm-10.1
 cd ../../..
 echo ============================================
 echo 'Push latest changes to beegee-tokyo vendor_n7000'
