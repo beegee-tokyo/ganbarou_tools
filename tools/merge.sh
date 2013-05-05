@@ -53,6 +53,26 @@ git remote add upstream git://github.com/CyanogenMod/android_device_samsung_p4-c
 git fetch upstream
 git merge upstream/cm-10.1
 cd ../../..
+#echo ============================================
+#echo 'Get latest changes from Infamous p4 kernel'
+#echo ============================================
+#cd kernel
+#cd p4_infamous
+#git checkout infamous-jb42
+#git remote add upstream git://github.com/InfamousAOKP/android_kernel_samsung_p4.git
+#git fetch upstream
+#git merge upstream/infamous-jb42
+#cd ../..
+#echo ============================================
+#echo 'Get latest changes from pershoot p4 kernel'
+#echo ============================================
+#cd kernel
+#cd p4_pershoot
+#git checkout cm-10.1
+#git remote add upstream git://github.com/pershoot/android_kernel_samsung_p4.git
+#git fetch upstream
+#git merge upstream/cm-10.1
+#cd ../..
 echo ============================================
 echo 'Get latest changes from settings'
 echo ============================================

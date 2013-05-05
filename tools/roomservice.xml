@@ -16,8 +16,8 @@
   <!-- ################################################# -->
   <!-- TWRP recovery for Ganbarou ROM                    -->
   <!-- ################################################# -->
-  <remove-project name="CyanogenMod/android_bootable_recovery" />
-  <project path="bootable/recovery" name="TeamWin/Team-Win-Recovery-Project" revision="twrp2.5" />
+  <!-- <remove-project name="CyanogenMod/android_bootable_recovery" />
+  <project path="bootable/recovery" name="TeamWin/Team-Win-Recovery-Project" revision="twrp2.5" /> -->
   <!-- ################################################# -->
   <!-- Ganbarou ROM changes to CM10.1                    -->
   <!-- ################################################# -->
@@ -34,6 +34,9 @@
   <remove-project name="CyanogenMod/android_packages_wallpapers_PhaseBeam" />
   <remove-project name="CyanogenMod/android_packages_inputmethods_OpenWnn" />
   <remove-project name="CyanogenMod/android_packages_inputmethods_PinyinIME" />
+  <remove-project name="CyanogenMod/android_device_generic_goldfish" />
+  <remove-project name="CyanogenMod/android_device_generic_x86" />
+  <remove-project name="CyanogenMod/android_device_ti_panda" groups="device" />
   <!-- ################################################# -->
   <!-- P4 & P4wifi specific                              -->
   <!-- ################################################# -->
@@ -42,7 +45,9 @@
   <project path="device/samsung/p4wifi" name="beegee-tokyo/android_device_samsung_p4wifi" remote="github" revision="cm-10.1" />
   <project path="vendor/samsung/p4" name="beegee-tokyo/android_vendor_samsung_p4" remote="github" revision="cm-10.1" />
   <project path="vendor/samsung/p4wifi" name="beegee-tokyo/android_vendor_samsung_p4wifi" remote="github" revision="cm-10.1" />
-  <project path="kernel/samsung/p4" name="InfamousAOKP/android_kernel_samsung_p4" remote="github" revision="infamous-jb42" />
+  <project path="kernel/samsung/p4" name="beegee-tokyo/android_kernel_samsung_p4_pershoot" remote="github" revision="cm-10.1" />
+  <!-- <project path="kernel/samsung/p4_infamous" name="beegee-tokyo/android_kernel_samsung_p4_infamous" remote="github" revision="infamous-jb42" /> -->
+  <!-- <project path="kernel/samsung/p4_pershoot" name="beegee-tokyo/android_kernel_samsung_p4_pershoot" remote="github" revision="cm-10.1" /> -->
   <!-- ################################################# -->
   <!-- N7000 specific                                    -->
   <!-- ################################################# -->

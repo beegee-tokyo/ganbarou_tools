@@ -73,6 +73,30 @@ git add -A
 git commit -a
 git push git@github.com:beegee-tokyo/android_device_samsung_p4-common.git cm-10.1
 cd ../../..
+#echo ============================================
+#echo 'Push latest changes to beegee-tokyo infamous kernel p4'
+#echo ============================================
+#cd kernel
+#cd p4_infamous
+#repo start infamous-jb42 .
+#git checkout infamous-jb42
+#git pull
+#git add -A
+#git commit -a
+#git push git@github.com:beegee-tokyo/android_kernel_samsung_p4_infamous.git infamous-jb42
+#cd ../..
+#echo ============================================
+#echo 'Push latest changes to beegee-tokyo pershoot kernel p4'
+#echo ============================================
+#cd kernel
+#cd p4_pershoot
+#repo start cm-10.1 .
+#git checkout cm-10.1
+#git pull
+#git add -A
+#git commit -a
+#git push git@github.com:beegee-tokyo/android_kernel_samsung_p4_pershoot.git cm-10.1
+#cd ../..
 echo ============================================
 echo 'Push latest changes to beegee-tokyo vendor_n7000'
 echo ============================================
