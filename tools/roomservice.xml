@@ -46,8 +46,6 @@
   <project path="vendor/samsung/p4" name="beegee-tokyo/android_vendor_samsung_p4" remote="github" revision="cm-10.1" />
   <project path="vendor/samsung/p4wifi" name="beegee-tokyo/android_vendor_samsung_p4wifi" remote="github" revision="cm-10.1" />
   <project path="kernel/samsung/p4" name="beegee-tokyo/android_kernel_samsung_p4_pershoot" remote="github" revision="cm-10.1" />
-  <!-- <project path="kernel/samsung/p4_infamous" name="beegee-tokyo/android_kernel_samsung_p4_infamous" remote="github" revision="infamous-jb42" /> -->
-  <!-- <project path="kernel/samsung/p4_pershoot" name="beegee-tokyo/android_kernel_samsung_p4_pershoot" remote="github" revision="cm-10.1" /> -->
   <!-- ################################################# -->
   <!-- N7000 specific                                    -->
   <!-- ################################################# -->
