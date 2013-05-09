@@ -84,7 +84,7 @@ git checkout cm-10.1
 #git pull
 git add -A
 git commit -a
-git push git@github.com:beegee-tokyo/android_kernel_samsung_p4.git cm-10.1
+git push git@github.com:beegee-tokyo/android_kernel_samsung_p4_pershoot.git cm-10.1
 cd ../../..
 echo ============================================
 echo 'Push latest changes to beegee-tokyo vendor_n7000'
