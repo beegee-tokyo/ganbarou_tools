@@ -18,7 +18,7 @@
   <!-- TWRP recovery for Ganbarou ROM                    -->
   <!-- ################################################# -->
   <!-- <remove-project name="CyanogenMod/android_bootable_recovery" />
-  <project path="bootable/recovery" name="TeamWin/Team-Win-Recovery-Project" revision="twrp2.5" /> -->
+  <project path="bootable/recovery" name="beegee-tokyo/android_bootable_recovery" revision="twrp" /> -->
   <!-- ################################################# -->
   <!-- Ganbarou ROM changes to CM10.1                    -->
   <!-- ################################################# -->
@@ -44,7 +44,8 @@
   <project name="beegee-tokyo/android_device_samsung_p4" path="device/samsung/p4" remote="github" />
   <project name="beegee-tokyo/android_device_samsung_p4-common" path="device/samsung/p4-common" remote="github" />
   <project name="beegee-tokyo/android_device_samsung_p4wifi" path="device/samsung/p4wifi" remote="github" />
-  <project name="beegee-tokyo/android_kernel_samsung_p4" path="kernel/samsung/p4" remote="github" />
+  <project name="beegee-tokyo/android_kernel_samsung_p4" path="kernel/samsung/p4_pershoot" remote="github" />
+  <!-- <project name="beegee-tokyo/android_kernel_samsung_p4" path="kernel/samsung/p4_infamous" revision="infamous-jb42" remote="github" /> -->
   <project name="beegee-tokyo/android_vendor_samsung_p4" path="vendor/samsung/p4" remote="github" revision="cm-10.1" />
   <project name="beegee-tokyo/android_vendor_samsung_p4wifi" path="vendor/samsung/p4wifi" remote="github" revision="cm-10.1" />
   <!-- ################################################# -->
