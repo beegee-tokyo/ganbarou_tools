@@ -58,7 +58,7 @@ echo 'Get latest changes from pershoot p4 kernel'
 echo ============================================
 cd kernel
 cd samsung
-cd p4_pershoot
+cd p4
 git checkout cm-10.1
 git remote add upstream git://github.com/pershoot/android_kernel_samsung_p4.git
 git fetch upstream

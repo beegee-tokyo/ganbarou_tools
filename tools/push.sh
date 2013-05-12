@@ -78,7 +78,7 @@ echo 'Push latest changes to beegee-tokyo pershoot kernel p4'
 echo ============================================
 cd kernel
 cd samsung
-cd p4_pershoot
+cd p4
 repo start cm-10.1 .
 git checkout cm-10.1
 #git pull
