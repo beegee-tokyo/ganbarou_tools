@@ -1,9 +1,9 @@
 VERSION_MAJOR = 3
-VERSION_MINOR = 10
+VERSION_MINOR = 11
 CHANGELOG_0 = Update: latest CM10.1 sources.
-CHANGELOG_1 = BugFix: Settings->System on Galaxy Note (N7000).
-CHANGELOG_2 = BugFix: Battery drain problem. All credits go to grzwolf from Android-Hilfe.de. Check thread http://www.android-hilfe.de/5550736-post684.html.
-CHANGELOG_3 = Feature: Bootanimation.
+CHANGELOG_1 = 
+CHANGELOG_2 = 
+CHANGELOG_3 = 
 CHANGELOG_4 = 
 CHANGELOG_5 = 
 CHANGELOG_6 = 
@@ -12,6 +12,12 @@ CHANGELOG_8 =
 CHANGELOG_9 = 
 
 OLDVERSION_LOG = 
+V3.10
+Update: latest CM10.1 sources.
+BugFix: Settings->System on Galaxy Note (N7000).
+BugFix: Battery drain problem. All credits go to grzwolf from Android-Hilfe.de. Check thread http://www.android-hilfe.de/5550736-post684.html.
+Feature: Bootanimation.
+
 V3.09
 Update: latest CM10.1 sources.
 Feature: Added TV like screen-off animation

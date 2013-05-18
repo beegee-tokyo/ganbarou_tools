@@ -61,6 +61,16 @@ if [ $NEW_DEVICE2 -eq 1 ]; then
 	$REPACK/ota/META-INF/com/google/android/updater-script
 fi
 echo -e $CL_GRN"============================================"$CL_RST
+echo -e $CL_GRN"clean-up updater-script"
+echo -e $CL_GRN"============================================"$CL_RST
+$SED -i \
+	-e 's:show_progress(0.200000, 0);::' \
+	$REPACK/ota/META-INF/com/google/android/updater-script
+$SED -i \
+	-e 's:show_progress(0.200000, 10);::' \
+	$REPACK/ota/META-INF/com/google/android/updater-script
+
+echo -e $CL_GRN"============================================"$CL_RST
 echo -e $CL_GRN"Add data extraction into updater-script"
 echo -e $CL_GRN"============================================"$CL_RST
 $SED -i \
@@ -70,12 +80,19 @@ echo -e $CL_GRN"============================================"$CL_RST
 echo -e $CL_GRN"Add Ganbarou info into updater-script"
 echo -e $CL_GRN"============================================"$CL_RST
 $SED -i \
-	-e 's:show_progress(0.500000, 0);:ui_print(" ");ui_print(" ");ui_print(" ");ui_print("=============================");ui_print("Welcome to Ganbarou GT ROM");ui_print("=============================");ui_print("Installing system + data");show_progress(0.500000, 0);:' \
+	-e 's:show_progress(0.500000, 0);:ui_print(" ");ui_print(" ");ui_print(" ");ui_print("=============================");ui_print("Welcome to Ganbarou GT ROM");ui_print("=============================");ui_print("Installing system + data");show_progress(0.5, 60);:' \
 	$REPACK/ota/META-INF/com/google/android/updater-script
 
 $SED -i \
-	-e 's:show_progress(0.100000, 0);:show_progress(0.100000, 0);run_program("/sbin/rm", "-rf", "/data/data/android.romstats");ui_print("=============================");ui_print("All done!");ui_print("Enjoy Ganbarou GT ROM");ui_print("=============================");:' \
+	-e 's:show_progress(0.100000, 0);:show_progress(1.000000, 30);run_program("/sbin/rm", "-rf", "/data/data/android.romstats");ui_print("=============================");ui_print("Flashing kernel and recovery");package_extract_dir("recovery", "/tmp");write_raw_image("/tmp/recovery.img", "/dev/block/mmcblk0p2");ui_print("=============================");ui_print("All done!");ui_print("Enjoy Ganbarou GT ROM");ui_print("=============================");:' \
 	$REPACK/ota/META-INF/com/google/android/updater-script
+echo -e $CL_GRN"============================================"$CL_RST
+echo -e $CL_GRN"Copy recovery.img into work dir"
+echo -e $CL_GRN"============================================"$CL_RST
+mkdir $REPACK/ota/recovery
+cp $OUT/recovery.img $REPACK/ota/recovery/recovery.img
+echo -n -e $CL_GRN"Check $REPACK"$CL_RST
+read yno
 if [ $NEW_DEVICE2 -eq 1 ]; then
    echo -e $CL_GRN"============================================"$CL_RST
    echo -e $CL_GRN"Change $OLD_DEVICE to $NEW_DEVICE in build.prop"
