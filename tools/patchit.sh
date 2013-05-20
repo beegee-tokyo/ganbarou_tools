@@ -14,11 +14,15 @@ CL_BLU="\033[34m"
 CL_MAG="\033[35m"
 CL_CYN="\033[36m"
 CL_RST="\033[0m"
-# what are we building
+echo -e $CL_GRN"============================================"$CL_RST
+echo -e $CL_GRN"Building :"$CL_RST
+echo -e $CL_GRN"============================================"$CL_RST
+
 echo -e $CL_MAG"NEW_DEVICE = "$CL_YLW"$NEW_DEVICE"$CL_RST
 echo -e $CL_MAG"NEW_DEVICE1 = "$CL_YLW"$NEW_DEVICE1"$CL_RST
 echo -e $CL_MAG"NEW_DEVICE2 = "$CL_YLW"$NEW_DEVICE2"$CL_RST
 echo -e $CL_MAG"OLD_DEVICE = "$CL_YLW"$OLD_DEVICE"$CL_RST
+
 echo -e $CL_GRN"============================================"$CL_RST
 echo -e $CL_GRN"Ganbarou patches - Set common variables"$CL_RST
 echo -e $CL_GRN"============================================"$CL_RST
@@ -42,13 +46,15 @@ if [ $NEW_DEVICE2 -eq 1 ]; then
    OUTFILE1="$OUT/Ganbarou-$NEW_DEVICE1-v$gooversion_t.$goobuild_t-$NOW.zip"
 fi
 # was cm-base_for_ganbarou.zip is now cm_p4-ota-eng.beegee.zip p4 can be p4wifi or n7000
-OTAPACKAGE="$OUT/cm_$OLD_DEVICE-ota-eng.beegee.zip"
+#OTAPACKAGE="$OUT/cm_$OLD_DEVICE-ota-eng.beegee.zip"
+OTAPACKAGE="$OUT/cm-10.1-$NOWORG-UNOFFICIAL-$OLD_DEVICE.zip"
 mkdir $REPACK
 mkdir $REPACK/ota
 cd $REPACK/ota
 printf "Unpacking $OTAPACKAGE..."
 unzip $QUIET $OTAPACKAGE
 echo
+
 echo -e $CL_GRN"============================================"$CL_RST
 echo -e $CL_GRN"Ganbarou changes in updater-script"
 echo -e $CL_GRN"============================================"$CL_RST
@@ -69,6 +75,9 @@ $SED -i \
 $SED -i \
 	-e 's:show_progress(0.200000, 10);::' \
 	$REPACK/ota/META-INF/com/google/android/updater-script
+$SED -i \
+	-e 's:show_progress(0.500000, 0);::' \
+	$REPACK/ota/META-INF/com/google/android/updater-script
 
 echo -e $CL_GRN"============================================"$CL_RST
 echo -e $CL_GRN"Add data extraction into updater-script"
@@ -76,23 +85,43 @@ echo -e $CL_GRN"============================================"$CL_RST
 $SED -i \
 	-e 's:package_extract_dir("system", "/system");:run_program("/sbin/busybox", "mount", "/data");package_extract_dir("system", "/system");package_extract_dir("data", "/data");:' \
 	$REPACK/ota/META-INF/com/google/android/updater-script
+
 echo -e $CL_GRN"============================================"$CL_RST
 echo -e $CL_GRN"Add Ganbarou info into updater-script"
 echo -e $CL_GRN"============================================"$CL_RST
 $SED -i \
-	-e 's:show_progress(0.500000, 0);:ui_print(" ");ui_print(" ");ui_print(" ");ui_print("=============================");ui_print("Welcome to Ganbarou GT ROM");ui_print("=============================");ui_print("Installing system + data");show_progress(0.5, 60);:' \
+        '1i show_progress(0.5, 60);' $REPACK/ota/META-INF/com/google/android/updater-script
+$SED -i \
+        '1i ui_print("Installing system + data");' $REPACK/ota/META-INF/com/google/android/updater-script
+$SED -i \
+        '1i ui_print("=============================");' $REPACK/ota/META-INF/com/google/android/updater-script
+$SED -i \
+        '1i ui_print("Welcome to Ganbarou GT ROM");' $REPACK/ota/META-INF/com/google/android/updater-script
+$SED -i \
+        '1i ui_print("=============================");' $REPACK/ota/META-INF/com/google/android/updater-script
+$SED -i \
+        '1i ui_print(" ");' $REPACK/ota/META-INF/com/google/android/updater-script
+$SED -i \
+        '1i ui_print(" ");' $REPACK/ota/META-INF/com/google/android/updater-script
+$SED -i \
+        '1i ui_print(" ");' $REPACK/ota/META-INF/com/google/android/updater-script
+
+
+
+# for tablet -> include recovery -> doesn't work yet!
+#$SED -i \
+#	-e 's:show_progress(0.100000, 0);:show_progress(1.000000, 30);run_program("/sbin/rm", "-rf", "/data/#data/android.romstats");ui_print("=============================");ui_print("Flashing kernel and #recovery");package_extract_dir("recovery", "/tmp");write_raw_image("/tmp/recovery.img", "/dev/block/#mmcblk0p2");ui_print("=============================");ui_print("All done!");ui_print("Enjoy Ganbarou GT #ROM");ui_print("=============================");:' \
+#	$REPACK/ota/META-INF/com/google/android/updater-script
+$SED -i \
+	-e 's:show_progress(0.100000, 0);:show_progress(1.000000, 30);run_program("/sbin/rm", "-rf", "/data/data/android.romstats");ui_print("=============================");ui_print("Flashing kernel");ui_print("=============================");ui_print("All done!");ui_print("Enjoy Ganbarou GT ROM");ui_print("=============================");:' \
 	$REPACK/ota/META-INF/com/google/android/updater-script
 
-$SED -i \
-	-e 's:show_progress(0.100000, 0);:show_progress(1.000000, 30);run_program("/sbin/rm", "-rf", "/data/data/android.romstats");ui_print("=============================");ui_print("Flashing kernel and recovery");package_extract_dir("recovery", "/tmp");write_raw_image("/tmp/recovery.img", "/dev/block/mmcblk0p2");ui_print("=============================");ui_print("All done!");ui_print("Enjoy Ganbarou GT ROM");ui_print("=============================");:' \
-	$REPACK/ota/META-INF/com/google/android/updater-script
-echo -e $CL_GRN"============================================"$CL_RST
-echo -e $CL_GRN"Copy recovery.img into work dir"
-echo -e $CL_GRN"============================================"$CL_RST
-mkdir $REPACK/ota/recovery
-cp $OUT/recovery.img $REPACK/ota/recovery/recovery.img
-echo -n -e $CL_GRN"Check $REPACK"$CL_RST
-read yno
+# for tablet -> include recovery -> doesn't work yet!
+#echo -e $CL_GRN"============================================"$CL_RST
+#echo -e $CL_GRN"Copy recovery.img into work dir"
+#echo -e $CL_GRN"============================================"$CL_RST
+#mkdir $REPACK/ota/recovery
+#cp $OUT/recovery.img $REPACK/ota/recovery/recovery.img
 if [ $NEW_DEVICE2 -eq 1 ]; then
    echo -e $CL_GRN"============================================"$CL_RST
    echo -e $CL_GRN"Change $OLD_DEVICE to $NEW_DEVICE in build.prop"
@@ -108,12 +137,14 @@ GANBAROU_VERSION="ro.cm.version=Ganbarou V$gooversion_t.$goobuild_t $NEW_DEVICE"
 sed -i -e 's:ro.cm.version.*::' $REPACK/ota/system/build.prop
 sed -i -e 's:ro.modversion.*::' $REPACK/ota/system/build.prop
 echo $GANBAROU_VERSION >> $REPACK/ota/system/build.prop
+
 echo -e $CL_GRN"============================================"$CL_RST
 echo -e $CL_GRN"Change ro.build.display.id in build.prop"
 echo -e $CL_GRN"============================================"$CL_RST
 $SED -i \
    	-e 's:ro.build.display.id=cm_:ro.build.display.id=Ganbarou_:' \
 	$REPACK/ota/system/build.prop
+
 echo -e $CL_GRN"============================================"$CL_RST
 echo -e $CL_GRN"Add Ganbarou tweaks to build.prop"
 echo -e $CL_GRN"============================================"$CL_RST
@@ -171,12 +202,14 @@ echo $ROMSTATS_NAME >> $REPACK/ota/system/build.prop
 ROMSTATS_VERSION="ro.romstats.version=V$gooversion_t.$goobuild_t"
 echo $ROMSTATS_VERSION >> $REPACK/ota/system/build.prop
 echo "ro.romstats.tframe=7" >> $REPACK/ota/system/build.prop
+
 echo -e $CL_GRN"============================================"$CL_RST
 echo -e $CL_GRN"Enable ADB and MTP"
 echo -e $CL_GRN"============================================"$CL_RST
 $SED -i \
 	-e 's:persist.sys.usb.config=mtp:persist.sys.usb.config=mtp,adb': \
 	$REPACK/ota/system/build.prop
+
 echo -e $CL_GRN"============================================"$CL_RST
 echo -e $CL_GRN"Add Ganbarou specific changelog file"
 echo -e $CL_GRN"============================================"$CL_RST
@@ -187,6 +220,7 @@ echo " " >> $ANDROID_BUILD_TOP/Ganbarou_Changelog.txt
 cat $REPACK/ota/system/etc/CHANGELOG-CM.txt >> $ANDROID_BUILD_TOP/Ganbarou_Changelog.txt
 rm $REPACK/ota/system/etc/CHANGELOG-CM.txt
 cp $ANDROID_BUILD_TOP/Ganbarou_Changelog.txt $REPACK/ota/system/etc/Ganbarou_Changelog.txt
+
 echo -e $CL_GRN"============================================"$CL_RST
 echo -e $CL_GRN"Add Ganbarou specific data files"
 echo -e $CL_GRN"============================================"$CL_RST
@@ -198,30 +232,33 @@ else
    cp -r -f -v $ANDROID_BUILD_TOP/ganbarou_tools/patches/datap/app/. $REPACK/ota/data/app/.
    cp -r -f -v $ANDROID_BUILD_TOP/ganbarou_tools/patches/systemapp-p/. $REPACK/ota/system/app/.
 fi
+
 echo -e $CL_GRN"============================================"$CL_RST
 echo -e $CL_GRN"Copy hosts, 99ganbarou and gps.conf"
 echo -e $CL_GRN"============================================"$CL_RST
 cp -r -f -v $ANDROID_BUILD_TOP/ganbarou_tools/patches/ganbarou/etc/gps.conf $REPACK/ota/system/etc/gps.conf
 cp -r -f -v $ANDROID_BUILD_TOP/ganbarou_tools/patches/ganbarou/etc/hosts $REPACK/ota/system/etc/hosts
 cp -r -f -v $ANDROID_BUILD_TOP/ganbarou_tools/patches/ganbarou/etc/init.d/99Ganbarou $REPACK/ota/system/etc/init.d/99Ganbarou
+
 echo -e $CL_GRN"============================================"$CL_RST
 echo -e $CL_GRN"Add new APN for Softbank BIZflat connection"
 echo -e $CL_GRN"============================================"$CL_RST
 $SED -i \
 	-e 's:</apns>:<apn carrier="Softbank (BizFlat)" mcc="440" mnc="20" apn="bizflat.softbank" user="biz@bizflat.softbank" password="biz" type="default,supl" /></apns>': \
 	$REPACK/ota/system/etc/apns-conf.xml
+
+
+
 echo -e $CL_GRN"============================================"$CL_RST
-echo -e $CL_GRN"Remove duplicate files for GApps"
-echo -e $CL_GRN"============================================"$CL_RST
-rm $REPACK/ota/system/app/Provision.apk
-rm $REPACK/ota/system/app/QuickSearchBox.apk
-rm $REPACK/ota/system/app/PlusOne.apk
-rm $REPACK/ota/system/app/Vending.apk
-echo -e $CL_GRN"============================================"$CL_RST
-echo -e $CL_GRN"Remove unwanted CM10 files"
-echo -e $CL_GRN"============================================"$CL_RST
-rm $REPACK/ota/system/app/RomManager.apk
-echo -e $CL_GRN"============================================"$CL_RST
+
+
+
+
+
+
+
+
+
 echo -e $CL_GRN"Add Ganbarou boot animation"
 echo -e $CL_GRN"============================================"$CL_RST
 if [ $NEW_DEVICE2 -eq 1 ]; then
@@ -229,6 +266,7 @@ if [ $NEW_DEVICE2 -eq 1 ]; then
 else
    cp -r -f -v $ANDROID_BUILD_TOP/ganbarou_tools/patches/bootanimation-p/bootanimation.zip $REPACK/ota/system/media/bootanimation.zip
 fi
+
 if [ $NEW_DEVICE2 -eq 1 ]; then
    echo -e $CL_GRN"============================================"$CL_RST
    echo -e $CL_GRN"Make copy of ota for $NEW_DEVICE1 ROM"
@@ -242,6 +280,7 @@ if [ $NEW_DEVICE2 -eq 1 ]; then
    	-e "s:${NEW_DEVICE}:${NEW_DEVICE1}:" \
 	$REPACK/ota1/system/build.prop
 fi
+
 echo -e $CL_GRN"============================================"$CL_RST
 echo -e $CL_GRN"Zipping Ganbarou $NEW_DEVICE ROM"
 echo -e $CL_GRN"============================================"$CL_RST
@@ -260,6 +299,7 @@ SECURITYDIR=$ANDROID_BUILD_TOP/build/target/product/security
    	-jar $ANDROID_BUILD_TOP/out/host/$OUT_TARGET_HOST/framework/signapk.jar \
 	-w $SECURITYDIR/testkey.x509.pem $SECURITYDIR/testkey.pk8 \
 	$REPACK/update.zip $OUTFILE
+
 if [ $NEW_DEVICE2 -eq 1 ]; then
    echo -e $CL_GRN"============================================"$CL_RST
    echo -e $CL_GRN"Sign Ganbarou $NEW_DEVICE1 ROM"
@@ -270,10 +310,12 @@ if [ $NEW_DEVICE2 -eq 1 ]; then
 	-w $SECURITYDIR/testkey.x509.pem $SECURITYDIR/testkey.pk8 \
 	$REPACK/update1.zip $OUTFILE1
 fi
+
 echo -e $CL_GRN"============================================"$CL_RST
-echo -e $CL_GRN"Cleanup"
+echo -e $CL_GRN"Cleanup temporary folders"
 echo -e $CL_GRN"============================================"$CL_RST
 rm -rf $REPACK
+
 echo -e $CL_GRN"============================================"$CL_RST
 echo -e $CL_GRN"Create a md5 checksum image of the repacked $NEW_DEVICE package"
 echo -e $CL_GRN"============================================"$CL_RST
@@ -282,6 +324,7 @@ img=`basename $OUTFILE`
 cd `dirname $OUTFILE`
 $MD5 $img >$img.md5sum
 )
+
 if [ $NEW_DEVICE2 -eq 1 ]; then
    echo -e $CL_GRN"============================================"$CL_RST
    echo -e $CL_GRN"Create a md5 checksum image of the repacked $NEW_DEVICE1 package"
@@ -292,11 +335,14 @@ if [ $NEW_DEVICE2 -eq 1 ]; then
    $MD5 $img >$img.md5sum
    )
 fi
-echo -e $CL_GRN"============================================"$CL_RST
+
+echo -e $CL_MAG"============================================"$CL_RST
 echo -e $CL_MAG"Package complete: $OUTFILE"
+echo -e $CL_MAG"============================================"$CL_RST
 if [ $NEW_DEVICE2 -eq 1 ]; then
    echo -e $CL_MAG"Package complete: $OUTFILE1"
 fi
+
 echo -e $CL_GRN"============================================"$CL_RST
 echo -e $CL_GRN"Copy to shared directory and cleanup"
 echo -e $CL_GRN"============================================"$CL_RST
@@ -306,4 +352,11 @@ if [ $NEW_DEVICE2 -eq 1 ]; then
    mv $OUTFILE1 $ANDROID_BUILD_TOP/
    mv $OUTFILE1.md5sum $ANDROID_BUILD_TOP/
 fi
+
+echo -e $CL_GRN"============================================"$CL_RST
+echo -e $CL_GRN"Cleanup temporary folders"
+echo -e $CL_GRN"============================================"$CL_RST
+rm -rf $OUT/cm-10.1*.zip
+rm -rf $OUT/cm_*.zip
+
 
