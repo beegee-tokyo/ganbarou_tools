@@ -18,7 +18,7 @@
   <!-- TWRP recovery for Ganbarou ROM                    -->
   <!-- ################################################# -->
   <remove-project name="CyanogenMod/android_bootable_recovery" />
-  <project path="bootable/recovery" name="TeamWin/Team-Win-Recovery-Project/" revision="twrp2.5" />
+  <project path="bootable/recovery" name="InfamousAOKP/android_bootable_recovery" revision="twrp" />
   <!-- ################################################# -->
   <!-- Ganbarou ROM changes to CM10.1                    -->
   <!-- ################################################# -->

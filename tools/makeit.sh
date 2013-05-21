@@ -205,12 +205,12 @@ if [ $DO_P750T -eq 0 ]; then
    echo -e $CL_MAG"============================================"$CL_RST
    res75001=$(date +%s.%N)
    . build/envsetup.sh && brunch p4
-   make recoveryimage
    if [ $? -eq 0 ]; then
       echo -e $CL_MAG"============================================"$CL_RST
       echo -e $CL_GRN"Build for GT-P7500 successfull"$CL_RST
       echo -e $CL_MAG"============================================"$CL_RST
       export P750TRESULT=0
+      make recoveryimage
       ./patchit.sh GT-P7500 GT-P7501 0 p4
    else
       echo -e $CL_MAG"============================================"$CL_RST
@@ -228,12 +228,12 @@ if [ $DO_P7500 -eq 0 ]; then
    echo -e $CL_MAG"============================================"$CL_RST
    res75001=$(date +%s.%N)
    . build/envsetup.sh && brunch p4
-   make recoveryimage
    if [ $? -eq 0 ]; then
       echo -e $CL_MAG"============================================"$CL_RST
       echo -e $CL_GRN"Build for GT-P7500 successfull"$CL_RST
       echo -e $CL_MAG"============================================"$CL_RST
       export P7500RESULT=0
+      make recoveryimage
       ./patchit.sh GT-P7500 GT-P7501 1 p4
    else
       echo -e $CL_MAG"============================================"$CL_RST
@@ -256,6 +256,7 @@ if [ $DO_P7510 -eq 0 ]; then
       echo -e $CL_GRN"Build for GT-P7510 successfull"$CL_RST
       echo -e $CL_MAG"============================================"$CL_RST
       export P7510RESULT=0
+      make recoveryimage
       ./patchit.sh GT-P7510 GT-P7511 1 p4wifi
    else
       echo -e $CL_MAG"============================================"$CL_RST
@@ -278,6 +279,7 @@ if [ $DO_N7000 -eq 0 ]; then
       echo -e $CL_GRN"Build for GT-N7000 successfull"$CL_RST
       echo -e $CL_MAG"============================================"$CL_RST
       export N7000RESULT=0
+      make recoveryimage
       ./patchit.sh GT-N7000 GT-N7000 0 n7000
    else
       echo -e $CL_MAG"============================================"$CL_RST

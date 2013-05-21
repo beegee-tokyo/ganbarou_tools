@@ -47,7 +47,8 @@ if [ $NEW_DEVICE2 -eq 1 ]; then
 fi
 # was cm-base_for_ganbarou.zip is now cm_p4-ota-eng.beegee.zip p4 can be p4wifi or n7000
 #OTAPACKAGE="$OUT/cm_$OLD_DEVICE-ota-eng.beegee.zip"
-OTAPACKAGE="$OUT/cm-10.1-$NOWORG-UNOFFICIAL-$OLD_DEVICE.zip"
+#OTAPACKAGE="$OUT/cm-10.1-$NOWORG-UNOFFICIAL-$OLD_DEVICE.zip"
+OTAPACKAGE="$OUT/cm_$OLD_DEVICE-ota-eng.beegee.zip"
 mkdir $REPACK
 mkdir $REPACK/ota
 cd $REPACK/ota
@@ -247,18 +248,7 @@ $SED -i \
 	-e 's:</apns>:<apn carrier="Softbank (BizFlat)" mcc="440" mnc="20" apn="bizflat.softbank" user="biz@bizflat.softbank" password="biz" type="default,supl" /></apns>': \
 	$REPACK/ota/system/etc/apns-conf.xml
 
-
-
 echo -e $CL_GRN"============================================"$CL_RST
-
-
-
-
-
-
-
-
-
 echo -e $CL_GRN"Add Ganbarou boot animation"
 echo -e $CL_GRN"============================================"$CL_RST
 if [ $NEW_DEVICE2 -eq 1 ]; then
@@ -357,6 +347,7 @@ echo -e $CL_GRN"============================================"$CL_RST
 echo -e $CL_GRN"Cleanup temporary folders"
 echo -e $CL_GRN"============================================"$CL_RST
 rm -rf $OUT/cm-10.1*.zip
+rm -rf $OUT/cm-10.1*.md5sum
 rm -rf $OUT/cm_*.zip
 
 
