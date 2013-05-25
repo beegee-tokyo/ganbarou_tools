@@ -1,7 +1,7 @@
 VERSION_MAJOR = 3
 VERSION_MINOR = 11
 CHANGELOG_0 = Update: latest CM10.1 sources.
-CHANGELOG_1 = 
+CHANGELOG_1 = Added experimental build for GT-P5100 (Galaxy Tab 2)
 CHANGELOG_2 = 
 CHANGELOG_3 = 
 CHANGELOG_4 = 
