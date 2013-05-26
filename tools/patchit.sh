@@ -58,11 +58,12 @@ unzip $QUIET $OTAPACKAGE
 echo
 
 # IF we build for infamous kernel then we have to change $OLD_DEVICE
+export OLD_DEVICE2=$OLD_DEVICE
 if [[ $OLD_DEVICE == p4p ]]; then 
-   export $OLD_DEVICE=p4
+   export OLD_DEVICE2="p4"
 fi
 if [[ $OLD_DEVICE == p4wifip ]]; then 
-   export $OLD_DEVICE=p4wifi
+   export OLD_DEVICE2="p4wifi"
 fi
 
 echo -e $CL_GRN"============================================"$CL_RST
@@ -132,7 +133,7 @@ $SED -i \
 #echo -e $CL_GRN"============================================"$CL_RST
 #mkdir $REPACK/ota/recovery
 #cp $OUT/recovery.img $REPACK/ota/recovery/recovery.img
-if [ $NEW_DEVICE2 -eq 1 ]; then
+#if [ $NEW_DEVICE2 -eq 1 ]; then
    echo -e $CL_GRN"============================================"$CL_RST
    echo -e $CL_GRN"Change $OLD_DEVICE to $NEW_DEVICE in build.prop"
    echo -e $CL_GRN"But keep ro.product.device for Google Play"
@@ -141,11 +142,11 @@ if [ $NEW_DEVICE2 -eq 1 ]; then
    	-e "s:${OLD_DEVICE}:${NEW_DEVICE}:" \
 	$REPACK/ota/system/build.prop
    OLD_PROD_DEV="ro.product.device=$NEW_DEVICE"
-   NEW_PROD_DEV="ro.product.device=$OLD_DEVICE"
+   NEW_PROD_DEV="ro.product.device=$OLD_DEVICE2"
    $SED -i \
    	-e "s:${OLD_PROD_DEV}:${NEW_PROD_DEV}:" \
 	$REPACK/ota/system/build.prop
-fi
+#fi
 echo -e $CL_GRN"============================================"$CL_RST
 echo -e $CL_GRN"Change ro.cm.version in build.prop"
 echo -e $CL_GRN"============================================"$CL_RST
@@ -225,6 +226,9 @@ echo -e $CL_GRN"============================================"$CL_RST
 $SED -i \
 	-e 's:persist.sys.usb.config=mtp:persist.sys.usb.config=mtp,adb': \
 	$REPACK/ota/system/build.prop
+$SED -i \
+	'/^$/d' \
+	$REPACK/ota/system/build.prop
 
 echo -e $CL_GRN"============================================"$CL_RST
 echo -e $CL_GRN"Add Ganbarou specific changelog file"
@@ -286,7 +290,7 @@ if [ $NEW_DEVICE2 -eq 1 ]; then
    	-e "s:${NEW_DEVICE}:${NEW_DEVICE1}:" \
 	$REPACK/ota1/system/build.prop
    OLD_PROD_DEV="ro.product.device=$NEW_DEVICE1"
-   NEW_PROD_DEV="ro.product.device=$OLD_DEVICE"
+   NEW_PROD_DEV="ro.product.device=$OLD_DEVICE2"
    $SED -i \
    	-e "s:${OLD_PROD_DEV}:${NEW_PROD_DEV}:" \
 	$REPACK/ota/system/build.prop

@@ -1,7 +1,7 @@
-echo -e $CL_MAG"============================================"$CL_RST
+echo -e $CL_MAG"=============================================="$CL_RST
 echo -e $CL_MAG"Welcome to <build the Ganbarou ROM> script"
 echo -e $CL_MAG"Use <./makeit.sh help> to see what option you can choose"
-echo -e $CL_MAG"============================================"$CL_RST
+echo -e $CL_MAG"=============================================="$CL_RST
 # build with colors!
 CL_RED="\033[31m"
 CL_GRN="\033[32m"
@@ -123,10 +123,10 @@ esac
 # get time of startup
 res1=$(date +%s.%N)
 
-echo -e $CL_MAG"============================================"$CL_RST
+echo -e $CL_MAG"=============================================="$CL_RST
 echo -e $CL_MAG"set GooManager ROM version"$CL_RST
 echo -e $CL_MAG"and create changelog file"$CL_RST
-echo -e $CL_MAG"============================================"$CL_RST
+echo -e $CL_MAG"=============================================="$CL_RST
 
 DIR="/home/$USER/${PWD##*/}"
 export gooversion_t=$(cat $DIR/ganbarou_tools/tools/changelog.txt | grep 'VERSION_MAJOR = *' | sed  's/VERSION_MAJOR = //g')
@@ -192,14 +192,14 @@ cat $DIR/ganbarou_tools/tools/changelog.txt | sed -n '15,$ p' >> $DIR/Ganbarou_C
 
 echo -e $CL_GRN"GooVersion = "$gooversion_t"."$goobuild_t""$CL_RST
 
-echo -e $CL_MAG"============================================"$CL_RST
+echo -e $CL_MAG"=============================================="$CL_RST
 echo -e $CL_MAG"Setup ccache"$CL_RST
-echo -e $CL_MAG"============================================"$CL_RST
+echo -e $CL_MAG"=============================================="$CL_RST
 ccache -M 20G
 if [ $DO_CLEAN -eq 0 ]; then
-   echo -e $CL_MAG"============================================"$CL_RST
+   echo -e $CL_MAG"=============================================="$CL_RST
    echo -e $CL_MAG"Clean-up out folder"$CL_RST
-   echo -e $CL_MAG"============================================"$CL_RST
+   echo -e $CL_MAG"=============================================="$CL_RST
    make clean
 fi
 # For patchit.sh the params are:
@@ -210,38 +210,37 @@ fi
 # all 4 params must be given!
 
 if [ $DO_P750T -eq 0 ]; then
-   echo -e $CL_MAG"============================================"$CL_RST
+   echo -e $CL_MAG"=============================================="$CL_RST
    echo -e $CL_MAG"Start the build for GT-P7500 pershoot kernel"$CL_RST
-   echo -e $CL_MAG"============================================"$CL_RST
+   echo -e $CL_MAG"=============================================="$CL_RST
    res75001=$(date +%s.%N)
    . build/envsetup.sh && brunch p4
    if [ $? -eq 0 ]; then
-      echo -e $CL_MAG"============================================"$CL_RST
+      echo -e $CL_MAG"=============================================="$CL_RST
       echo -e $CL_GRN"Build for GT-P7500 pershoot kernel successfull"$CL_RST
-      echo -e $CL_MAG"============================================"$CL_RST
+      echo -e $CL_MAG"=============================================="$CL_RST
       export P750TRESULT=0
       ./patchit.sh GT-P7500 GT-P7501 0 p4 pershoot
    else
-      echo -e $CL_MAG"============================================"$CL_RST
+      echo -e $CL_MAG"=============================================="$CL_RST
       echo -e $CL_RED"Build for GT-P7500 pershoot kernel failed"$CL_RST
-      echo -e $CL_MAG"============================================"$CL_RST
+      echo -e $CL_MAG"=============================================="$CL_RST
       export P750TRESULT=1
    fi
-   echo -e $CL_MAG"============================================"$CL_RST
+   echo -e $CL_MAG"=============================================="$CL_RST
    echo -e $CL_MAG"Start the build for GT-P7500 infamous kernel"$CL_RST
-   echo -e $CL_MAG"============================================"$CL_RST
-   res75001=$(date +%s.%N)
+   echo -e $CL_MAG"=============================================="$CL_RST
    . build/envsetup.sh && brunch p4p
    if [ $? -eq 0 ]; then
-      echo -e $CL_MAG"============================================"$CL_RST
+      echo -e $CL_MAG"=============================================="$CL_RST
       echo -e $CL_GRN"Build for GT-P7500 infamous kernel successfull"$CL_RST
-      echo -e $CL_MAG"============================================"$CL_RST
+      echo -e $CL_MAG"=============================================="$CL_RST
       export P750TRESULT=0
       ./patchit.sh GT-P7500 GT-P7501 0 p4p infamous
    else
-      echo -e $CL_MAG"============================================"$CL_RST
+      echo -e $CL_MAG"=============================================="$CL_RST
       echo -e $CL_RED"Build for GT-P7500 infamous kernel failed"$CL_RST
-      echo -e $CL_MAG"============================================"$CL_RST
+      echo -e $CL_MAG"=============================================="$CL_RST
       export P750TRESULT=1
    fi
    res75002=$(date +%s.%N)
@@ -249,43 +248,59 @@ else
    export P750TRESULT=1
 fi
 if [ $DO_P7500 -eq 0 ]; then
-   echo -e $CL_MAG"============================================"$CL_RST
-   echo -e $CL_MAG"Start the build for GT-P7500"$CL_RST
-   echo -e $CL_MAG"============================================"$CL_RST
+   echo -e $CL_MAG"=============================================="$CL_RST
+   echo -e $CL_MAG"Start the build for GT-P7500 pershoot kernel"$CL_RST
+   echo -e $CL_MAG"=============================================="$CL_RST
    res75001=$(date +%s.%N)
    . build/envsetup.sh && brunch p4
    if [ $? -eq 0 ]; then
-      echo -e $CL_MAG"============================================"$CL_RST
-      echo -e $CL_GRN"Build for GT-P7500 successfull"$CL_RST
-      echo -e $CL_MAG"============================================"$CL_RST
+      echo -e $CL_MAG"=============================================="$CL_RST
+      echo -e $CL_GRN"Build for GT-P7500 pershoot kernel successfull"$CL_RST
+      echo -e $CL_MAG"=============================================="$CL_RST
       export P7500RESULT=0
-      ./patchit.sh GT-P7500 GT-P7501 1 p4
+      ./patchit.sh GT-P7500 GT-P7501 1 p4 pershoot
    else
-      echo -e $CL_MAG"============================================"$CL_RST
-      echo -e $CL_RED"Build for GT-P7500 failed"$CL_RST
-      echo -e $CL_MAG"============================================"$CL_RST
+      echo -e $CL_MAG"=============================================="$CL_RST
+      echo -e $CL_RED"Build for GT-P7500 pershoot kernel failed"$CL_RST
+      echo -e $CL_MAG"=============================================="$CL_RST
       export P7500RESULT=1
+   fi
+   echo -e $CL_MAG"=============================================="$CL_RST
+   echo -e $CL_MAG"Start the build for GT-P7500 infamous kernel"$CL_RST
+   echo -e $CL_MAG"=============================================="$CL_RST
+   . build/envsetup.sh && brunch p4p
+   if [ $? -eq 0 ]; then
+      echo -e $CL_MAG"=============================================="$CL_RST
+      echo -e $CL_GRN"Build for GT-P7500 infamous kernel successfull"$CL_RST
+      echo -e $CL_MAG"=============================================="$CL_RST
+      export P750TRESULT=0
+      ./patchit.sh GT-P7500 GT-P7501 1 p4p infamous
+   else
+      echo -e $CL_MAG"=============================================="$CL_RST
+      echo -e $CL_RED"Build for GT-P7500 infamous kernel failed"$CL_RST
+      echo -e $CL_MAG"=============================================="$CL_RST
+      export P750TRESULT=1
    fi
    res75002=$(date +%s.%N)
 else
    export P7500RESULT=1
 fi
 if [ $DO_P5100 -eq 0 ]; then
-   echo -e $CL_MAG"============================================"$CL_RST
+   echo -e $CL_MAG"=============================================="$CL_RST
    echo -e $CL_MAG"Start the build for GT-P5100"$CL_RST
-   echo -e $CL_MAG"============================================"$CL_RST
+   echo -e $CL_MAG"=============================================="$CL_RST
    res51001=$(date +%s.%N)
    . build/envsetup.sh && brunch p5100
    if [ $? -eq 0 ]; then
-      echo -e $CL_MAG"============================================"$CL_RST
+      echo -e $CL_MAG"=============================================="$CL_RST
       echo -e $CL_GRN"Build for GT-P5100 successfull"$CL_RST
-      echo -e $CL_MAG"============================================"$CL_RST
+      echo -e $CL_MAG"=============================================="$CL_RST
       export P5100RESULT=0
       ./patchit.sh GT-P5100 GT-P5100 0 p5100
    else
-      echo -e $CL_MAG"============================================"$CL_RST
+      echo -e $CL_MAG"=============================================="$CL_RST
       echo -e $CL_RED"Build for GT-P5100 failed"$CL_RST
-      echo -e $CL_MAG"============================================"$CL_RST
+      echo -e $CL_MAG"=============================================="$CL_RST
       export P5100RESULT=1
    fi
    res51002=$(date +%s.%N)
@@ -293,21 +308,37 @@ else
    export P5100RESULT=1
 fi
 if [ $DO_P7510 -eq 0 ]; then
-   echo -e $CL_MAG"============================================"$CL_RST
-   echo -e $CL_MAG"Start the build for GT-P7510"$CL_RST
-   echo -e $CL_MAG"============================================"$CL_RST
+   echo -e $CL_MAG"=============================================="$CL_RST
+   echo -e $CL_MAG"Start the build for GT-P7510 pershoot kernel"$CL_RST
+   echo -e $CL_MAG"=============================================="$CL_RST
    res75101=$(date +%s.%N)
    . build/envsetup.sh && brunch p4wifi
    if [ $? -eq 0 ]; then
-      echo -e $CL_MAG"============================================"$CL_RST
-      echo -e $CL_GRN"Build for GT-P7510 successfull"$CL_RST
-      echo -e $CL_MAG"============================================"$CL_RST
+      echo -e $CL_MAG"=============================================="$CL_RST
+      echo -e $CL_GRN"Build for GT-P7510 pershoot kernel successfull"$CL_RST
+      echo -e $CL_MAG"=============================================="$CL_RST
       export P7510RESULT=0
-      ./patchit.sh GT-P7510 GT-P7511 1 p4wifi
+      ./patchit.sh GT-P7510 GT-P7511 1 p4wifi pershoot
    else
-      echo -e $CL_MAG"============================================"$CL_RST
-      echo -e $CL_RED"Build for GT-P7510 failed"$CL_RST
-      echo -e $CL_MAG"============================================"$CL_RST
+      echo -e $CL_MAG"=============================================="$CL_RST
+      echo -e $CL_RED"Build for GT-P7510 pershoot kernel failed"$CL_RST
+      echo -e $CL_MAG"=============================================="$CL_RST
+      export P7510RESULT=1
+   fi
+   echo -e $CL_MAG"=============================================="$CL_RST
+   echo -e $CL_MAG"Start the build for GT-P7510 infamous kernel"$CL_RST
+   echo -e $CL_MAG"=============================================="$CL_RST
+   . build/envsetup.sh && brunch p4wifip
+   if [ $? -eq 0 ]; then
+      echo -e $CL_MAG"=============================================="$CL_RST
+      echo -e $CL_GRN"Build for GT-P7510 infamous kernel successfull"$CL_RST
+      echo -e $CL_MAG"=============================================="$CL_RST
+      export P7510RESULT=0
+      ./patchit.sh GT-P7510 GT-P7511 1 p4wifip infamous
+   else
+      echo -e $CL_MAG"=============================================="$CL_RST
+      echo -e $CL_RED"Build for GT-P7510 infamous kernel failed"$CL_RST
+      echo -e $CL_MAG"=============================================="$CL_RST
       export P7510RESULT=1
    fi
    res75102=$(date +%s.%N)
@@ -315,21 +346,21 @@ else
    export P7510RESULT=1
 fi
 if [ $DO_N7000 -eq 0 ]; then
-   echo -e $CL_MAG"============================================"$CL_RST
+   echo -e $CL_MAG"=============================================="$CL_RST
    echo -e $CL_MAG"Start the build for GT-N7000"$CL_RST
-   echo -e $CL_MAG"============================================"$CL_RST
+   echo -e $CL_MAG"=============================================="$CL_RST
    res70001=$(date +%s.%N)
    . build/envsetup.sh && brunch n7000
    if [ $? -eq 0 ]; then
-      echo -e $CL_MAG"============================================"$CL_RST
+      echo -e $CL_MAG"=============================================="$CL_RST
       echo -e $CL_GRN"Build for GT-N7000 successfull"$CL_RST
-      echo -e $CL_MAG"============================================"$CL_RST
+      echo -e $CL_MAG"=============================================="$CL_RST
       export N7000RESULT=0
       ./patchit.sh GT-N7000 GT-N7000 0 n7000
    else
-      echo -e $CL_MAG"============================================"$CL_RST
+      echo -e $CL_MAG"=============================================="$CL_RST
       echo -e $CL_RED"Build for GT-N7000 failed"$CL_RST
-      echo -e $CL_MAG"============================================"$CL_RST
+      echo -e $CL_MAG"=============================================="$CL_RST
       export N7000RESULT=1
    fi
    res70002=$(date +%s.%N)
@@ -337,9 +368,9 @@ else
    export N7000RESULT=1
 fi
 
-echo -e $CL_MAG"============================================"$CL_RST
+echo -e $CL_MAG"=============================================="$CL_RST
 echo -e $CL_MAG"Build & Patch of Ganbarou ROM done"$CL_RST
-echo -e $CL_MAG"============================================"$CL_RST
+echo -e $CL_MAG"=============================================="$CL_RST
 
 # finished? get elapsed time
 res2=$(date +%s.%N)
@@ -347,62 +378,62 @@ echo -e $CL_GRN"${bldgrn}Total time elapsed: ${txtrst}${grn}$(echo "($res2 - $re
 
 if [ $DO_P750T -eq 0 ]; then
    if [ $P750TRESULT -eq 0 ]; then
-      echo -e $CL_MAG"============================================"$CL_RST
+      echo -e $CL_MAG"=============================================="$CL_RST
       echo -e $CL_GRN"Build for GT-P7500 done"$CL_RST
       echo -e $CL_GRN"${bldgrn}Total time elapsed: ${txtrst}${grn}$(echo "($res75002 - $res75001) / 60"|bc ) minutes ($(echo "$res75002 - $res75001"|bc ) seconds) ${txtrst}"$CL_RST
-      echo -e $CL_MAG"============================================"$CL_RST
+      echo -e $CL_MAG"=============================================="$CL_RST
    else
-      echo -e $CL_MAG"============================================"$CL_RST
+      echo -e $CL_MAG"=============================================="$CL_RST
       echo -e $CL_RED"Build for GT-P7500 failed"$CL_RST
-      echo -e $CL_MAG"============================================"$CL_RST
+      echo -e $CL_MAG"=============================================="$CL_RST
    fi
 fi
 if [ $DO_P7500 -eq 0 ]; then
    if [ $P7500RESULT -eq 0 ]; then
-      echo -e $CL_MAG"============================================"$CL_RST
+      echo -e $CL_MAG"=============================================="$CL_RST
       echo -e $CL_GRN"Build for GT-P7500/7501 done"$CL_RST
       echo -e $CL_GRN"${bldgrn}Total time elapsed: ${txtrst}${grn}$(echo "($res75002 - $res75001) / 60"|bc ) minutes ($(echo "$res75002 - $res75001"|bc ) seconds) ${txtrst}"$CL_RST
-      echo -e $CL_MAG"============================================"$CL_RST
+      echo -e $CL_MAG"=============================================="$CL_RST
    else
-      echo -e $CL_MAG"============================================"$CL_RST
+      echo -e $CL_MAG"=============================================="$CL_RST
       echo -e $CL_RED"Build for GT-P7500/7501 failed"$CL_RST
-      echo -e $CL_MAG"============================================"$CL_RST
+      echo -e $CL_MAG"=============================================="$CL_RST
    fi
 fi
 if [ $DO_P5100 -eq 0 ]; then
    if [ $P5100RESULT -eq 0 ]; then
-      echo -e $CL_MAG"============================================"$CL_RST
+      echo -e $CL_MAG"=============================================="$CL_RST
       echo -e $CL_GRN"Build for GT-P5100 done"$CL_RST
       echo -e $CL_GRN"${bldgrn}Total time elapsed: ${txtrst}${grn}$(echo "($res51002 - $res51001) / 60"|bc ) minutes ($(echo "$res51002 - $res51001"|bc ) seconds) ${txtrst}"$CL_RST
-      echo -e $CL_MAG"============================================"$CL_RST
+      echo -e $CL_MAG"=============================================="$CL_RST
    else
-      echo -e $CL_MAG"============================================"$CL_RST
+      echo -e $CL_MAG"=============================================="$CL_RST
       echo -e $CL_RED"Build for GT-P5100 failed"$CL_RST
-      echo -e $CL_MAG"============================================"$CL_RST
+      echo -e $CL_MAG"=============================================="$CL_RST
    fi
 fi
 if [ $DO_P7510 -eq 0 ]; then
    if [ $P7510RESULT -eq 0 ]; then
-      echo -e $CL_MAG"============================================"$CL_RST
+      echo -e $CL_MAG"=============================================="$CL_RST
       echo -e $CL_GRN"Build for GT-P7510/7511 done"$CL_RST
       echo -e $CL_GRN"${bldgrn}Total time elapsed: ${txtrst}${grn}$(echo "($res75102 - $res75101) / 60"|bc ) minutes ($(echo "$res75102 - $res75101"|bc ) seconds) ${txtrst}"$CL_RST
-      echo -e $CL_MAG"============================================"$CL_RST
+      echo -e $CL_MAG"=============================================="$CL_RST
    else
-      echo -e $CL_MAG"============================================"$CL_RST
+      echo -e $CL_MAG"=============================================="$CL_RST
       echo -e $CL_RED"Build for GT-P7510/7511 failed"$CL_RST
-      echo -e $CL_MAG"============================================"$CL_RST
+      echo -e $CL_MAG"=============================================="$CL_RST
    fi
 fi
 if [ $DO_N7000 -eq 0 ]; then
    if [ $N7000RESULT -eq 0 ]; then
-      echo -e $CL_MAG"============================================"$CL_RST
+      echo -e $CL_MAG"=============================================="$CL_RST
       echo -e $CL_GRN"Build for GT-N7000 done"$CL_RST
       echo -e $CL_GRN"${bldgrn}Total time elapsed: ${txtrst}${grn}$(echo "($res70002 - $res70001) / 60"|bc ) minutes ($(echo "$res70002 - $res70001"|bc ) seconds) ${txtrst}"$CL_RST
-      echo -e $CL_MAG"============================================"$CL_RST
+      echo -e $CL_MAG"=============================================="$CL_RST
    else
-      echo -e $CL_MAG"============================================"$CL_RST
+      echo -e $CL_MAG"=============================================="$CL_RST
       echo -e $CL_RED"Build for GT-N7000 failed"$CL_RST
-      echo -e $CL_MAG"============================================"$CL_RST
+      echo -e $CL_MAG"=============================================="$CL_RST
    fi
 fi
 
