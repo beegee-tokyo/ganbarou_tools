@@ -57,6 +57,14 @@ printf "Unpacking $OTAPACKAGE..."
 unzip $QUIET $OTAPACKAGE
 echo
 
+# IF we build for infamous kernel then we have to change $OLD_DEVICE
+if [[ $OLD_DEVICE == p4p ]]; then 
+   export $OLD_DEVICE=p4
+fi
+if [[ $OLD_DEVICE == p4wifip ]]; then 
+   export $OLD_DEVICE=p4wifi
+fi
+
 echo -e $CL_GRN"============================================"$CL_RST
 echo -e $CL_GRN"Ganbarou changes in updater-script"
 echo -e $CL_GRN"============================================"$CL_RST

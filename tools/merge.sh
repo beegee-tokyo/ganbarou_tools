@@ -71,7 +71,7 @@ cd kernel
 cd samsung
 cd p4_infamous
 git checkout infamous-jb42
-git remote add upstream git://github.com/pershoot/android_kernel_samsung_p4.git
+git remote add upstream git://github.com/InfamousAOKP/android_kernel_samsung_p4.git
 git fetch upstream
 git merge upstream/infamous-jb42
 cd ../../..
