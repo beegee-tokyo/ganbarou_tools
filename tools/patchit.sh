@@ -6,6 +6,7 @@ NEW_DEVICE=$1
 NEW_DEVICE1=$2
 NEW_DEVICE2=$3
 OLD_DEVICE=$4
+KERNEL_VERSION=$5
 # build with colors!
 CL_RED="\033[31m"
 CL_GRN="\033[32m"
@@ -22,6 +23,7 @@ echo -e $CL_MAG"NEW_DEVICE = "$CL_YLW"$NEW_DEVICE"$CL_RST
 echo -e $CL_MAG"NEW_DEVICE1 = "$CL_YLW"$NEW_DEVICE1"$CL_RST
 echo -e $CL_MAG"NEW_DEVICE2 = "$CL_YLW"$NEW_DEVICE2"$CL_RST
 echo -e $CL_MAG"OLD_DEVICE = "$CL_YLW"$OLD_DEVICE"$CL_RST
+echo -e $CL_MAG"KERNEL_VERSION = "$CL_YLW"$KERNEL_VERSION"$CL_RST
 
 echo -e $CL_GRN"============================================"$CL_RST
 echo -e $CL_GRN"Ganbarou patches - Set common variables"$CL_RST
@@ -41,12 +43,11 @@ echo -e $CL_GRN"Unpack $NEW_DEVICE for Ganbarou patches"
 echo -e $CL_GRN"============================================"$CL_RST
 OUT="$ANDROID_BUILD_TOP/out/target/product/$OLD_DEVICE"
 REPACK="$OUT/repack.d"
-OUTFILE="$OUT/Ganbarou-$NEW_DEVICE-v$gooversion_t.$goobuild_t-$NOW.zip"
+OUTFILE="$OUT/Ganbarou-$NEW_DEVICE-v$gooversion_t.$goobuild_t-$NOW-$KERNEL_VERSION.zip"
 if [ $NEW_DEVICE2 -eq 1 ]; then
-   OUTFILE1="$OUT/Ganbarou-$NEW_DEVICE1-v$gooversion_t.$goobuild_t-$NOW.zip"
+   OUTFILE1="$OUT/Ganbarou-$NEW_DEVICE1-v$gooversion_t.$goobuild_t-$NOW-$KERNEL_VERSION.zip"
 fi
 # was cm-base_for_ganbarou.zip is now cm_p4-ota-eng.beegee.zip p4 can be p4wifi or n7000
-#OTAPACKAGE="$OUT/cm_$OLD_DEVICE-ota-eng.beegee.zip"
 #OTAPACKAGE="$OUT/cm-10.1-$NOWORG-UNOFFICIAL-$OLD_DEVICE.zip"
 OTAPACKAGE="$OUT/cm_$OLD_DEVICE-ota-eng.beegee.zip"
 mkdir $REPACK
@@ -126,9 +127,15 @@ $SED -i \
 if [ $NEW_DEVICE2 -eq 1 ]; then
    echo -e $CL_GRN"============================================"$CL_RST
    echo -e $CL_GRN"Change $OLD_DEVICE to $NEW_DEVICE in build.prop"
+   echo -e $CL_GRN"But keep ro.product.device for Google Play"
    echo -e $CL_GRN"============================================"$CL_RST
    $SED -i \
    	-e "s:${OLD_DEVICE}:${NEW_DEVICE}:" \
+	$REPACK/ota/system/build.prop
+   OLD_PROD_DEV="ro.product.device=$NEW_DEVICE"
+   NEW_PROD_DEV="ro.product.device=$OLD_DEVICE"
+   $SED -i \
+   	-e "s:${OLD_PROD_DEV}:${NEW_PROD_DEV}:" \
 	$REPACK/ota/system/build.prop
 fi
 echo -e $CL_GRN"============================================"$CL_RST
@@ -265,10 +272,16 @@ if [ $NEW_DEVICE2 -eq 1 ]; then
    cp -rf $REPACK/ota/. $REPACK/ota1/.
    echo -e $CL_GRN"============================================"$CL_RST
    echo -e $CL_GRN"Change $NEW_DEVICE to $NEW_DEVICE1 in build.prop"
+   echo -e $CL_GRN"But keep ro.product.device for Google Play"
    echo -e $CL_GRN"============================================"$CL_RST
    $SED -i \
    	-e "s:${NEW_DEVICE}:${NEW_DEVICE1}:" \
 	$REPACK/ota1/system/build.prop
+   OLD_PROD_DEV="ro.product.device=$NEW_DEVICE1"
+   NEW_PROD_DEV="ro.product.device=$OLD_DEVICE"
+   $SED -i \
+   	-e "s:${OLD_PROD_DEV}:${NEW_PROD_DEV}:" \
+	$REPACK/ota/system/build.prop
 fi
 
 echo -e $CL_GRN"============================================"$CL_RST

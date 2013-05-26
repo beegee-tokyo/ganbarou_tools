@@ -87,6 +87,19 @@ git commit -a
 git push git@github.com:beegee-tokyo/android_kernel_samsung_p4_pershoot.git cm-10.1
 cd ../../..
 echo ============================================
+echo 'Push latest changes to beegee-tokyo infamous kernel p4'
+echo ============================================
+cd kernel
+cd samsung
+cd p4_infamous
+repo start infamous-jb42 .
+git checkout infamous-jb42
+git pull
+git add -A
+git commit -a
+git push git@github.com:beegee-tokyo/android_kernel_samsung_p4_pershoot.git infamous-jb42
+cd ../../..
+echo ============================================
 echo 'Push latest changes to beegee-tokyo vendor_n7000'
 echo ============================================
 cd vendor
