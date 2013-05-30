@@ -11,7 +11,7 @@
   <project name="beegee-tokyo/android_packages_apps_g_Wallpapers" path="packages/apps/Wallpapers" remote="github" revision="ics" />
   <project name="beegee-tokyo/rom_stats" path="packages/apps/rom_stats" revision="master" />
   <remove-project name="CyanogenMod/android_packages_apps_Settings" />
-  <project name="beegee-tokyo/android_packages_apps_g_Settings" path="packages/apps/Settings" revision="cm-10.1" />
+  <project name="beegee-tokyo/android_packages_apps_Settings" path="packages/apps/Settings" revision="cm-10.1" />
   <remove-project name="CyanogenMod/android_frameworks_base" />
   <project name="beegee-tokyo/android_frameworks_base" path="frameworks/base" revision="cm-10.1" />
   <!-- ################################################# -->
