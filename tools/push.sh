@@ -149,7 +149,7 @@ git checkout cm-10.1
 git pull
 git add -A
 git commit -a
-git push git@github.com:beegee-tokyo/android_packages_apps_g_Settings.git cm-10.1
+git push git@github.com:beegee-tokyo/android_packages_apps_Settings.git cm-10.1
 cd ../../..
 echo ============================================
 echo 'Push latest changes to CyanogenMod framework'

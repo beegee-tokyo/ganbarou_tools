@@ -49,7 +49,7 @@ if [ $NEW_DEVICE2 -eq 1 ]; then
 fi
 # was cm-base_for_ganbarou.zip is now cm_p4-ota-eng.beegee.zip p4 can be p4wifi or n7000
 #OTAPACKAGE="$OUT/cm-10.1-$NOWORG-UNOFFICIAL-$OLD_DEVICE.zip"
-OTAPACKAGE="$OUT/cm_$OLD_DEVICE-ota-eng.beegee.zip"
+OTAPACKAGE="$OUT/cm_$OLD_DEVICE-ota-eng.$USER.zip"
 mkdir $REPACK
 mkdir $REPACK/ota
 cd $REPACK/ota
