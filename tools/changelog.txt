@@ -1,8 +1,8 @@
 VERSION_MAJOR = 3
-VERSION_MINOR = 11
+VERSION_MINOR = 12
 CHANGELOG_0 = Update: latest CM10.1 sources.
-CHANGELOG_1 = Kernel: Switch back to Infamous Kernel
-CHANGELOG_2 = Feature: Profiles are available again
+CHANGELOG_1 = Bugfix: Settting for tablet_ui are back
+CHANGELOG_2 = 
 CHANGELOG_3 = 
 CHANGELOG_4 = 
 CHANGELOG_5 = 
@@ -12,6 +12,11 @@ CHANGELOG_8 =
 CHANGELOG_9 = 
 
 OLDVERSION_LOG = 
+V3.11
+Update: latest CM10.1 sources.
+Kernel: Switch back to Infamous Kernel
+Feature: Profiles are available again
+
 V3.10
 Update: latest CM10.1 sources.
 BugFix: Settings->System on Galaxy Note (N7000).
