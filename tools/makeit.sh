@@ -210,23 +210,23 @@ fi
 # all 4 params must be given!
 
 if [ $DO_P750T -eq 0 ]; then
-   echo -e $CL_MAG"=============================================="$CL_RST
-   echo -e $CL_MAG"Start the build for GT-P7500 pershoot kernel"$CL_RST
-   echo -e $CL_MAG"=============================================="$CL_RST
-   res75001=$(date +%s.%N)
-   . build/envsetup.sh && brunch p4
-   if [ $? -eq 0 ]; then
-      echo -e $CL_MAG"=============================================="$CL_RST
-      echo -e $CL_GRN"Build for GT-P7500 pershoot kernel successfull"$CL_RST
-      echo -e $CL_MAG"=============================================="$CL_RST
-      export P750TRESULT=0
-      ./patchit.sh GT-P7500 GT-P7501 0 p4 pershoot
-   else
-      echo -e $CL_MAG"=============================================="$CL_RST
-      echo -e $CL_RED"Build for GT-P7500 pershoot kernel failed"$CL_RST
-      echo -e $CL_MAG"=============================================="$CL_RST
-      export P750TRESULT=1
-   fi
+#   echo -e $CL_MAG"=============================================="$CL_RST
+#   echo -e $CL_MAG"Start the build for GT-P7500 pershoot kernel"$CL_RST
+#   echo -e $CL_MAG"=============================================="$CL_RST
+#   res75001=$(date +%s.%N)
+#   . build/envsetup.sh && brunch p4
+#   if [ $? -eq 0 ]; then
+#      echo -e $CL_MAG"=============================================="$CL_RST
+#      echo -e $CL_GRN"Build for GT-P7500 pershoot kernel successfull"$CL_RST
+#      echo -e $CL_MAG"=============================================="$CL_RST
+#      export P750TRESULT=0
+#      ./patchit.sh GT-P7500 GT-P7501 0 p4 pershoot
+#   else
+#      echo -e $CL_MAG"=============================================="$CL_RST
+#      echo -e $CL_RED"Build for GT-P7500 pershoot kernel failed"$CL_RST
+#      echo -e $CL_MAG"=============================================="$CL_RST
+#      export P750TRESULT=1
+#   fi
    echo -e $CL_MAG"=============================================="$CL_RST
    echo -e $CL_MAG"Start the build for GT-P7500 infamous kernel"$CL_RST
    echo -e $CL_MAG"=============================================="$CL_RST
