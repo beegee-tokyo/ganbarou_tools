@@ -213,7 +213,7 @@ if [ $DO_P750T -eq 0 ]; then
 #   echo -e $CL_MAG"=============================================="$CL_RST
 #   echo -e $CL_MAG"Start the build for GT-P7500 pershoot kernel"$CL_RST
 #   echo -e $CL_MAG"=============================================="$CL_RST
-#   res75001=$(date +%s.%N)
+   res75001=$(date +%s.%N)
 #   . build/envsetup.sh && brunch p4
 #   if [ $? -eq 0 ]; then
 #      echo -e $CL_MAG"=============================================="$CL_RST

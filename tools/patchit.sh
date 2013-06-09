@@ -69,14 +69,14 @@ fi
 echo -e $CL_GRN"============================================"$CL_RST
 echo -e $CL_GRN"Ganbarou changes in updater-script"
 echo -e $CL_GRN"============================================"$CL_RST
-if [ $NEW_DEVICE2 -eq 1 ]; then
+#if [ $NEW_DEVICE2 -eq 1 ]; then
    echo -e $CL_GRN"============================================"$CL_RST
    echo -e $CL_GRN"Remove assert from updater-script"
    echo -e $CL_GRN"============================================"$CL_RST
    $SED -i \
 	-e '/^a/d' \
 	$REPACK/ota/META-INF/com/google/android/updater-script
-fi
+#fi
 echo -e $CL_GRN"============================================"$CL_RST
 echo -e $CL_GRN"clean-up updater-script"
 echo -e $CL_GRN"============================================"$CL_RST
