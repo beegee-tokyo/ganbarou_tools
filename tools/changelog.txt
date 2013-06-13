@@ -12,6 +12,11 @@ CHANGELOG_8 =
 CHANGELOG_9 = 
 
 OLDVERSION_LOG = 
+V3.12
+Update: latest CM10.1 sources.
+Bugfix: Settting for tablet_ui are back
+Bugfix: GPS is working again
+
 V3.11
 Update: latest CM10.1 sources.
 Kernel: Switch back to Infamous Kernel
