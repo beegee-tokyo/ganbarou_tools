@@ -2,11 +2,15 @@
 # $NEW_DEVICE1 = GT-P7501 or GT-P7511
 # $NEW_DEVICE2 = 1 for P7501/P7511 and 0 for N7000
 # $OLD_DEVICE = p4 or p4wifi or n7000
+# KERNEL_VERSION = infamous or pershoot
+# TEST_BUILD = 1 if quick build only for P7500 else it is 0
+
 NEW_DEVICE=$1
 NEW_DEVICE1=$2
 NEW_DEVICE2=$3
 OLD_DEVICE=$4
 KERNEL_VERSION=$5
+TEST_BUILD=$6
 # build with colors!
 CL_RED="\033[31m"
 CL_GRN="\033[32m"
@@ -24,7 +28,7 @@ echo -e $CL_MAG"NEW_DEVICE1 = "$CL_YLW"$NEW_DEVICE1"$CL_RST
 echo -e $CL_MAG"NEW_DEVICE2 = "$CL_YLW"$NEW_DEVICE2"$CL_RST
 echo -e $CL_MAG"OLD_DEVICE = "$CL_YLW"$OLD_DEVICE"$CL_RST
 echo -e $CL_MAG"KERNEL_VERSION = "$CL_YLW"$KERNEL_VERSION"$CL_RST
-
+echo -e $CL_MAG"TEST_BUILD = "$CL_YLW"$TEST_BUILD"$CL_RST
 echo -e $CL_GRN"============================================"$CL_RST
 echo -e $CL_GRN"Ganbarou patches - Set common variables"$CL_RST
 echo -e $CL_GRN"============================================"$CL_RST
@@ -69,7 +73,7 @@ fi
 echo -e $CL_GRN"============================================"$CL_RST
 echo -e $CL_GRN"Ganbarou changes in updater-script"
 echo -e $CL_GRN"============================================"$CL_RST
-#if [ $NEW_DEVICE2 -eq 1 ]; then
+#if [ $NEW_DEVICE2 -eq 1 ] || [ $TEST_BUILD -eq 1 ] ; then
    echo -e $CL_GRN"============================================"$CL_RST
    echo -e $CL_GRN"Remove assert from updater-script"
    echo -e $CL_GRN"============================================"$CL_RST
@@ -133,7 +137,7 @@ $SED -i \
 #echo -e $CL_GRN"============================================"$CL_RST
 #mkdir $REPACK/ota/recovery
 #cp $OUT/recovery.img $REPACK/ota/recovery/recovery.img
-#if [ $NEW_DEVICE2 -eq 1 ]; then
+#if [ $NEW_DEVICE2 -eq 1 ] || [ $TEST_BUILD -eq 1 ]; then
    echo -e $CL_GRN"============================================"$CL_RST
    echo -e $CL_GRN"Change $OLD_DEVICE to $NEW_DEVICE in build.prop"
    echo -e $CL_GRN"But keep ro.product.device for Google Play"
@@ -246,7 +250,7 @@ echo -e $CL_GRN"Add Ganbarou specific data files"
 echo -e $CL_GRN"============================================"$CL_RST
 mkdir $REPACK/ota/data
 mkdir $REPACK/ota/data/app
-if [ $NEW_DEVICE2 -eq 1 ]; then
+if [ $NEW_DEVICE2 -eq 1 ] || [ $TEST_BUILD -eq 1 ]; then
    cp -r -f -v $ANDROID_BUILD_TOP/ganbarou_tools/patches/data/app/. $REPACK/ota/data/app/.
 else
    cp -r -f -v $ANDROID_BUILD_TOP/ganbarou_tools/patches/datap/app/. $REPACK/ota/data/app/.
@@ -270,7 +274,7 @@ $SED -i \
 echo -e $CL_GRN"============================================"$CL_RST
 echo -e $CL_GRN"Add Ganbarou boot animation"
 echo -e $CL_GRN"============================================"$CL_RST
-if [ $NEW_DEVICE2 -eq 1 ]; then
+if [ $NEW_DEVICE2 -eq 1 ] || [ $TEST_BUILD -eq 1 ]; then
    cp -r -f -v $ANDROID_BUILD_TOP/ganbarou_tools/patches/bootanimation-t/bootanimation.zip $REPACK/ota/system/media/bootanimation.zip
 else
    cp -r -f -v $ANDROID_BUILD_TOP/ganbarou_tools/patches/bootanimation-p/bootanimation.zip $REPACK/ota/system/media/bootanimation.zip
