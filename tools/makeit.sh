@@ -228,7 +228,7 @@ if [ $DO_P750T -eq 0 ]; then
       echo -e $CL_GRN"Build for GT-P7500 infamous kernel successfull"$CL_RST
       echo -e $CL_MAG"=============================================="$CL_RST
       export P750TRESULT=0
-      ./patchit.sh GT-P7500 GT-P7501 0 p4p infamous 0
+      ./patchit.sh GT-P7500 GT-P7501 0 p4p infamous 1
    else
       echo -e $CL_MAG"=============================================="$CL_RST
       echo -e $CL_RED"Build for GT-P7500 infamous kernel failed"$CL_RST
@@ -250,7 +250,7 @@ if [ $DO_P7500 -eq 0 ]; then
       echo -e $CL_GRN"Build for GT-P7500 pershoot kernel successfull"$CL_RST
       echo -e $CL_MAG"=============================================="$CL_RST
       export P7500RESULT=0
-      ./patchit.sh GT-P7500 GT-P7501 1 p4 pershoot 1
+      ./patchit.sh GT-P7500 GT-P7501 1 p4 pershoot 0
    else
       echo -e $CL_MAG"=============================================="$CL_RST
       echo -e $CL_RED"Build for GT-P7500 pershoot kernel failed"$CL_RST
@@ -266,7 +266,7 @@ if [ $DO_P7500 -eq 0 ]; then
       echo -e $CL_GRN"Build for GT-P7500 infamous kernel successfull"$CL_RST
       echo -e $CL_MAG"=============================================="$CL_RST
       export P750TRESULT=0
-      ./patchit.sh GT-P7500 GT-P7501 1 p4p infamous 1
+      ./patchit.sh GT-P7500 GT-P7501 1 p4p infamous 0
    else
       echo -e $CL_MAG"=============================================="$CL_RST
       echo -e $CL_RED"Build for GT-P7500 infamous kernel failed"$CL_RST
@@ -288,7 +288,7 @@ if [ $DO_P7510 -eq 0 ]; then
       echo -e $CL_GRN"Build for GT-P7510 pershoot kernel successfull"$CL_RST
       echo -e $CL_MAG"=============================================="$CL_RST
       export P7510RESULT=0
-      ./patchit.sh GT-P7510 GT-P7511 1 p4wifi pershoot 1
+      ./patchit.sh GT-P7510 GT-P7511 1 p4wifi pershoot 0
    else
       echo -e $CL_MAG"=============================================="$CL_RST
       echo -e $CL_RED"Build for GT-P7510 pershoot kernel failed"$CL_RST
@@ -304,7 +304,7 @@ if [ $DO_P7510 -eq 0 ]; then
       echo -e $CL_GRN"Build for GT-P7510 infamous kernel successfull"$CL_RST
       echo -e $CL_MAG"=============================================="$CL_RST
       export P7510RESULT=0
-      ./patchit.sh GT-P7510 GT-P7511 1 p4wifip infamous 1
+      ./patchit.sh GT-P7510 GT-P7511 1 p4wifip infamous 0
    else
       echo -e $CL_MAG"=============================================="$CL_RST
       echo -e $CL_RED"Build for GT-P7510 infamous kernel failed"$CL_RST
@@ -326,7 +326,7 @@ if [ $DO_N7000 -eq 0 ]; then
       echo -e $CL_GRN"Build for GT-N7000 successfull"$CL_RST
       echo -e $CL_MAG"=============================================="$CL_RST
       export N7000RESULT=0
-      ./patchit.sh GT-N7000 GT-N7000 0 n7000 cm 1
+      ./patchit.sh GT-N7000 GT-N7000 0 n7000 cm 0
    else
       echo -e $CL_MAG"=============================================="$CL_RST
       echo -e $CL_RED"Build for GT-N7000 failed"$CL_RST
