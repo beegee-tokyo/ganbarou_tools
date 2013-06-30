@@ -197,11 +197,11 @@ echo "net.tcp.buffersize.wifi=4096,87380,256960,4096,16384,256960" >> $REPACK/ot
 echo "net.tcp.buffersize.umts=4096,87380,256960,4096,16384,256960" >> $REPACK/ota/system/build.prop
 echo "net.tcp.buffersize.gprs=4096,87380,256960,4096,16384,256960" >> $REPACK/ota/system/build.prop
 echo "net.tcp.buffersize.edge=4096,87380,256960,4096,16384,256960" >> $REPACK/ota/system/build.prop
-if [ $NEW_DEVICE == "GT-P7500" ] || [ $NEW_DEVICE == "GT-P7510" ]; then
-   echo "tablet.mode=1" >> $REPACK/ota/system/build.prop
-else
-   echo "tablet.mode=0" >> $REPACK/ota/system/build.prop
-fi
+#if [ $NEW_DEVICE == "GT-P7500" ] || [ $NEW_DEVICE == "GT-P7510" ]; then
+#   echo "tablet.mode=1" >> $REPACK/ota/system/build.prop
+#else
+#   echo "tablet.mode=0" >> $REPACK/ota/system/build.prop
+#fi
 echo " " >> $REPACK/ota/system/build.prop
 echo "#" >> $REPACK/ota/system/build.prop
 echo "# Goo Manager info" >> $REPACK/ota/system/build.prop

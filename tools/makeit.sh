@@ -202,6 +202,16 @@ fi
 # all 6 params must be given!
 
 if [ $DO_P750T -eq 0 ]; then
+# For patchit.sh the params are:
+# $NEW_DEVICE = GT-P7500 or GT-P7510 or GT-N7000
+# $NEW_DEVICE1 = GT-P7501 or GT-P7511
+# $NEW_DEVICE2 = 1 for P7501/P7511 and 0 for N7000
+# $OLD_DEVICE = p4 or p4wifi or n7000
+# KERNEL_VERSION = infamous or pershoot
+# TEST_BUILD = 1 if quick build only for P7500 else it is 0
+# all 6 params must be given!
+
+if [ $DO_P750T -eq 0 ]; then
 #   echo -e $CL_MAG"=============================================="$CL_RST
 #   echo -e $CL_MAG"Start the build for GT-P7500 pershoot kernel"$CL_RST
 #   echo -e $CL_MAG"=============================================="$CL_RST
@@ -212,7 +222,7 @@ if [ $DO_P750T -eq 0 ]; then
 #      echo -e $CL_GRN"Build for GT-P7500 pershoot kernel successfull"$CL_RST
 #      echo -e $CL_MAG"=============================================="$CL_RST
 #      export P750TRESULT=0
-#      ./patchit.sh GT-P7500 GT-P7501 0 p4 pershoot
+#      ./patchit.sh GT-P7500 GT-P7501 0 p4 pershoot 1
 #   else
 #      echo -e $CL_MAG"=============================================="$CL_RST
 #      echo -e $CL_RED"Build for GT-P7500 pershoot kernel failed"$CL_RST
