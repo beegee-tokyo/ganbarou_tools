@@ -16,6 +16,7 @@ export DO_P7500=1
 export DO_P750T=1 
 export DO_P7510=1 
 export DO_N7000=1
+export DO_I9505=1
 
 # Check the parameters given
 for PARAM in "$@"
@@ -24,14 +25,16 @@ do
       echo -e $CL_MAG"Help for the script"
       echo "You have 2 possibilities to run the script"
       echo -e $CL_BLU"a) no parameters"
-      echo "   build the ROMs for GT-P7500/P7501/P7510/P7511 and GT-N7000"
+      echo "   build the ROMs for GT-P7500/P7501/P7510/P7511 and GT-N7000 or GT-I9505"
       echo "b) with one or several of the following parameters"
-      echo -e $CL_YLW"   <all> ==> builds the ROMs for GT-P7500/P7501/P7510/P7511 and for the GT-N7000"
-      echo -e $CL_YLW"   <tab> ==> builds the ROMs for GT-P7500/P7501/P7510/P7511 only, not for the GT-N7000"
-      echo -e $CL_YLW"   <3g> ==> builds the ROMs for GT-P7500/P7501 only, not for the GT-P7510/P7511 or GT-N7000"
-      echo -e $CL_YLW"   <wifi> ==> builds the ROMs for GT-P7510/P7511 only, not for the GT-P7500/P7501 or GT-N7000"
-      echo -e $CL_YLW"   <phone> ==> build the ROM for GT-N7000 only, not for the GT-P7500/P7501/P7510/P7511"
-      echo -e $CL_YLW"   <clean> ==> can be used alone, then it cleans up the <out> folder and builds the ROMs for GT-N7000"
+      echo -e $CL_YLW"   <all> ==> builds the ROMs for GT-P7500/P7501/P7510/P7511 and for the GT-N7000 and GT-I9505"
+      echo -e $CL_YLW"   <tab> ==> builds the ROMs for GT-P7500/P7501/P7510/P7511 only, not for the GT-N7000 or GT-I9505"
+      echo -e $CL_YLW"   <3g> ==> builds the ROMs for GT-P7500/P7501 only, not for the GT-P7510/P7511 or GT-N7000 or GT-I9505"
+      echo -e $CL_YLW"   <wifi> ==> builds the ROMs for GT-P7510/P7511 only, not for the GT-P7500/P7501 or GT-N7000 or GT-I9505"
+      echo -e $CL_YLW"   <phone> ==> build the ROM for GT-N7000 and GT-I9505 only, not for the GT-P7500/P7501/P7510/P7511"
+      echo -e $CL_YLW"   <t> ==> build the ROM for GT-P7500 only"
+      echo -e $CL_YLW"   <p> ==> build the ROM for GT-I9505 only"
+      echo -e $CL_YLW"   <clean> ==> can be used alone, then it cleans up the <out> folder and builds the ROMs for GT-N7000 and GT-I9505"
       echo -e $CL_YLW"               and for the GT-P7500/P7501/P7510/P7511"
       echo -e $CL_YLW"           ==> can be used together with other parameters, then it cleans up the <out> folder and "
       echo -e $CL_YLW"               builds the ROMs as selected by the second parameter"
@@ -62,17 +65,23 @@ do
    fi
    if [[ $PARAM == phone ]]; then 
       export DO_N7000=0 
+      export DO_I9505=0 
+   fi
+   if [[ $PARAM == p ]]; then 
+      export DO_I9505=0 
    fi
    if [[ $PARAM == all ]]; then 
       export DO_N7000=0 
       export DO_P7500=0 
       export DO_P7510=0
+      export DO_I9505=0 
    fi
 done
-if [ $DO_P7500 -eq 1 ] && [ $DO_P750T -eq 1 ] && [ $DO_P7510 -eq 1 ] && [ $DO_N7000 -eq 1 ]; then
+if [ $DO_P7500 -eq 1 ] && [ $DO_P750T -eq 1 ] && [ $DO_P7510 -eq 1 ] && [ $DO_N7000 -eq 1 ] && [ $DO_I9505 -eq 1 ]; then
       export DO_N7000=0 
       export DO_P7500=0 
       export DO_P7510=0 
+      export DO_I9505=0 
 fi   
 if [ $DO_CLEAN -eq 0 ]; then
    CLEAN_TXT1="a"
@@ -99,7 +108,10 @@ fi
 if [ $DO_N7000 -eq 0 ]; then
    N7000_TXT=" GT-N7000"
 fi
-echo -n -e $CL_GRN"Start $CLEAN_TXT1$CLEAN_TXT2$CLEAN_TXT3$CLEAN_TXT4$CLEAN_TXT5$P7500_TXT$P7510_TXT$N7000_TXT? [Y/n]: "$CL_RST
+if [ $DO_I9505 -eq 0 ]; then
+   I9505_TXT=" GT-I9505"
+fi
+echo -n -e $CL_GRN"Start $CLEAN_TXT1$CLEAN_TXT2$CLEAN_TXT3$CLEAN_TXT4$CLEAN_TXT5$P7500_TXT$P7510_TXT$N7000_TXT$I9505_TXT? [Y/n]: "$CL_RST
 read yno
 case $yno in
         [nN] | [n|N][O|o] )
@@ -193,42 +205,32 @@ if [ $DO_CLEAN -eq 0 ]; then
    make clean
 fi
 # For patchit.sh the params are:
-# $NEW_DEVICE = GT-P7500 or GT-P7510 or GT-N7000
+# $NEW_DEVICE = GT-P7500 or GT-P7510 or GT-N7000 or GT-I9505
 # $NEW_DEVICE1 = GT-P7501 or GT-P7511
-# $NEW_DEVICE2 = 1 for P7501/P7511 and 0 for N7000
-# $OLD_DEVICE = p4 or p4wifi or n7000
+# $NEW_DEVICE2 = 1 for P7501/P7511 and 0 for N7000 and GT-I9505
+# $OLD_DEVICE = p4 or p4wifi or n7000 or jfltexx
 # KERNEL_VERSION = infamous or pershoot
 # TEST_BUILD = 1 if quick build only for P7500 else it is 0
 # all 6 params must be given!
 
 if [ $DO_P750T -eq 0 ]; then
-# For patchit.sh the params are:
-# $NEW_DEVICE = GT-P7500 or GT-P7510 or GT-N7000
-# $NEW_DEVICE1 = GT-P7501 or GT-P7511
-# $NEW_DEVICE2 = 1 for P7501/P7511 and 0 for N7000
-# $OLD_DEVICE = p4 or p4wifi or n7000
-# KERNEL_VERSION = infamous or pershoot
-# TEST_BUILD = 1 if quick build only for P7500 else it is 0
-# all 6 params must be given!
-
-if [ $DO_P750T -eq 0 ]; then
-#   echo -e $CL_MAG"=============================================="$CL_RST
-#   echo -e $CL_MAG"Start the build for GT-P7500 pershoot kernel"$CL_RST
-#   echo -e $CL_MAG"=============================================="$CL_RST
+   echo -e $CL_MAG"=============================================="$CL_RST
+   echo -e $CL_MAG"Start the build for GT-P7500 pershoot kernel"$CL_RST
+   echo -e $CL_MAG"=============================================="$CL_RST
    res75001=$(date +%s.%N)
-#   . build/envsetup.sh && brunch p4
-#   if [ $? -eq 0 ]; then
-#      echo -e $CL_MAG"=============================================="$CL_RST
-#      echo -e $CL_GRN"Build for GT-P7500 pershoot kernel successfull"$CL_RST
-#      echo -e $CL_MAG"=============================================="$CL_RST
-#      export P750TRESULT=0
-#      ./patchit.sh GT-P7500 GT-P7501 0 p4 pershoot 1
-#   else
-#      echo -e $CL_MAG"=============================================="$CL_RST
-#      echo -e $CL_RED"Build for GT-P7500 pershoot kernel failed"$CL_RST
-#      echo -e $CL_MAG"=============================================="$CL_RST
-#      export P750TRESULT=1
-#   fi
+   . build/envsetup.sh && brunch p4
+   if [ $? -eq 0 ]; then
+      echo -e $CL_MAG"=============================================="$CL_RST
+      echo -e $CL_GRN"Build for GT-P7500 pershoot kernel successfull"$CL_RST
+      echo -e $CL_MAG"=============================================="$CL_RST
+      export P750TRESULT=0
+      ./patchit.sh GT-P7500 GT-P7501 0 p4 pershoot 1
+   else
+      echo -e $CL_MAG"=============================================="$CL_RST
+      echo -e $CL_RED"Build for GT-P7500 pershoot kernel failed"$CL_RST
+      echo -e $CL_MAG"=============================================="$CL_RST
+      export P750TRESULT=1
+   fi
    echo -e $CL_MAG"=============================================="$CL_RST
    echo -e $CL_MAG"Start the build for GT-P7500 infamous kernel"$CL_RST
    echo -e $CL_MAG"=============================================="$CL_RST
@@ -330,7 +332,7 @@ if [ $DO_N7000 -eq 0 ]; then
    echo -e $CL_MAG"Start the build for GT-N7000"$CL_RST
    echo -e $CL_MAG"=============================================="$CL_RST
    res70001=$(date +%s.%N)
-   . build/envsetup.sh && brunch n7000 cm 1
+   . build/envsetup.sh && brunch n7000
    if [ $? -eq 0 ]; then
       echo -e $CL_MAG"=============================================="$CL_RST
       echo -e $CL_GRN"Build for GT-N7000 successfull"$CL_RST
@@ -346,6 +348,28 @@ if [ $DO_N7000 -eq 0 ]; then
    res70002=$(date +%s.%N)
 else
    export N7000RESULT=1
+fi
+if [ $DO_I9505 -eq 0 ]; then
+   echo -e $CL_MAG"=============================================="$CL_RST
+   echo -e $CL_MAG"Start the build for GT-I9505"$CL_RST
+   echo -e $CL_MAG"=============================================="$CL_RST
+   res95051=$(date +%s.%N)
+   . build/envsetup.sh && brunch jfltexx
+   if [ $? -eq 0 ]; then
+      echo -e $CL_MAG"=============================================="$CL_RST
+      echo -e $CL_GRN"Build for GT-I9505 successfull"$CL_RST
+      echo -e $CL_MAG"=============================================="$CL_RST
+      export I9505RESULT=0
+      ./patchit.sh GT-I9505 GT-I9505 0 jfltexx cm 0
+   else
+      echo -e $CL_MAG"=============================================="$CL_RST
+      echo -e $CL_RED"Build for GT-I9505 failed"$CL_RST
+      echo -e $CL_MAG"=============================================="$CL_RST
+      export I9505RESULT=1
+   fi
+   res95052=$(date +%s.%N)
+else
+   export I9505RESULT=1
 fi
 
 echo -e $CL_MAG"=============================================="$CL_RST
@@ -401,6 +425,18 @@ if [ $DO_N7000 -eq 0 ]; then
    else
       echo -e $CL_MAG"=============================================="$CL_RST
       echo -e $CL_RED"Build for GT-N7000 failed"$CL_RST
+      echo -e $CL_MAG"=============================================="$CL_RST
+   fi
+fi
+if [ $DO_I9505 -eq 0 ]; then
+   if [ $I9505RESULT -eq 0 ]; then
+      echo -e $CL_MAG"=============================================="$CL_RST
+      echo -e $CL_GRN"Build for GT-II9505 done"$CL_RST
+      echo -e $CL_GRN"${bldgrn}Total time elapsed: ${txtrst}${grn}$(echo "($res95052 - $res95051) / 60"|bc ) minutes ($(echo "$res95052 - $res95051"|bc ) seconds) ${txtrst}"$CL_RST
+      echo -e $CL_MAG"=============================================="$CL_RST
+   else
+      echo -e $CL_MAG"=============================================="$CL_RST
+      echo -e $CL_RED"Build for GT-I9505 failed"$CL_RST
       echo -e $CL_MAG"=============================================="$CL_RST
    fi
 fi
