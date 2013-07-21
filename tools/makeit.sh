@@ -280,7 +280,7 @@ if [ $DO_P7500 -eq 0 ]; then
    echo -e $CL_MAG"=============================================="$CL_RST
    export kernelversion="infamous"
    export kernelbuild="infamous_p4_defconfig"
-   . build/envsetup.sh && brunch p4p
+   . build/envsetup.sh && brunch p4
    if [ $? -eq 0 ]; then
       echo -e $CL_MAG"=============================================="$CL_RST
       echo -e $CL_GRN"Build for GT-P7500 infamous kernel successfull"$CL_RST

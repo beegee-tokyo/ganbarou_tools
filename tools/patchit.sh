@@ -270,14 +270,24 @@ echo -e $CL_GRN"============================================"$CL_RST
 $SED -i \
 	-e 's:</apns>:<apn carrier="Softbank (BizFlat)" mcc="440" mnc="20" apn="bizflat.softbank" user="biz@bizflat.softbank" password="biz" type="default,supl" /></apns>': \
 	$REPACK/ota/system/etc/apns-conf.xml
+echo -e $CL_GRN"============================================"$CL_RST
+echo -e $CL_GRN"Add new APN for Softbank 4G Snartphone connection"
+echo -e $CL_GRN"============================================"$CL_RST
+$SED -i \
+	-e 's:</apns>:<apn carrier="Softbank (4G)" mcc="440" mnc="20" apn="fourgsmartphone" type="default,supl,mms,hipri" /></apns>': \
+	$REPACK/ota/system/etc/apns-conf.xml
 
 echo -e $CL_GRN"============================================"$CL_RST
 echo -e $CL_GRN"Add Ganbarou boot animation"
 echo -e $CL_GRN"============================================"$CL_RST
 if [ $NEW_DEVICE2 -eq 1 ] || [ $TEST_BUILD -eq 1 ]; then
    cp -r -f -v $ANDROID_BUILD_TOP/ganbarou_tools/patches/bootanimation-t/bootanimation.zip $REPACK/ota/system/media/bootanimation.zip
-else
+fi
+if [ $NEW_DEVICE == "GT-N7000" ]; then
    cp -r -f -v $ANDROID_BUILD_TOP/ganbarou_tools/patches/bootanimation-p/bootanimation.zip $REPACK/ota/system/media/bootanimation.zip
+fi
+if [ $NEW_DEVICE == "GT-I9505" ]; then
+   cp -r -f -v $ANDROID_BUILD_TOP/ganbarou_tools/patches/bootanimation-p2/bootanimation.zip $REPACK/ota/system/media/bootanimation.zip
 fi
 
 if [ $NEW_DEVICE2 -eq 1 ]; then

@@ -1,23 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
-  <!-- ################################################# -->
-  <!-- Ganbarou ROM specific build & patch tools         -->
-  <!-- ################################################# -->
   <project name="beegee-tokyo/ganbarou_tools" path="ganbarou_tools" remote="github" revision="jb-4.2" />
   <project name="beegee-tokyo/ganbarou_vendor_gapps" path="vendor/ganbarou/gapps" remote="github" revision="master" />
-  <!-- ################################################# -->
-  <!-- Ganbarou ROM apks, framework and settings         -->
-  <!-- ################################################# -->
   <project name="beegee-tokyo/android_packages_apps_g_Wallpapers" path="packages/apps/Wallpapers" remote="github" revision="ics" />
   <project name="beegee-tokyo/rom_stats" path="packages/apps/rom_stats" revision="master" />
   <remove-project name="CyanogenMod/android_packages_apps_Settings" />
   <project name="beegee-tokyo/android_packages_apps_Settings" path="packages/apps/Settings" revision="cm-10.1" />
   <remove-project name="CyanogenMod/android_frameworks_base" />
   <project name="beegee-tokyo/android_frameworks_base" path="frameworks/base" revision="cm-10.1" />
-  <project name="beegee-tokyo/ganbarou_vendor_samsung" path="vendor/samsung" revision="master"/>
-  <!-- ################################################# -->
-  <!-- Ganbarou ROM changes to CM10.1                    -->
-  <!-- ################################################# -->
+  <project name="beegee-tokyo/ganbarou_vendor_samsung" path="vendor/samsung" revision="master" />
   <remove-project name="CyanogenMod/android_external_wpa_supplicant_6" />
   <remove-project name="CyanogenMod/android_external_wpa_supplicant_8_ti" />
   <remove-project name="CyanogenMod/android_packages_apps_CMUpdater" />
@@ -33,30 +24,21 @@
   <remove-project name="CyanogenMod/android_packages_inputmethods_PinyinIME" />
   <remove-project name="CyanogenMod/android_device_generic_goldfish" />
   <remove-project name="CyanogenMod/android_device_generic_x86" />
-  <remove-project name="CyanogenMod/android_device_ti_panda" groups="device" />
-  <!-- ################################################# -->
-  <!-- P4 & P4wifi specific                              -->
-  <!-- ################################################# -->
+  <remove-project groups="device" name="CyanogenMod/android_device_ti_panda" />
   <project name="beegee-tokyo/android_device_samsung_p4" path="device/samsung/p4" remote="github" />
   <project name="beegee-tokyo/android_device_samsung_p4-common" path="device/samsung/p4-common" remote="github" />
   <project name="beegee-tokyo/android_device_samsung_p4wifi" path="device/samsung/p4wifi" remote="github" />
   <project name="beegee-tokyo/android_kernel_samsung_p4_pershoot" path="kernel/samsung/p4_pershoot" remote="github" revision="cm-10.1" />
-  <project name="beegee-tokyo/android_kernel_samsung_p4_infamous" path="kernel/samsung/p4_infamous" revision="infamous-jb42" remote="github" />
+  <project name="beegee-tokyo/android_kernel_samsung_p4_infamous" path="kernel/samsung/p4_infamous" remote="github" revision="infamous-jb42" />
   <project name="beegee-tokyo/android_vendor_samsung_p4" path="vendor/samsung/p4" remote="github" revision="cm-10.1" />
   <project name="beegee-tokyo/android_vendor_samsung_p4wifi" path="vendor/samsung/p4wifi" remote="github" revision="cm-10.1" />
-  <!-- ################################################# -->
-  <!-- N7000 specific                                    -->
-  <!-- ################################################# -->
   <project name="CyanogenMod/android_device_samsung_n7000" path="device/samsung/n7000" remote="github" revision="cm-10.1" />
   <project name="CyanogenMod/android_device_samsung_galaxys2-common" path="device/samsung/galaxys2-common" remote="github" revision="cm-10.1" />
   <project name="beegee-tokyo/android_vendor_samsung_galaxys2-common" path="vendor/samsung/galaxys2-common" remote="github" revision="master" />
   <project name="beegee-tokyo/android_vendor_samsung_n7000" path="vendor/samsung/n7000" remote="github" revision="master" />
-  <project name="CyanogenMod/android_kernel_samsung_smdk4412" path="kernel/samsung/smdk4412" remote="github" /> 
+  <project name="CyanogenMod/android_kernel_samsung_smdk4412" path="kernel/samsung/smdk4412" remote="github" />
   <project name="CyanogenMod/android_hardware_samsung" path="hardware/samsung" remote="github" />
   <project name="CyanogenMod/android_packages_apps_SamsungServiceMode" path="packages/apps/SamsungServiceMode" remote="github" />
-  <!-- ################################################# -->
-  <!-- I9505 specific                                    -->
-  <!-- ################################################# -->
   <project name="CyanogenMod/android_device_samsung_jfltexx" path="device/samsung/jfltexx" remote="github" />
   <project name="CyanogenMod/android_device_samsung_qcom-common" path="device/samsung/qcom-common" remote="github" />
   <project name="CyanogenMod/android_device_samsung_msm8960-common" path="device/samsung/msm8960-common" remote="github" />
