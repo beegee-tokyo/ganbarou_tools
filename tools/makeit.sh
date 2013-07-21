@@ -218,6 +218,8 @@ if [ $DO_P750T -eq 0 ]; then
    echo -e $CL_MAG"Start the build for GT-P7500 pershoot kernel"$CL_RST
    echo -e $CL_MAG"=============================================="$CL_RST
    res75001=$(date +%s.%N)
+   export kernelversion="pershoot"
+   export kernelbuild="cyanogenmod_samsung_p4-jb_defconfig"
    . build/envsetup.sh && brunch p4
    if [ $? -eq 0 ]; then
       echo -e $CL_MAG"=============================================="$CL_RST
@@ -234,13 +236,15 @@ if [ $DO_P750T -eq 0 ]; then
    echo -e $CL_MAG"=============================================="$CL_RST
    echo -e $CL_MAG"Start the build for GT-P7500 infamous kernel"$CL_RST
    echo -e $CL_MAG"=============================================="$CL_RST
-   . build/envsetup.sh && brunch p4p
+   export kernelversion="infamous"
+   export kernelbuild="infamous_p4_defconfig"
+   . build/envsetup.sh && brunch p4
    if [ $? -eq 0 ]; then
       echo -e $CL_MAG"=============================================="$CL_RST
       echo -e $CL_GRN"Build for GT-P7500 infamous kernel successfull"$CL_RST
       echo -e $CL_MAG"=============================================="$CL_RST
       export P750TRESULT=0
-      ./patchit.sh GT-P7500 GT-P7501 0 p4p infamous 1
+      ./patchit.sh GT-P7500 GT-P7501 0 p4 infamous 1
    else
       echo -e $CL_MAG"=============================================="$CL_RST
       echo -e $CL_RED"Build for GT-P7500 infamous kernel failed"$CL_RST
@@ -256,6 +260,8 @@ if [ $DO_P7500 -eq 0 ]; then
    echo -e $CL_MAG"Start the build for GT-P7500 pershoot kernel"$CL_RST
    echo -e $CL_MAG"=============================================="$CL_RST
    res75001=$(date +%s.%N)
+   export kernelversion="pershoot"
+   export kernelbuild="cyanogenmod_samsung_p4-jb_defconfig"
    . build/envsetup.sh && brunch p4
    if [ $? -eq 0 ]; then
       echo -e $CL_MAG"=============================================="$CL_RST
@@ -272,13 +278,15 @@ if [ $DO_P7500 -eq 0 ]; then
    echo -e $CL_MAG"=============================================="$CL_RST
    echo -e $CL_MAG"Start the build for GT-P7500 infamous kernel"$CL_RST
    echo -e $CL_MAG"=============================================="$CL_RST
+   export kernelversion="infamous"
+   export kernelbuild="infamous_p4_defconfig"
    . build/envsetup.sh && brunch p4p
    if [ $? -eq 0 ]; then
       echo -e $CL_MAG"=============================================="$CL_RST
       echo -e $CL_GRN"Build for GT-P7500 infamous kernel successfull"$CL_RST
       echo -e $CL_MAG"=============================================="$CL_RST
       export P750TRESULT=0
-      ./patchit.sh GT-P7500 GT-P7501 1 p4p infamous 0
+      ./patchit.sh GT-P7500 GT-P7501 1 p4 infamous 0
    else
       echo -e $CL_MAG"=============================================="$CL_RST
       echo -e $CL_RED"Build for GT-P7500 infamous kernel failed"$CL_RST
@@ -294,6 +302,8 @@ if [ $DO_P7510 -eq 0 ]; then
    echo -e $CL_MAG"Start the build for GT-P7510 pershoot kernel"$CL_RST
    echo -e $CL_MAG"=============================================="$CL_RST
    res75101=$(date +%s.%N)
+   export kernelversion="pershoot"
+   export kernelbuild="cyanogenmod_samsung_p4wifi-jb_defconfig"
    . build/envsetup.sh && brunch p4wifi
    if [ $? -eq 0 ]; then
       echo -e $CL_MAG"=============================================="$CL_RST
@@ -310,13 +320,15 @@ if [ $DO_P7510 -eq 0 ]; then
    echo -e $CL_MAG"=============================================="$CL_RST
    echo -e $CL_MAG"Start the build for GT-P7510 infamous kernel"$CL_RST
    echo -e $CL_MAG"=============================================="$CL_RST
-   . build/envsetup.sh && brunch p4wifip
+   export kernelversion="infamous"
+   export kernelbuild="infamous_p4wifi_defconfig"
+   . build/envsetup.sh && brunch p4wifi
    if [ $? -eq 0 ]; then
       echo -e $CL_MAG"=============================================="$CL_RST
       echo -e $CL_GRN"Build for GT-P7510 infamous kernel successfull"$CL_RST
       echo -e $CL_MAG"=============================================="$CL_RST
       export P7510RESULT=0
-      ./patchit.sh GT-P7510 GT-P7511 1 p4wifip infamous 0
+      ./patchit.sh GT-P7510 GT-P7511 1 p4wifi infamous 0
    else
       echo -e $CL_MAG"=============================================="$CL_RST
       echo -e $CL_RED"Build for GT-P7510 infamous kernel failed"$CL_RST
@@ -431,7 +443,7 @@ fi
 if [ $DO_I9505 -eq 0 ]; then
    if [ $I9505RESULT -eq 0 ]; then
       echo -e $CL_MAG"=============================================="$CL_RST
-      echo -e $CL_GRN"Build for GT-II9505 done"$CL_RST
+      echo -e $CL_GRN"Build for GT-I9505 done"$CL_RST
       echo -e $CL_GRN"${bldgrn}Total time elapsed: ${txtrst}${grn}$(echo "($res95052 - $res95051) / 60"|bc ) minutes ($(echo "$res95052 - $res95051"|bc ) seconds) ${txtrst}"$CL_RST
       echo -e $CL_MAG"=============================================="$CL_RST
    else

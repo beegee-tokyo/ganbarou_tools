@@ -14,11 +14,7 @@
   <project name="beegee-tokyo/android_packages_apps_Settings" path="packages/apps/Settings" revision="cm-10.1" />
   <remove-project name="CyanogenMod/android_frameworks_base" />
   <project name="beegee-tokyo/android_frameworks_base" path="frameworks/base" revision="cm-10.1" />
-  <!-- ################################################# -->
-  <!-- TWRP recovery for Ganbarou ROM                    -->
-  <!-- ################################################# -->
-  <!-- <remove-project name="CyanogenMod/android_bootable_recovery" />
-  <project path="bootable/recovery" name="InfamousAOKP/android_bootable_recovery" revision="twrp" /> -->
+  <project name="beegee-tokyo/ganbarou_vendor_samsung" path="vendor/samsung" revision="master"/>
   <!-- ################################################# -->
   <!-- Ganbarou ROM changes to CM10.1                    -->
   <!-- ################################################# -->
@@ -35,6 +31,7 @@
   <remove-project name="CyanogenMod/android_packages_wallpapers_PhaseBeam" />
   <remove-project name="CyanogenMod/android_packages_inputmethods_OpenWnn" />
   <remove-project name="CyanogenMod/android_packages_inputmethods_PinyinIME" />
+  <remove-project name="CyanogenMod/android_packages_apps_Calendar" />
   <remove-project name="CyanogenMod/android_device_generic_goldfish" />
   <remove-project name="CyanogenMod/android_device_generic_x86" />
   <remove-project name="CyanogenMod/android_device_ti_panda" groups="device" />
@@ -61,10 +58,9 @@
   <!-- ################################################# -->
   <!-- I9505 specific                                    -->
   <!-- ################################################# -->
-  <project name="beegee-tokyo/android_device_samsung_jfltexx" path="device/samsung/jfltexx" remote="github" />
+  <project name="CyanogenMod/android_device_samsung_jfltexx" path="device/samsung/jfltexx" remote="github" />
   <project name="CyanogenMod/android_device_samsung_qcom-common" path="device/samsung/qcom-common" remote="github" />
   <project name="CyanogenMod/android_device_samsung_msm8960-common" path="device/samsung/msm8960-common" remote="github" />
   <project name="CyanogenMod/android_device_samsung_jf-common" path="device/samsung/jf-common" remote="github" />
   <project name="CyanogenMod/android_kernel_samsung_jf" path="kernel/samsung/jf" remote="github" />
-  <project name="victorator/vendor_samsung_i9505" path="vendor/samsung/i9505" remote="github" />
 </manifest>

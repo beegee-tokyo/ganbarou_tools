@@ -188,5 +188,17 @@ git commit -a
 git push git@github.com:beegee-tokyo/ganbarou_tools.git jb-4.2
 cd ..
 echo ============================================
+echo 'Push latest changes to beegee-tokyo vendor_samsung'
+echo ============================================
+cd vendor
+cd samsung
+repo start master .
+git checkout master
+git pull
+git add -A
+git commit -a
+git push git@github.com:beegee-tokyo/ganbarou_vendor_samsung.git master
+cd ../..
+echo ============================================
 echo 'Check output. If all ok start ./sync.sh'
 echo ============================================
