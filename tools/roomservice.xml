@@ -31,7 +31,6 @@
   <remove-project name="CyanogenMod/android_packages_wallpapers_PhaseBeam" />
   <remove-project name="CyanogenMod/android_packages_inputmethods_OpenWnn" />
   <remove-project name="CyanogenMod/android_packages_inputmethods_PinyinIME" />
-  <remove-project name="CyanogenMod/android_packages_apps_Calendar" />
   <remove-project name="CyanogenMod/android_device_generic_goldfish" />
   <remove-project name="CyanogenMod/android_device_generic_x86" />
   <remove-project name="CyanogenMod/android_device_ti_panda" groups="device" />
