@@ -74,13 +74,14 @@ echo -e $CL_GRN"============================================"$CL_RST
 echo -e $CL_GRN"Ganbarou changes in updater-script"
 echo -e $CL_GRN"============================================"$CL_RST
 #if [ $NEW_DEVICE2 -eq 1 ] || [ $TEST_BUILD -eq 1 ] ; then
+if [ $NEW_DEVICE != "GT-I9505" ]; then
    echo -e $CL_GRN"============================================"$CL_RST
    echo -e $CL_GRN"Remove assert from updater-script"
    echo -e $CL_GRN"============================================"$CL_RST
    $SED -i \
 	-e '/^a/d' \
 	$REPACK/ota/META-INF/com/google/android/updater-script
-#fi
+fi
 echo -e $CL_GRN"============================================"$CL_RST
 echo -e $CL_GRN"clean-up updater-script"
 echo -e $CL_GRN"============================================"$CL_RST
@@ -277,16 +278,22 @@ $SED -i \
 	-e 's:</apns>:<apn carrier="Softbank (4G)" mcc="440" mnc="20" apn="fourgsmartphone" type="default,supl,mms,hipri" /></apns>': \
 	$REPACK/ota/system/etc/apns-conf.xml
 
-echo -e $CL_GRN"============================================"$CL_RST
-echo -e $CL_GRN"Add Ganbarou boot animation"
-echo -e $CL_GRN"============================================"$CL_RST
 if [ $NEW_DEVICE2 -eq 1 ] || [ $TEST_BUILD -eq 1 ]; then
+   echo -e $CL_GRN"============================================"$CL_RST
+   echo -e $CL_GRN"Add Ganbarou tablet boot animation"
+   echo -e $CL_GRN"============================================"$CL_RST
    cp -r -f -v $ANDROID_BUILD_TOP/ganbarou_tools/patches/bootanimation-t/bootanimation.zip $REPACK/ota/system/media/bootanimation.zip
 fi
 if [ $NEW_DEVICE == "GT-N7000" ]; then
+   echo -e $CL_GRN"============================================"$CL_RST
+   echo -e $CL_GRN"Add Ganbarou N7000 boot animation"
+   echo -e $CL_GRN"============================================"$CL_RST
    cp -r -f -v $ANDROID_BUILD_TOP/ganbarou_tools/patches/bootanimation-p/bootanimation.zip $REPACK/ota/system/media/bootanimation.zip
 fi
 if [ $NEW_DEVICE == "GT-I9505" ]; then
+   echo -e $CL_GRN"============================================"$CL_RST
+   echo -e $CL_GRN"Add Ganbarou SGS4 boot animation"
+   echo -e $CL_GRN"============================================"$CL_RST
    cp -r -f -v $ANDROID_BUILD_TOP/ganbarou_tools/patches/bootanimation-p2/bootanimation.zip $REPACK/ota/system/media/bootanimation.zip
 fi
 
