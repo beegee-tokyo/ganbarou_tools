@@ -1,9 +1,9 @@
 VERSION_MAJOR = 3
-VERSION_MINOR = 13
+VERSION_MINOR = 14
 CHANGELOG_0 = Update: latest CM10.1 sources.
-CHANGELOG_1 = Feature: added Google keyboard
-CHANGELOG_2 = Feature: Removed TabletUI. It caused too much difficulties to maintain the CM10.1 updates.
-CHANGELOG_3 = Added build for GT-I9505 (Samsung Galaxy S4 LTE)
+CHANGELOG_1 = 
+CHANGELOG_2 = 
+CHANGELOG_3 = 
 CHANGELOG_4 = 
 CHANGELOG_5 = 
 CHANGELOG_6 = 
@@ -12,6 +12,12 @@ CHANGELOG_8 =
 CHANGELOG_9 = 
 
 OLDVERSION_LOG = 
+V3.13
+Update: latest CM10.1 sources.
+Feature: added Google keyboard
+Feature: Removed TabletUI. It caused too much difficulties to maintain the CM10.1 updates.
+Added build for GT-I9505 (Samsung Galaxy S4 LTE)
+
 V3.12
 Update: latest CM10.1 sources.
 Bugfix: Settting for tablet_ui are back
