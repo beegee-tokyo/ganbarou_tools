@@ -1,6 +1,6 @@
-VERSION_MAJOR = 3
-VERSION_MINOR = 14
-CHANGELOG_0 = Update: latest CM10.1 sources.
+VERSION_MAJOR = 4
+VERSION_MINOR = 00
+CHANGELOG_0 = Initial: first build based on CM10.2.
 CHANGELOG_1 = 
 CHANGELOG_2 = 
 CHANGELOG_3 = 
