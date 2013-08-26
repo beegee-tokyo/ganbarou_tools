@@ -52,7 +52,7 @@ if [ $NEW_DEVICE2 -eq 1 ]; then
    OUTFILE1="$OUT/Ganbarou-$NEW_DEVICE1-v$gooversion_t.$goobuild_t-$NOW-$KERNEL_VERSION.zip"
 fi
 # was cm-base_for_ganbarou.zip is now cm_p4-ota-eng.beegee.zip p4 can be p4wifi or n7000
-#OTAPACKAGE="$OUT/cm-10.1-$NOWORG-UNOFFICIAL-$OLD_DEVICE.zip"
+#OTAPACKAGE="$OUT/cm-10.2-$NOWORG-UNOFFICIAL-$OLD_DEVICE.zip"
 OTAPACKAGE="$OUT/cm_$OLD_DEVICE-ota-eng.$USER.zip"
 mkdir $REPACK
 mkdir $REPACK/ota
@@ -392,8 +392,6 @@ fi
 echo -e $CL_GRN"============================================"$CL_RST
 echo -e $CL_GRN"Cleanup temporary folders"
 echo -e $CL_GRN"============================================"$CL_RST
-rm -rf $OUT/cm-10.1*.zip
-rm -rf $OUT/cm-10.1*.md5sum
+rm -rf $OUT/cm-10.2*.zip
+rm -rf $OUT/cm-10.2*.md5sum
 rm -rf $OUT/cm_*.zip
-
-
