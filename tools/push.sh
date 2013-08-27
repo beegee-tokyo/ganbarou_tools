@@ -99,32 +99,32 @@ git add -A
 git commit -a
 git push git@github.com:beegee-tokyo/android_kernel_samsung_p4_infamous.git infamous-jb42
 cd ../../..
-echo ============================================
-echo 'Push latest changes to beegee-tokyo vendor_n7000'
-echo ============================================
-cd vendor
-cd samsung
-cd n7000
-repo start master .
-git checkout master
-git pull
-git add -A
-git commit -a
-git push git@github.com:beegee-tokyo/android_vendor_samsung_n7000.git master
-cd ../../..
-echo ============================================
-echo 'Push latest changes to beegee-tokyo vendor_galaxys2-common'
-echo ============================================
-cd vendor
-cd samsung
-cd galaxys2-common
-repo start master .
-git checkout master
-git pull
-git add -A
-git commit -a
-git push git@github.com:beegee-tokyo/android_vendor_samsung_galaxys2-common.git master
-cd ../../..
+#echo ============================================
+#echo 'Push latest changes to beegee-tokyo vendor_n7000'
+#echo ============================================
+#cd vendor
+#cd samsung
+#cd n7000
+#repo start master .
+#git checkout master
+#git pull
+#git add -A
+#git commit -a
+#git push git@github.com:beegee-tokyo/android_vendor_samsung_n7000.git master
+#cd ../../..
+#echo ============================================
+#echo 'Push latest changes to beegee-tokyo vendor_galaxys2-common'
+#echo ============================================
+#cd vendor
+#cd samsung
+#cd galaxys2-common
+#repo start master .
+#git checkout master
+#git pull
+#git add -A
+#git commit -a
+#git push git@github.com:beegee-tokyo/android_vendor_samsung_galaxys2-common.git master
+#cd ../../..
 echo ============================================
 echo 'Push latest changes to Wallpapers'
 echo ============================================
