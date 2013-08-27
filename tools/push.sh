@@ -97,7 +97,7 @@ git checkout cm-10.2
 git pull
 git add -A
 git commit -a
-git push git@github.com:beegee-tokyo/android_kernel_samsung_p4_infamous.git infamous-jb42
+git push git@github.com:beegee-tokyo/android_kernel_samsung_p4_infamous.git cm-10.2
 cd ../../..
 #echo ============================================
 #echo 'Push latest changes to beegee-tokyo vendor_n7000'
