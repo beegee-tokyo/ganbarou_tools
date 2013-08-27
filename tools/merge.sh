@@ -1,35 +1,35 @@
-echo ============================================
-echo 'Get latest changes from pershoot vendor_p4'
-echo ============================================
-cd vendor
-cd samsung
-cd p4
-git checkout cm-10.1
-git remote add upstream git://github.com/pershoot/android_vendor_samsung_p4.git
-git fetch upstream
-git merge upstream/cm-10.1
-cd ../../..
-echo ============================================
-echo 'Get latest changes from pershoot vendor_p4wifi'
-echo ============================================
-cd vendor
-cd samsung
-cd p4wifi
-git checkout cm-10.1
-git remote add upstream git://github.com/pershoot/android_vendor_samsung_p4wifi.git
-git fetch upstream
-git merge upstream/cm-10.1
-cd ../../..
+#echo ============================================
+#echo 'Get latest changes from pershoot vendor_p4'
+#echo ============================================
+#cd vendor
+#cd samsung
+#cd p4
+#git checkout cm-10.1
+#git remote add upstream git://github.com/pershoot/android_vendor_samsung_p4.git
+#git fetch upstream
+#git merge upstream/cm-10.1
+#cd ../../..
+#echo ============================================
+#echo 'Get latest changes from pershoot vendor_p4wifi'
+#echo ============================================
+#cd vendor
+#cd samsung
+#cd p4wifi
+#git checkout cm-10.1
+#git remote add upstream git://github.com/pershoot/android_vendor_samsung_p4wifi.git
+#git fetch upstream
+#git merge upstream/cm-10.1
+#cd ../../..
 echo ============================================
 echo 'Get latest changes from cyanogenmod device_p4'
 echo ============================================
 cd device
 cd samsung
 cd p4
-git checkout cm-10.1
+git checkout cm-10.2
 git remote add upstream git://github.com/CyanogenMod/android_device_samsung_p4.git
 git fetch upstream
-git merge upstream/cm-10.1
+git merge upstream/cm-10.2
 cd ../../..
 echo ============================================
 echo 'Get latest changes from cyanogenmod device_p4wifi'
@@ -37,10 +37,10 @@ echo ============================================
 cd device
 cd samsung
 cd p4wifi
-git checkout cm-10.1
+git checkout cm-10.2
 git remote add upstream git://github.com/CyanogenMod/android_device_samsung_p4wifi.git
 git fetch upstream
-git merge upstream/cm-10.1
+git merge upstream/cm-10.2
 cd ../../..
 echo ============================================
 echo 'Get latest changes from cyanogenmod device_p4-common'
@@ -48,32 +48,32 @@ echo ============================================
 cd device
 cd samsung
 cd p4-common
-git checkout cm-10.1
+git checkout cm-10.2
 git remote add upstream git://github.com/CyanogenMod/android_device_samsung_p4-common.git
 git fetch upstream
-git merge upstream/cm-10.1
+git merge upstream/cm-10.2
 cd ../../..
-echo ============================================
-echo 'Get latest changes from pershoot p4 kernel'
-echo ============================================
-cd kernel
-cd samsung
-cd p4_pershoot
-git checkout cm-10.1
-git remote add upstream git://github.com/pershoot/android_kernel_samsung_p4.git
-git fetch upstream
-git merge upstream/cm-10.1
-cd ../../..
+#echo ============================================
+#echo 'Get latest changes from pershoot p4 kernel'
+#echo ============================================
+#cd kernel
+#cd samsung
+#cd p4_pershoot
+#git checkout cm-10.1
+#git remote add upstream git://github.com/pershoot/android_kernel_samsung_p4.git
+#git fetch upstream
+#git merge upstream/cm-10.1
+#cd ../../..
 echo ============================================
 echo 'Get latest changes from infamous p4 kernel'
 echo ============================================
 cd kernel
 cd samsung
-cd p4_infamous
-git checkout infamous-jb42
+cd p4
+git checkout cm-10.2
 git remote add upstream git://github.com/InfamousAOKP/android_kernel_samsung_p4.git
 git fetch upstream
-git merge upstream/infamous-jb42
+git merge upstream/cm-10.2
 cd ../../..
 echo ============================================
 echo 'Get latest changes from settings'
@@ -81,20 +81,20 @@ echo ============================================
 cd packages
 cd apps
 cd Settings
-git checkout cm-10.1
+git checkout cm-10.2
 git remote add upstream git://github.com/CyanogenMod/android_packages_apps_Settings.git
 git fetch upstream
-git merge upstream/cm-10.1
+git merge upstream/cm-10.2
 cd ../../..
 echo ============================================
 echo 'Get latest changes from CyanogenMod framework'
 echo ============================================
 cd frameworks
 cd base
-git checkout cm-10.1
+git checkout cm-10.2
 git remote add upstream git://github.com/CyanogenMod/android_frameworks_base.git
 git fetch upstream
-git merge upstream/cm-10.1
+git merge upstream/cm-10.2
 cd ../..
 echo ============================================
 echo 'Get latest changes from rom_stats'

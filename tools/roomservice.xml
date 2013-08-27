@@ -18,7 +18,7 @@
   <!-- ################################################# -->
   <!-- Ganbarou ROM changes to CM10.2                    -->
   <!-- ################################################# -->
-  <remove-project name="CyanogenMod/android_external_wpa_supplicant_6" />
+  <!-- <remove-project name="CyanogenMod/android_external_wpa_supplicant_6" /> -->
   <remove-project name="CyanogenMod/android_external_wpa_supplicant_8_ti" />
   <remove-project name="CyanogenMod/android_packages_apps_CMUpdater" />
   <remove-project name="CyanogenMod/android_packages_apps_CMWallpapers" />
@@ -33,16 +33,16 @@
   <remove-project name="CyanogenMod/android_packages_inputmethods_PinyinIME" />
   <remove-project name="CyanogenMod/android_device_generic_goldfish" />
   <remove-project name="CyanogenMod/android_device_generic_x86" />
-  <remove-project groups="device" name="CyanogenMod/android_device_ti_panda" />
+  <!-- <remove-project groups="device" name="CyanogenMod/android_device_ti_panda" /> -->
   <!-- ################################################# -->
   <!-- P4 & P4wifi specific                              -->
   <!-- ################################################# -->
-  <project name="beegee-tokyo/android_device_samsung_p4" path="device/samsung/p4" remote="github" />
-  <project name="beegee-tokyo/android_device_samsung_p4-common" path="device/samsung/p4-common" remote="github" />
-  <project name="beegee-tokyo/android_device_samsung_p4wifi" path="device/samsung/p4wifi" remote="github" />
-  <project name="beegee-tokyo/android_kernel_samsung_p4_infamous" path="kernel/samsung/p4_infamous" remote="github" revision="cm-10.2" />
-  <project name="beegee-tokyo/android_vendor_samsung_p4" path="vendor/samsung/p4" remote="github" revision="cm-10.2" />
-  <project name="beegee-tokyo/android_vendor_samsung_p4wifi" path="vendor/samsung/p4wifi" remote="github" revision="cm-10.2" />
+  <project name="beegee-tokyo/android_device_samsung_p4" path="device/samsung/p4" remote="github" revision="cm-10.2" />
+  <project name="beegee-tokyo/android_device_samsung_p4-common" path="device/samsung/p4-common" remote="github" revision="cm-10.2" />
+  <project name="beegee-tokyo/android_device_samsung_p4wifi" path="device/samsung/p4wifi" remote="github" revision="cm-10.2" />
+  <project name="beegee-tokyo/android_kernel_samsung_p4_infamous" path="kernel/samsung/p4" remote="github" revision="cm-10.2" />
+  <!-- <project name="beegee-tokyo/android_vendor_samsung_p4" path="vendor/samsung/p4" remote="github" revision="cm-10.2" /> -->
+  <!-- <project name="beegee-tokyo/android_vendor_samsung_p4wifi" path="vendor/samsung/p4wifi" remote="github" revision="cm-10.2" /> -->
   <!-- ################################################# -->
   <!-- N7000 specific                                    -->
   <!-- ################################################# -->
