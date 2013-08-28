@@ -4,7 +4,7 @@
   <!-- Ganbarou ROM specific build & patch tools         -->
   <!-- ################################################# -->
   <project name="beegee-tokyo/ganbarou_tools" path="ganbarou_tools" remote="github" revision="cm-10.2" />
-  <project name="beegee-tokyo/ganbarou_vendor_gapps" path="vendor/ganbarou/gapps" remote="github" revision="cm-10.2" />
+  <project name="beegee-tokyo/ganbarou_vendor_gapps_43" path="vendor/ganbarou/gapps" remote="github" revision="cm-10.2" />
   <!-- ################################################# -->
   <!-- Ganbarou ROM apks, framework and settings         -->
   <!-- ################################################# -->

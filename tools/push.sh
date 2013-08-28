@@ -203,14 +203,14 @@ echo ============================================
 echo 'Push latest changes to beegee-tokyo vendor_gapps'
 echo ============================================
 cd vendor
-cd samsung
+cd ganbarou
 cd gapps
 repo start cm-10.2 .
 git checkout cm-10.2
 git pull
 git add -A
 git commit -a
-git push git@github.com:beegee-tokyo/ganbarou_vendor_gapps.git cm-10.2
+git push git@github.com:beegee-tokyo/ganbarou_vendor_gapps_43.git cm-10.2
 cd ../../..
 echo ============================================
 echo 'Check output. If all ok start ./sync.sh'
