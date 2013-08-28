@@ -4,7 +4,7 @@
   <!-- Ganbarou ROM specific build & patch tools         -->
   <!-- ################################################# -->
   <project name="beegee-tokyo/ganbarou_tools" path="ganbarou_tools" remote="github" revision="cm-10.2" />
-  <project name="beegee-tokyo/ganbarou_vendor_gapps" path="vendor/ganbarou/gapps" remote="github" revision="master" />
+  <project name="beegee-tokyo/ganbarou_vendor_gapps" path="vendor/ganbarou/gapps" remote="github" revision="cm-10.2" />
   <!-- ################################################# -->
   <!-- Ganbarou ROM apks, framework and settings         -->
   <!-- ################################################# -->
@@ -31,7 +31,7 @@
   <remove-project name="CyanogenMod/android_packages_wallpapers_PhaseBeam" />
   <remove-project name="CyanogenMod/android_packages_inputmethods_OpenWnn" />
   <remove-project name="CyanogenMod/android_packages_inputmethods_PinyinIME" />
-  <remove-project name="CyanogenMod/android_device_generic_goldfish" />
+  <!-- <remove-project name="CyanogenMod/android_device_generic_goldfish" /> -->
   <remove-project name="CyanogenMod/android_device_generic_x86" />
   <!-- <remove-project groups="device" name="CyanogenMod/android_device_ti_panda" /> -->
   <!-- ################################################# -->
