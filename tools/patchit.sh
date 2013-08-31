@@ -392,6 +392,6 @@ fi
 echo -e $CL_GRN"============================================"$CL_RST
 echo -e $CL_GRN"Cleanup temporary folders"
 echo -e $CL_GRN"============================================"$CL_RST
-rm -rf $OUT/cm-10.2*.zip
-rm -rf $OUT/cm-10.2*.md5sum
-rm -rf $OUT/cm_*.zip
+#rm -rf $OUT/cm-10.2*.zip
+#rm -rf $OUT/cm-10.2*.md5sum
+#rm -rf $OUT/cm_*.zip
