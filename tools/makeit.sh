@@ -259,7 +259,7 @@ if [ $DO_P7500 -eq 0 ]; then
 #   echo -e $CL_MAG"=============================================="$CL_RST
 #   echo -e $CL_MAG"Start the build for GT-P7500 pershoot kernel"$CL_RST
 #   echo -e $CL_MAG"=============================================="$CL_RST
-#   res75001=$(date +%s.%N)
+   res75001=$(date +%s.%N)
 #   export kernelversion="pershoot"
 #   export kernelbuild="cyanogenmod_samsung_p4-jb_defconfig"
 #   . build/envsetup.sh && brunch p4
@@ -285,13 +285,13 @@ if [ $DO_P7500 -eq 0 ]; then
       echo -e $CL_MAG"=============================================="$CL_RST
       echo -e $CL_GRN"Build for GT-P7500 infamous kernel successfull"$CL_RST
       echo -e $CL_MAG"=============================================="$CL_RST
-      export P750TRESULT=0
+      export P7500RESULT=0
       ./patchit.sh GT-P7500 GT-P7501 1 p4 infamous 0
    else
       echo -e $CL_MAG"=============================================="$CL_RST
       echo -e $CL_RED"Build for GT-P7500 infamous kernel failed"$CL_RST
       echo -e $CL_MAG"=============================================="$CL_RST
-      export P750TRESULT=1
+      export P7500RESULT=1
    fi
    res75002=$(date +%s.%N)
 else
@@ -301,7 +301,7 @@ if [ $DO_P7510 -eq 0 ]; then
 #   echo -e $CL_MAG"=============================================="$CL_RST
 #   echo -e $CL_MAG"Start the build for GT-P7510 pershoot kernel"$CL_RST
 #   echo -e $CL_MAG"=============================================="$CL_RST
-#   res75101=$(date +%s.%N)
+   res75101=$(date +%s.%N)
 #   export kernelversion="pershoot"
 #   export kernelbuild="cyanogenmod_samsung_p4wifi-jb_defconfig"
 #   . build/envsetup.sh && brunch p4wifi
