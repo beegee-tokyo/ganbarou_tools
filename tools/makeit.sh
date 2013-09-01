@@ -195,6 +195,40 @@ cat $DIR/ganbarou_tools/tools/changelog.txt | sed -n '15,$ p' >> $DIR/Ganbarou_C
 echo -e $CL_GRN"GooVersion = "$gooversion_t"."$goobuild_t""$CL_RST
 
 echo -e $CL_MAG"=============================================="$CL_RST
+echo -e $CL_MAG"Check username length"$CL_RST
+echo -e $CL_MAG"=============================================="$CL_RST
+export USEROLD=`whoami`;
+if [[ ${USEROLD} == "beegee_tokyo" ]]; then
+        export USER="Ganbarou"
+	echo "Replacing current username ${USEROLD} with new username ${USER}"
+        export ULENGTH=8
+else
+        export ULENGTH=`expr length ${USEROLD}`
+
+fi;
+
+if [[ ${ULENGTH} -gt 9 ]]; then
+	echo "Your username seems to exceed the max of 9 characters (${ULENGTH} chars)"
+        echo "Due to a temp issue with bionic the max amount of characters is limited."
+        echo "If the limit is exceeded the camera refuses to take pictures"
+	echo 
+	echo "Do you want to pick a new username right now that's below 9 chars? ( y / n )"
+	read choice
+	echo
+	if [[ ${choice} == "n" ]]; then
+		echo "Taking pictures with camera won't work, you're warned!"
+		echo
+		echo "Continuing..."
+	else
+		echo "New username:"
+		read username
+		export USER=${username}
+		echo
+		echo "Replacing current username ${USEROLD} with new username ${USER}"
+		echo	
+	fi;
+fi;
+echo -e $CL_MAG"=============================================="$CL_RST
 echo -e $CL_MAG"Setup ccache"$CL_RST
 echo -e $CL_MAG"=============================================="$CL_RST
 ccache -M 20G

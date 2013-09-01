@@ -32,7 +32,7 @@ echo -e $CL_MAG"TEST_BUILD = "$CL_YLW"$TEST_BUILD"$CL_RST
 echo -e $CL_GRN"============================================"$CL_RST
 echo -e $CL_GRN"Ganbarou patches - Set common variables"$CL_RST
 echo -e $CL_GRN"============================================"$CL_RST
-ANDROID_BUILD_TOP="/home/$USER/${PWD##*/}"
+ANDROID_BUILD_TOP="/home/$USEROLD/${PWD##*/}"
 echo $ANDROID_BUILD_TOP
 SECURITYDIR="$ANDROID_BUILD_TOP/build/target/product/security"
 QUIET="-q"
@@ -47,9 +47,14 @@ echo -e $CL_GRN"Unpack $NEW_DEVICE for Ganbarou patches"
 echo -e $CL_GRN"============================================"$CL_RST
 OUT="$ANDROID_BUILD_TOP/out/target/product/$OLD_DEVICE"
 REPACK="$OUT/repack.d"
-OUTFILE="$OUT/Ganbarou-$NEW_DEVICE-v$gooversion_t.$goobuild_t-$NOW-$KERNEL_VERSION.zip"
+# for the moment we build only with one kernel version
+#OUTFILE="$OUT/Ganbarou-$NEW_DEVICE-v$gooversion_t.$goobuild_t-$NOW-$KERNEL_VERSION.zip"
+#if [ $NEW_DEVICE2 -eq 1 ]; then
+#   OUTFILE1="$OUT/Ganbarou-$NEW_DEVICE1-v$gooversion_t.$goobuild_t-$NOW-$KERNEL_VERSION.zip"
+#fi
+OUTFILE="$OUT/Ganbarou-$NEW_DEVICE-v$gooversion_t.$goobuild_t-$NOW.zip"
 if [ $NEW_DEVICE2 -eq 1 ]; then
-   OUTFILE1="$OUT/Ganbarou-$NEW_DEVICE1-v$gooversion_t.$goobuild_t-$NOW-$KERNEL_VERSION.zip"
+   OUTFILE1="$OUT/Ganbarou-$NEW_DEVICE1-v$gooversion_t.$goobuild_t-$NOW.zip"
 fi
 # was cm-base_for_ganbarou.zip is now cm_p4-ota-eng.beegee.zip p4 can be p4wifi or n7000
 #OTAPACKAGE="$OUT/cm-10.2-$NOWORG-UNOFFICIAL-$OLD_DEVICE.zip"
@@ -122,22 +127,10 @@ $SED -i \
 $SED -i \
         '1i ui_print(" ");' $REPACK/ota/META-INF/com/google/android/updater-script
 
-
-
-# for tablet -> include recovery -> doesn't work yet!
-#$SED -i \
-#	-e 's:show_progress(0.100000, 0);:show_progress(1.000000, 30);run_program("/sbin/rm", "-rf", "/data/#data/android.romstats");ui_print("=============================");ui_print("Flashing kernel and #recovery");package_extract_dir("recovery", "/tmp");write_raw_image("/tmp/recovery.img", "/dev/block/#mmcblk0p2");ui_print("=============================");ui_print("All done!");ui_print("Enjoy Ganbarou GT #ROM");ui_print("=============================");:' \
-#	$REPACK/ota/META-INF/com/google/android/updater-script
 $SED -i \
 	-e 's:show_progress(0.100000, 0);:show_progress(1.000000, 30);run_program("/sbin/rm", "-rf", "/data/data/android.romstats");ui_print("=============================");ui_print("Flashing kernel");ui_print("=============================");ui_print("All done!");ui_print("Enjoy Ganbarou GT ROM");ui_print("=============================");:' \
 	$REPACK/ota/META-INF/com/google/android/updater-script
 
-# for tablet -> include recovery -> doesn't work yet!
-#echo -e $CL_GRN"============================================"$CL_RST
-#echo -e $CL_GRN"Copy recovery.img into work dir"
-#echo -e $CL_GRN"============================================"$CL_RST
-#mkdir $REPACK/ota/recovery
-#cp $OUT/recovery.img $REPACK/ota/recovery/recovery.img
 #if [ $NEW_DEVICE2 -eq 1 ] || [ $TEST_BUILD -eq 1 ]; then
    echo -e $CL_GRN"============================================"$CL_RST
    echo -e $CL_GRN"Change $OLD_DEVICE to $NEW_DEVICE in build.prop"
@@ -187,7 +180,7 @@ echo "video.accelerate.hw=1" >> $REPACK/ota/system/build.prop
 echo "ro.media.enc.jpeg.quality=100" >> $REPACK/ota/system/build.prop
 echo "persist.sys.purgeable_assets=1" >> $REPACK/ota/system/build.prop
 echo "ro.tether.denied=false" >> $REPACK/ota/system/build.prop
-echo "ro.media.enc.JPEG.quality=100" >> $REPACK/ota/system/build.prop
+echo "ro.secure=0" >> $REPACK/ota/system/build.prop
 echo "debug.performance.tuning=1" >> $REPACK/ota/system/build.prop
 echo "ro.max.fling_velocity=12000" >> $REPACK/ota/system/build.prop
 echo "ro.min.fling_velocity=8000" >> $REPACK/ota/system/build.prop
@@ -272,7 +265,7 @@ $SED -i \
 	-e 's:</apns>:<apn carrier="Softbank (BizFlat)" mcc="440" mnc="20" apn="bizflat.softbank" user="biz@bizflat.softbank" password="biz" type="default,supl" /></apns>': \
 	$REPACK/ota/system/etc/apns-conf.xml
 echo -e $CL_GRN"============================================"$CL_RST
-echo -e $CL_GRN"Add new APN for Softbank 4G Snartphone connection"
+echo -e $CL_GRN"Add new APN for Softbank 4G Smartphone connection"
 echo -e $CL_GRN"============================================"$CL_RST
 $SED -i \
 	-e 's:</apns>:<apn carrier="Softbank (4G)" mcc="440" mnc="20" apn="fourgsmartphone" type="default,supl,mms,hipri" /></apns>': \
@@ -392,6 +385,6 @@ fi
 echo -e $CL_GRN"============================================"$CL_RST
 echo -e $CL_GRN"Cleanup temporary folders"
 echo -e $CL_GRN"============================================"$CL_RST
-#rm -rf $OUT/cm-10.2*.zip
-#rm -rf $OUT/cm-10.2*.md5sum
-#rm -rf $OUT/cm_*.zip
+rm -rf $OUT/cm-10.2*.zip
+rm -rf $OUT/cm-10.2*.md5sum
+rm -rf $OUT/cm_*.zip
