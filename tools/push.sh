@@ -176,17 +176,17 @@ git add -A
 git commit -a
 git push git@github.com:beegee-tokyo/rom_stats.git master
 cd ../../..
-echo ============================================
-echo 'Push latest changes to Ganbarou Tools'
-echo ============================================
-cd ganbarou_tools
-repo start cm-10.2 .
-git checkout cm-10.2
-git pull
-git add -A
-git commit -a
-git push git@github.com:beegee-tokyo/ganbarou_tools.git cm-10.2
-cd ..
+#echo ============================================
+#echo 'Push latest changes to Ganbarou Tools'
+#echo ============================================
+#cd ganbarou_tools
+#repo start cm-10.2 .
+#git checkout cm-10.2
+#git pull
+#git add -A
+#git commit -a
+#git push git@github.com:beegee-tokyo/ganbarou_tools.git cm-10.2
+#cd ..
 echo ============================================
 echo 'Push latest changes to beegee-tokyo vendor_samsung'
 echo ============================================
