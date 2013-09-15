@@ -53,8 +53,11 @@ REPACK="$OUT/repack.d"
 #   OUTFILE1="$OUT/Ganbarou-$NEW_DEVICE1-v$gooversion_t.$goobuild_t-$NOW-$KERNEL_VERSION.zip"
 #fi
 OUTFILE="$OUT/Ganbarou-$NEW_DEVICE-v$gooversion_t.$goobuild_t-$NOW.zip"
+DEVICE_VERSION="ui_print(\"Version $gooversion_t.$goobuild_t\");"
+DEVICE_INFO="ui_print(\"for $NEW_DEVICE\");"
 if [ $NEW_DEVICE2 -eq 1 ]; then
    OUTFILE1="$OUT/Ganbarou-$NEW_DEVICE1-v$gooversion_t.$goobuild_t-$NOW.zip"
+   DEVICE_INFO1="ui_print(\"for $NEW_DEVICE1\");"
 fi
 # was cm-base_for_ganbarou.zip is now cm_p4-ota-eng.beegee.zip p4 can be p4wifi or n7000
 #OTAPACKAGE="$OUT/cm-10.2-$NOWORG-UNOFFICIAL-$OLD_DEVICE.zip"
@@ -64,7 +67,9 @@ mkdir $REPACK/ota
 cd $REPACK/ota
 printf "Unpacking $OTAPACKAGE..."
 unzip $QUIET $OTAPACKAGE
-echo
+echo $DEVICE_VERSION
+echo $DEVICE_INFO
+echo $DEVICE_INFO1
 
 # IF we build for infamous kernel then we have to change $OLD_DEVICE
 export OLD_DEVICE2=$OLD_DEVICE
@@ -82,10 +87,17 @@ echo -e $CL_GRN"============================================"$CL_RST
 if [ $NEW_DEVICE != "GT-I9505" ]; then
    echo -e $CL_GRN"============================================"$CL_RST
    echo -e $CL_GRN"Remove assert from updater-script"
-   echo -e $CL_GRN"============================================"$CL_RST
-   $SED -i \
+   if [ $NEW_DEVICE != "GT-N7000" ]; then
+   echo -e $CL_GRN"for tablet"
+    $SED -i \
 	-e '/^a/d' \
 	$REPACK/ota/META-INF/com/google/android/updater-script
+   fi
+   if [ $NEW_DEVICE == "GT-N7000" ]; then
+   echo -e $CL_GRN"for GT-N7000"
+    $SED -i '1,4d' $REPACK/ota/META-INF/com/google/android/updater-script
+   fi
+   echo -e $CL_GRN"============================================"$CL_RST
 fi
 echo -e $CL_GRN"============================================"$CL_RST
 echo -e $CL_GRN"clean-up updater-script"
@@ -98,6 +110,9 @@ $SED -i \
 	$REPACK/ota/META-INF/com/google/android/updater-script
 $SED -i \
 	-e 's:show_progress(0.500000, 0);::' \
+	$REPACK/ota/META-INF/com/google/android/updater-script
+$SED -i \
+	'/^$/d' \
 	$REPACK/ota/META-INF/com/google/android/updater-script
 
 echo -e $CL_GRN"============================================"$CL_RST
@@ -114,6 +129,12 @@ $SED -i \
         '1i show_progress(0.5, 60);' $REPACK/ota/META-INF/com/google/android/updater-script
 $SED -i \
         '1i ui_print("Installing system + data");' $REPACK/ota/META-INF/com/google/android/updater-script
+$SED -i \
+        '1i ui_print("=============================");' $REPACK/ota/META-INF/com/google/android/updater-script
+$SED -i \
+        "1i ${DEVICE_INFO}" $REPACK/ota/META-INF/com/google/android/updater-script
+$SED -i \
+        "1i ${DEVICE_VERSION}" $REPACK/ota/META-INF/com/google/android/updater-script
 $SED -i \
         '1i ui_print("=============================");' $REPACK/ota/META-INF/com/google/android/updater-script
 $SED -i \
@@ -307,7 +328,13 @@ if [ $NEW_DEVICE2 -eq 1 ]; then
    NEW_PROD_DEV="ro.product.device=$OLD_DEVICE2"
    $SED -i \
    	-e "s:${OLD_PROD_DEV}:${NEW_PROD_DEV}:" \
-	$REPACK/ota/system/build.prop
+	$REPACK/ota1/system/build.prop
+   echo -e $CL_GRN"============================================"$CL_RST
+   echo -e $CL_GRN"Change device & build info in updater script"
+   echo -e $CL_GRN"============================================"$CL_RST
+   $SED -i \
+   	-e "s:${DEVICE_INFO}:${DEVICE_INFO1}:" \
+	$REPACK/ota1/META-INF/com/google/android/updater-script
 fi
 
 echo -e $CL_GRN"============================================"$CL_RST

@@ -12,7 +12,6 @@ CHANGELOG_8 =
 CHANGELOG_9 = 
 
 
-OLDVERSION_LOG = 
 V3.13
 Update: latest CM10.1 sources.
 Feature: added Google keyboard
