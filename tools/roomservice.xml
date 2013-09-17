@@ -20,6 +20,7 @@
   <!-- ################################################# -->
   <!-- <remove-project name="CyanogenMod/android_external_wpa_supplicant_6" /> -->
   <remove-project name="CyanogenMod/android_external_wpa_supplicant_8_ti" />
+  <remove-project name="CyanogenMod/android_packages_apps_CMAccount" />
   <remove-project name="CyanogenMod/android_packages_apps_CMUpdater" />
   <remove-project name="CyanogenMod/android_packages_apps_CMWallpapers" />
   <remove-project name="CyanogenMod/android_packages_wallpapers_Basic" />
