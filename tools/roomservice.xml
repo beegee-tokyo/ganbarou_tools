@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
   <!-- ################################################# -->
+  <!-- This is for Android 4.3                           -->
+  <!-- ################################################# -->
   <!-- Ganbarou ROM specific build & patch tools         -->
   <!-- ################################################# -->
   <project name="beegee-tokyo/ganbarou_tools" path="ganbarou_tools" remote="github" revision="cm-10.2" />
