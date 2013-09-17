@@ -1,16 +1,22 @@
 VERSION_MAJOR = 4
-VERSION_MINOR = 00
-CHANGELOG_0 = Initial: first build based on CM10.2.
-CHANGELOG_1 = Feature: Ganbarou wallpaper
-CHANGELOG_2 = Feature: Ganbarou bootanimation
-CHANGELOG_3 = Feature: Ganbarou About screen (Ganbarou changelog, Ganbarou version, Ganbarou easter egg)
-CHANGELOG_4 = Feature: Reboot and Recovery on top level of power menu
+VERSION_MINOR = 01
+CHANGELOG_0 = Update: latest CM10.2 sources.
+CHANGELOG_1 = Update: latest ads free hosts file
+CHANGELOG_2 = 
+CHANGELOG_3 = 
+CHANGELOG_4 = 
 CHANGELOG_5 = 
 CHANGELOG_6 = 
 CHANGELOG_7 = 
 CHANGELOG_8 = 
 CHANGELOG_9 = 
 
+
+V4.00
+Initial: first build based on CM10.2.
+Feature: Ganbarou wallpaper
+Feature: Ganbarou bootanimation
+Feature: Reboot and Recovery on top level of power menu
 
 V3.13
 Update: latest CM10.1 sources.
