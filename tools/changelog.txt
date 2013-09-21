@@ -1,8 +1,8 @@
 VERSION_MAJOR = 4
-VERSION_MINOR = 01
+VERSION_MINOR = 02
 CHANGELOG_0 = Update: latest CM10.2 sources.
-CHANGELOG_1 = Update: latest ads free hosts file
-CHANGELOG_2 = BugFix: Camera now working on Galaxy Tab 10.1
+CHANGELOG_1 = Feature: Navigation bar on right side of status bar
+CHANGELOG_2 = 
 CHANGELOG_3 = 
 CHANGELOG_4 = 
 CHANGELOG_5 = 
@@ -11,6 +11,10 @@ CHANGELOG_7 =
 CHANGELOG_8 = 
 CHANGELOG_9 = 
 
+V4.01
+Update: latest CM10.2 sources.
+Update: latest ads free hosts file
+BugFix: Camera now working on Galaxy Tab 10.1
 
 V4.00
 Initial: first build based on CM10.2.

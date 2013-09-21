@@ -147,9 +147,20 @@ $SED -i \
         '1i ui_print(" ");' $REPACK/ota/META-INF/com/google/android/updater-script
 $SED -i \
         '1i ui_print(" ");' $REPACK/ota/META-INF/com/google/android/updater-script
-
+if [ $NEW_DEVICE != "GT-N7000" ]; then
+  $SED -i \
+	'/package_extract_file("boot.img"/i \
+	ui_print("=============================");ui_print("Flashing kernel");' \
+	$REPACK/ota/META-INF/com/google/android/updater-script
+fi
+if [ $NEW_DEVICE == "GT-N7000" ]; then
+  $SED -i \
+	'/assert(package_extract_file("boot.img"/i \
+	ui_print("=============================");ui_print("Flashing kernel");' \
+	$REPACK/ota/META-INF/com/google/android/updater-script
+fi
 $SED -i \
-	-e 's:show_progress(0.100000, 0);:show_progress(1.000000, 30);run_program("/sbin/rm", "-rf", "/data/data/android.romstats");ui_print("=============================");ui_print("Flashing kernel");ui_print("=============================");ui_print("All done!");ui_print("Enjoy Ganbarou GT ROM");ui_print("=============================");:' \
+	-e 's:show_progress(0.100000, 0);:show_progress(1.000000, 30);run_program("/sbin/rm", "-rf", "/data/data/android.romstats");ui_print("=============================");ui_print("All done!");ui_print("Enjoy Ganbarou GT ROM");ui_print("=============================");:' \
 	$REPACK/ota/META-INF/com/google/android/updater-script
 
 #if [ $NEW_DEVICE2 -eq 1 ] || [ $TEST_BUILD -eq 1 ]; then
