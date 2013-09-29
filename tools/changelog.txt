@@ -1,8 +1,8 @@
 VERSION_MAJOR = 4
 VERSION_MINOR = 02
 CHANGELOG_0 = Update: latest CM10.2 sources.
-CHANGELOG_1 = Feature: Navigation bar on right side of status bar
-CHANGELOG_2 = 
+CHANGELOG_1 = Feature Tablet: Navigation bar on right side of top bar in expanded desktop mode if enabled in Settings
+CHANGELOG_2 = Feature Tablet: Brightness control by swiping on status bar enabled for tablets
 CHANGELOG_3 = 
 CHANGELOG_4 = 
 CHANGELOG_5 = 
