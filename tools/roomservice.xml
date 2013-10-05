@@ -17,6 +17,8 @@
   <remove-project name="CyanogenMod/android_frameworks_base" />
   <project name="beegee-tokyo/android_frameworks_base" path="frameworks/base" revision="cm-10.2" />
   <project name="beegee-tokyo/ganbarou_vendor_samsung" path="vendor/samsung" revision="cm-10.2" />
+  <remove-project name="CyanogenMod/android_prebuilt"/>
+  <project name="beegee-tokyo/android_prebuilt" path="prebuilt" />
   <!-- ################################################# -->
   <!-- Ganbarou ROM changes to CM10.2                    -->
   <!-- ################################################# -->

@@ -60,8 +60,8 @@ if [ $NEW_DEVICE2 -eq 1 ]; then
    DEVICE_INFO1="ui_print(\"for $NEW_DEVICE1\");"
 fi
 # was cm-base_for_ganbarou.zip is now cm_p4-ota-eng.beegee.zip p4 can be p4wifi or n7000
-OTAPACKAGE="$OUT/cm-10.2-$NOWORG-UNOFFICIAL-$OLD_DEVICE.zip"
-#OTAPACKAGE="$OUT/cm_$OLD_DEVICE-ota-*.zip"
+#OTAPACKAGE="$OUT/cm-10.2-$NOWORG-UNOFFICIAL-$OLD_DEVICE.zip"
+OTAPACKAGE="$OUT/cm_$OLD_DEVICE-ota-*.zip"
 mkdir $REPACK
 mkdir $REPACK/ota
 cd $REPACK/ota

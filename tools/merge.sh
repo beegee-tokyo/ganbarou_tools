@@ -64,17 +64,17 @@
 #git fetch upstream
 #git merge upstream/cm-10.1
 #cd ../../..
-#echo ============================================
-#echo 'Get latest changes from infamous p4 kernel'
-#echo ============================================
-#cd kernel
-#cd samsung
-#cd p4
-#git checkout cm-10.2
-#git remote add upstream git://github.com/InfamousAOKP/android_kernel_samsung_p4.git
-#git fetch upstream
-#git merge upstream/cm-10.2
-#cd ../../..
+echo ============================================
+echo 'Get latest changes from infamous p4 kernel'
+echo ============================================
+cd kernel
+cd samsung
+cd p4
+git checkout cm-10.2
+git remote add upstream git://github.com/InfamousAOKP/android_kernel_samsung_p4.git
+git fetch upstream
+git merge upstream/cm-10.2
+cd ../../..
 echo ============================================
 echo 'Get latest changes from settings'
 echo ============================================
@@ -108,6 +108,15 @@ echo ============================================
 #git fetch upstream
 #git merge upstream/master
 #cd ../../..
+echo ============================================
+echo 'Get latest changes from CyanogenMod prebuilt'
+echo ============================================
+cd prebuilt
+git checkout cm-10.2
+git remote add upstream git://github.com/CyanogenMod/android_prebuilt.git
+git fetch upstream
+git merge upstream/cm-10.2
+cd ..
 echo ============================================
 echo 'Check output. If all ok start ./push.sh'
 echo ============================================
