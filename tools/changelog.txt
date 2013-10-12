@@ -1,15 +1,21 @@
 VERSION_MAJOR = 4
-VERSION_MINOR = 02
+VERSION_MINOR = 03
 CHANGELOG_0 = Update: latest CM10.2 sources.
-CHANGELOG_1 = Feature Tablet: Navigation bar on right side of top bar in expanded desktop mode if enabled in Settings
-CHANGELOG_2 = Feature Tablet: Brightness control by swiping on status bar enabled for tablets
-CHANGELOG_3 = Update Tablet: Use latest infamous kernel source
+CHANGELOG_1 = New Android version: V 4.3.1
+CHANGELOG_2 = Feature Tablet: Statusbar navigation menu button only visible if necessary
+CHANGELOG_3 = Feature Tablet: Statusbar navigation back button changes when keyboard is open
 CHANGELOG_4 = 
 CHANGELOG_5 = 
 CHANGELOG_6 = 
 CHANGELOG_7 = 
 CHANGELOG_8 = 
 CHANGELOG_9 = 
+
+V4.02
+Update: latest CM10.2 sources.
+Feature Tablet: Navigation bar on right side of top bar in expanded desktop mode if enabled in Settings
+Feature Tablet: Brightness control by swiping on status bar enabled for tablets
+Update Tablet: Use latest infamous kernel source
 
 V4.01
 Update: latest CM10.2 sources.
