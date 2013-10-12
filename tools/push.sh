@@ -61,19 +61,6 @@ git commit -a
 git push git@github.com:beegee-tokyo/android_device_samsung_p4wifi.git cm-10.2
 cd ../../..
 echo ============================================
-echo 'Push latest changes to beegee-tokyo device_p4vzw'
-echo ============================================
-cd device
-cd samsung
-cd p4vzw
-repo start cm-10.2 .
-git checkout cm-10.2
-git pull
-git add -A
-git commit -a
-git push git@github.com:beegee-tokyo/android_device_samsung_p4vzw.git cm-10.2
-cd ../../..
-echo ============================================
 echo 'Push latest changes to beegee-tokyo device_p4-common'
 echo ============================================
 cd device
