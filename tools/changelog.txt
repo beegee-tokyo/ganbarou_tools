@@ -1,15 +1,21 @@
 VERSION_MAJOR = 4
-VERSION_MINOR = 03
+VERSION_MINOR = 04
 CHANGELOG_0 = Update: latest CM10.2 sources.
-CHANGELOG_1 = Update: New Android version: V 4.3.1.
-CHANGELOG_2 = Feature Tablet: Statusbar navigation menu button only visible if necessary.
-CHANGELOG_3 = Feature Tablet: Statusbar navigation back button changes when keyboard is open.
+CHANGELOG_1 = 
+CHANGELOG_2 = 
+CHANGELOG_3 = 
 CHANGELOG_4 = 
 CHANGELOG_5 = 
 CHANGELOG_6 = 
 CHANGELOG_7 = 
 CHANGELOG_8 = 
 CHANGELOG_9 = 
+
+V4.03
+Update: latest CM10.2 sources.
+Update: New Android version: V 4.3.1.
+Feature Tablet: Statusbar navigation menu button only visible if necessary.
+Feature Tablet: Statusbar navigation back button changes when keyboard is open.
 
 V4.02
 Update: latest CM10.2 sources.
