@@ -44,13 +44,15 @@
   <project name="beegee-tokyo/android_device_samsung_p4wifi" path="device/samsung/p4wifi" remote="github" revision="cm-10.2" />
   <project name="InfamousAOKP/android_kernel_samsung_p4" path="kernel/samsung/p4" remote="github" revision="infamous-jb3" />
   <!-- ################################################# -->
+  <!-- I9300 specific                                    -->
+  <!-- ################################################# -->
+  <project name="CyanogenMod/android_device_samsung_i9300" path="device/samsung/i9300" remote="github" revision="cm-10.2" />
+  <project name="CyanogenMod/android_device_samsung_smdk4412-common" path="device/samsung/smdk4412-common" remote="github" revision="cm-10.2" />
+  <!-- ################################################# -->
   <!-- N7000 specific                                    -->
   <!-- ################################################# -->
   <project name="CyanogenMod/android_device_samsung_n7000" path="device/samsung/n7000" remote="github" revision="cm-10.2" />
   <project name="CyanogenMod/android_device_samsung_galaxys2-common" path="device/samsung/galaxys2-common" remote="github" revision="cm-10.2" />
-  <project name="chasmodo/android_kernel_samsung_smdk4412" path="kernel/samsung/smdk4412" remote="github" />
-  <project name="CyanogenMod/android_hardware_samsung" path="hardware/samsung" remote="github" />
-  <project name="CyanogenMod/android_packages_apps_SamsungServiceMode" path="packages/apps/SamsungServiceMode" remote="github" />
   <!-- ################################################# -->
   <!-- I9505 specific                                    -->
   <!-- ################################################# -->
@@ -59,4 +61,13 @@
   <project name="CyanogenMod/android_device_samsung_msm8960-common" path="device/samsung/msm8960-common" remote="github" />
   <project name="CyanogenMod/android_device_samsung_jf-common" path="device/samsung/jf-common" remote="github" />
   <project name="CyanogenMod/android_kernel_samsung_jf" path="kernel/samsung/jf" remote="github" />
+  <!-- ################################################# -->
+  <!-- N7000 & I9300 common                                    -->
+  <!-- ################################################# -->
+  <project name="chasmodo/android_kernel_samsung_smdk4412" path="kernel/samsung/smdk4412" remote="github" />
+  <project name="CyanogenMod/android_packages_apps_SamsungServiceMode" path="packages/apps/SamsungServiceMode" remote="github" />
+  <!-- ################################################# -->
+  <!-- N7000 & I9300 & I9500 common                                    -->
+  <!-- ################################################# -->
+  <project name="CyanogenMod/android_hardware_samsung" path="hardware/samsung" remote="github" />
 </manifest>

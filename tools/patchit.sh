@@ -1,7 +1,7 @@
-# $NEW_DEVICE = GT-P7500 or GT-P7510 or GT-N7000
+# $NEW_DEVICE = GT-P7500 or GT-P7510 or GT-N7000 or GT-I9300 or GT-I9505
 # $NEW_DEVICE1 = GT-P7501 or GT-P7511
-# $NEW_DEVICE2 = 1 for P7501/P7511 and 0 for N7000
-# $OLD_DEVICE = p4 or p4wifi or n7000
+# $NEW_DEVICE2 = 1 for P7501/P7511 and 0 for N7000 or GT-I9300 or GT-I9505
+# $OLD_DEVICE = p4 or p4wifi or n7000 or jfltexx or i9300
 # KERNEL_VERSION = infamous or pershoot
 # TEST_BUILD = 1 if quick build only for P7500 else it is 0
 
@@ -56,8 +56,8 @@ OUTFILE="$OUT/Ganbarou-$NEW_DEVICE-v$gooversion_t.$goobuild_t-$NOW.zip"
 DEVICE_VERSION="ui_print(\"Version $gooversion_t.$goobuild_t\");"
 DEVICE_INFO="ui_print(\"for $NEW_DEVICE\");"
 if [ $NEW_DEVICE2 -eq 1 ]; then
-   OUTFILE1="$OUT/Ganbarou-$NEW_DEVICE1-v$gooversion_t.$goobuild_t-$NOW.zip"
-   DEVICE_INFO1="ui_print(\"for $NEW_DEVICE1\");"
+	OUTFILE1="$OUT/Ganbarou-$NEW_DEVICE1-v$gooversion_t.$goobuild_t-$NOW.zip"
+	DEVICE_INFO1="ui_print(\"for $NEW_DEVICE1\");"
 fi
 # was cm-base_for_ganbarou.zip is now cm_p4-ota-eng.beegee.zip p4 can be p4wifi or n7000
 #OTAPACKAGE="$OUT/cm-10.2-$NOWORG-UNOFFICIAL-$OLD_DEVICE.zip"
@@ -74,10 +74,10 @@ echo $DEVICE_INFO1
 # IF we build for infamous kernel then we have to change $OLD_DEVICE
 export OLD_DEVICE2=$OLD_DEVICE
 if [[ $OLD_DEVICE == p4p ]]; then 
-   export OLD_DEVICE2="p4"
+	export OLD_DEVICE2="p4"
 fi
 if [[ $OLD_DEVICE == p4wifip ]]; then 
-   export OLD_DEVICE2="p4wifi"
+	export OLD_DEVICE2="p4wifi"
 fi
 
 echo -e $CL_GRN"============================================"$CL_RST
@@ -85,19 +85,21 @@ echo -e $CL_GRN"Ganbarou changes in updater-script"
 echo -e $CL_GRN"============================================"$CL_RST
 #if [ $NEW_DEVICE2 -eq 1 ] || [ $TEST_BUILD -eq 1 ] ; then
 if [ $NEW_DEVICE != "GT-I9505" ]; then
-   echo -e $CL_GRN"============================================"$CL_RST
-   echo -e $CL_GRN"Remove assert from updater-script"
-   if [ $NEW_DEVICE != "GT-N7000" ]; then
-   echo -e $CL_GRN"for tablet"
-    $SED -i \
-	-e '/^a/d' \
-	$REPACK/ota/META-INF/com/google/android/updater-script
-   fi
-   if [ $NEW_DEVICE == "GT-N7000" ]; then
-   echo -e $CL_GRN"for GT-N7000"
-    $SED -i '1,4d' $REPACK/ota/META-INF/com/google/android/updater-script
-   fi
-   echo -e $CL_GRN"============================================"$CL_RST
+	if [ $NEW_DEVICE != "GT-I9300" ]; then
+		echo -e $CL_GRN"============================================"$CL_RST
+		echo -e $CL_GRN"Remove assert from updater-script"
+		if [ $NEW_DEVICE != "GT-N7000" ]; then
+			echo -e $CL_GRN"for tablet"
+			$SED -i \
+			-e '/^a/d' \
+			$REPACK/ota/META-INF/com/google/android/updater-script
+		fi
+		if [ $NEW_DEVICE == "GT-N7000" ]; then
+			echo -e $CL_GRN"for GT-N7000"
+			$SED -i '1,4d' $REPACK/ota/META-INF/com/google/android/updater-script
+		fi
+		echo -e $CL_GRN"============================================"$CL_RST
+	fi
 fi
 echo -e $CL_GRN"============================================"$CL_RST
 echo -e $CL_GRN"clean-up updater-script"
@@ -126,35 +128,35 @@ echo -e $CL_GRN"============================================"$CL_RST
 echo -e $CL_GRN"Add Ganbarou info into updater-script"
 echo -e $CL_GRN"============================================"$CL_RST
 $SED -i \
-        '1i show_progress(0.7, 45);' $REPACK/ota/META-INF/com/google/android/updater-script
+		'1i show_progress(0.7, 45);' $REPACK/ota/META-INF/com/google/android/updater-script
 $SED -i \
-        '1i ui_print("Installing system + data");' $REPACK/ota/META-INF/com/google/android/updater-script
+		'1i ui_print("Installing system + data");' $REPACK/ota/META-INF/com/google/android/updater-script
 $SED -i \
-        '1i ui_print("=============================");' $REPACK/ota/META-INF/com/google/android/updater-script
+		'1i ui_print("=============================");' $REPACK/ota/META-INF/com/google/android/updater-script
 $SED -i \
-        "1i ${DEVICE_INFO}" $REPACK/ota/META-INF/com/google/android/updater-script
+		"1i ${DEVICE_INFO}" $REPACK/ota/META-INF/com/google/android/updater-script
 $SED -i \
-        "1i ${DEVICE_VERSION}" $REPACK/ota/META-INF/com/google/android/updater-script
+		"1i ${DEVICE_VERSION}" $REPACK/ota/META-INF/com/google/android/updater-script
 $SED -i \
-        '1i ui_print("=============================");' $REPACK/ota/META-INF/com/google/android/updater-script
+		'1i ui_print("=============================");' $REPACK/ota/META-INF/com/google/android/updater-script
 $SED -i \
-        '1i ui_print("Welcome to Ganbarou GT ROM");' $REPACK/ota/META-INF/com/google/android/updater-script
+		'1i ui_print("Welcome to Ganbarou GT ROM");' $REPACK/ota/META-INF/com/google/android/updater-script
 $SED -i \
-        '1i ui_print("=============================");' $REPACK/ota/META-INF/com/google/android/updater-script
+		'1i ui_print("=============================");' $REPACK/ota/META-INF/com/google/android/updater-script
 $SED -i \
-        '1i ui_print(" ");' $REPACK/ota/META-INF/com/google/android/updater-script
+		'1i ui_print(" ");' $REPACK/ota/META-INF/com/google/android/updater-script
 $SED -i \
-        '1i ui_print(" ");' $REPACK/ota/META-INF/com/google/android/updater-script
+		'1i ui_print(" ");' $REPACK/ota/META-INF/com/google/android/updater-script
 $SED -i \
-        '1i ui_print(" ");' $REPACK/ota/META-INF/com/google/android/updater-script
+		'1i ui_print(" ");' $REPACK/ota/META-INF/com/google/android/updater-script
 if [ $NEW_DEVICE != "GT-N7000" ]; then
-  $SED -i \
+$SED -i \
 	'/package_extract_file("boot.img"/i \
 	show_progress(1.000000, 20);ui_print("=============================");ui_print("Flashing kernel");' \
 	$REPACK/ota/META-INF/com/google/android/updater-script
 fi
 if [ $NEW_DEVICE == "GT-N7000" ]; then
-  $SED -i \
+$SED -i \
 	'/assert(package_extract_file("boot.img"/i \
 	show_progress(1.000000, 20);ui_print("=============================");ui_print("Flashing kernel");' \
 	$REPACK/ota/META-INF/com/google/android/updater-script
@@ -164,17 +166,17 @@ $SED -i \
 	$REPACK/ota/META-INF/com/google/android/updater-script
 
 #if [ $NEW_DEVICE2 -eq 1 ] || [ $TEST_BUILD -eq 1 ]; then
-   echo -e $CL_GRN"============================================"$CL_RST
-   echo -e $CL_GRN"Change $OLD_DEVICE to $NEW_DEVICE in build.prop"
-   echo -e $CL_GRN"But keep ro.product.device for Google Play"
-   echo -e $CL_GRN"============================================"$CL_RST
-   $SED -i \
-   	-e "s:${OLD_DEVICE}:${NEW_DEVICE}:" \
+	echo -e $CL_GRN"============================================"$CL_RST
+	echo -e $CL_GRN"Change $OLD_DEVICE to $NEW_DEVICE in build.prop"
+	echo -e $CL_GRN"But keep ro.product.device for Google Play"
+	echo -e $CL_GRN"============================================"$CL_RST
+	$SED -i \
+		-e "s:${OLD_DEVICE}:${NEW_DEVICE}:" \
 	$REPACK/ota/system/build.prop
-   OLD_PROD_DEV="ro.product.device=$NEW_DEVICE"
-   NEW_PROD_DEV="ro.product.device=$OLD_DEVICE2"
-   $SED -i \
-   	-e "s:${OLD_PROD_DEV}:${NEW_PROD_DEV}:" \
+	OLD_PROD_DEV="ro.product.device=$NEW_DEVICE"
+	NEW_PROD_DEV="ro.product.device=$OLD_DEVICE2"
+	$SED -i \
+		-e "s:${OLD_PROD_DEV}:${NEW_PROD_DEV}:" \
 	$REPACK/ota/system/build.prop
 #fi
 echo -e $CL_GRN"============================================"$CL_RST
@@ -189,7 +191,7 @@ echo -e $CL_GRN"============================================"$CL_RST
 echo -e $CL_GRN"Change ro.build.display.id in build.prop"
 echo -e $CL_GRN"============================================"$CL_RST
 $SED -i \
-   	-e 's:ro.build.display.id=cm_:ro.build.display.id=Ganbarou_:' \
+		-e 's:ro.build.display.id=cm_:ro.build.display.id=Ganbarou_:' \
 	$REPACK/ota/system/build.prop
 
 echo -e $CL_GRN"============================================"$CL_RST
@@ -277,10 +279,10 @@ echo -e $CL_GRN"============================================"$CL_RST
 mkdir $REPACK/ota/data
 mkdir $REPACK/ota/data/app
 if [ $NEW_DEVICE2 -eq 1 ] || [ $TEST_BUILD -eq 1 ]; then
-   cp -r -f -v $ANDROID_BUILD_TOP/ganbarou_tools/patches/data/app/. $REPACK/ota/data/app/.
+	cp -r -f -v $ANDROID_BUILD_TOP/ganbarou_tools/patches/data/app/. $REPACK/ota/data/app/.
 else
-   cp -r -f -v $ANDROID_BUILD_TOP/ganbarou_tools/patches/datap/app/. $REPACK/ota/data/app/.
-   cp -r -f -v $ANDROID_BUILD_TOP/ganbarou_tools/patches/systemapp-p/. $REPACK/ota/system/app/.
+	cp -r -f -v $ANDROID_BUILD_TOP/ganbarou_tools/patches/datap/app/. $REPACK/ota/data/app/.
+	cp -r -f -v $ANDROID_BUILD_TOP/ganbarou_tools/patches/systemapp-p/. $REPACK/ota/system/app/.
 fi
 
 echo -e $CL_GRN"============================================"$CL_RST
@@ -304,47 +306,53 @@ $SED -i \
 	$REPACK/ota/system/etc/apns-conf.xml
 
 if [ $NEW_DEVICE2 -eq 1 ] || [ $TEST_BUILD -eq 1 ]; then
-   echo -e $CL_GRN"============================================"$CL_RST
-   echo -e $CL_GRN"Add Ganbarou tablet boot animation"
-   echo -e $CL_GRN"============================================"$CL_RST
-   cp -r -f -v $ANDROID_BUILD_TOP/ganbarou_tools/patches/bootanimation-t/bootanimation.zip $REPACK/ota/system/media/bootanimation.zip
+	echo -e $CL_GRN"============================================"$CL_RST
+	echo -e $CL_GRN"Add Ganbarou tablet boot animation"
+	echo -e $CL_GRN"============================================"$CL_RST
+	cp -r -f -v $ANDROID_BUILD_TOP/ganbarou_tools/patches/bootanimation-t/bootanimation.zip $REPACK/ota/system/media/bootanimation.zip
 fi
 if [ $NEW_DEVICE == "GT-N7000" ]; then
-   echo -e $CL_GRN"============================================"$CL_RST
-   echo -e $CL_GRN"Add Ganbarou N7000 boot animation"
-   echo -e $CL_GRN"============================================"$CL_RST
-   cp -r -f -v $ANDROID_BUILD_TOP/ganbarou_tools/patches/bootanimation-p/bootanimation.zip $REPACK/ota/system/media/bootanimation.zip
+	echo -e $CL_GRN"============================================"$CL_RST
+	echo -e $CL_GRN"Add Ganbarou N7000 boot animation"
+	echo -e $CL_GRN"============================================"$CL_RST
+	cp -r -f -v $ANDROID_BUILD_TOP/ganbarou_tools/patches/bootanimation-p/bootanimation.zip $REPACK/ota/system/media/bootanimation.zip
 fi
 if [ $NEW_DEVICE == "GT-I9505" ]; then
-   echo -e $CL_GRN"============================================"$CL_RST
-   echo -e $CL_GRN"Add Ganbarou SGS4 boot animation"
-   echo -e $CL_GRN"============================================"$CL_RST
-   cp -r -f -v $ANDROID_BUILD_TOP/ganbarou_tools/patches/bootanimation-p2/bootanimation.zip $REPACK/ota/system/media/bootanimation.zip
+	echo -e $CL_GRN"============================================"$CL_RST
+	echo -e $CL_GRN"Add Ganbarou SGS4 boot animation"
+	echo -e $CL_GRN"============================================"$CL_RST
+	cp -r -f -v $ANDROID_BUILD_TOP/ganbarou_tools/patches/bootanimation-p2/bootanimation.zip $REPACK/ota/system/media/bootanimation.zip
+fi
+if [ $NEW_DEVICE == "GT-I9300" ]; then
+	echo -e $CL_GRN"============================================"$CL_RST
+	echo -e $CL_GRN"Add Ganbarou SGS3 boot animation"
+	echo -e $CL_GRN"============================================"$CL_RST
+	cp -r -f -v $ANDROID_BUILD_TOP/ganbarou_tools/patches/bootanimation-p3/bootanimation.zip $REPACK/ota/system/media/bootanimation.zip
 fi
 
 if [ $NEW_DEVICE2 -eq 1 ]; then
-   echo -e $CL_GRN"============================================"$CL_RST
-   echo -e $CL_GRN"Make copy of ota for $NEW_DEVICE1 ROM"
-   echo -e $CL_GRN"============================================"$CL_RST
-   mkdir $REPACK/ota1
-   cp -rf $REPACK/ota/. $REPACK/ota1/.
-   echo -e $CL_GRN"============================================"$CL_RST
-   echo -e $CL_GRN"Change $NEW_DEVICE to $NEW_DEVICE1 in build.prop"
-   echo -e $CL_GRN"But keep ro.product.device for Google Play"
-   echo -e $CL_GRN"============================================"$CL_RST
-   $SED -i \
-   	-e "s:${NEW_DEVICE}:${NEW_DEVICE1}:" \
+	echo -e $CL_GRN"============================================"$CL_RST
+	echo -e $CL_GRN"Make copy of ota for $NEW_DEVICE1 ROM"
+	echo -e $CL_GRN"============================================"$CL_RST
+	mkdir $REPACK/ota1
+	cp -rf $REPACK/ota/. $REPACK/ota1/.
+	echo -e $CL_GRN"============================================"$CL_RST
+	echo -e $CL_GRN"Change $NEW_DEVICE to $NEW_DEVICE1 in build.prop"
+	echo -e $CL_GRN"But keep ro.product.device for Google Play"
+	echo -e $CL_GRN"============================================"$CL_RST
+	$SED -i \
+		-e "s:${NEW_DEVICE}:${NEW_DEVICE1}:" \
 	$REPACK/ota1/system/build.prop
-   OLD_PROD_DEV="ro.product.device=$NEW_DEVICE1"
-   NEW_PROD_DEV="ro.product.device=$OLD_DEVICE2"
-   $SED -i \
-   	-e "s:${OLD_PROD_DEV}:${NEW_PROD_DEV}:" \
+	OLD_PROD_DEV="ro.product.device=$NEW_DEVICE1"
+	NEW_PROD_DEV="ro.product.device=$OLD_DEVICE2"
+	$SED -i \
+		-e "s:${OLD_PROD_DEV}:${NEW_PROD_DEV}:" \
 	$REPACK/ota1/system/build.prop
-   echo -e $CL_GRN"============================================"$CL_RST
-   echo -e $CL_GRN"Change device & build info in updater script"
-   echo -e $CL_GRN"============================================"$CL_RST
-   $SED -i \
-   	-e "s:${DEVICE_INFO}:${DEVICE_INFO1}:" \
+	echo -e $CL_GRN"============================================"$CL_RST
+	echo -e $CL_GRN"Change device & build info in updater script"
+	echo -e $CL_GRN"============================================"$CL_RST
+	$SED -i \
+		-e "s:${DEVICE_INFO}:${DEVICE_INFO1}:" \
 	$REPACK/ota1/META-INF/com/google/android/updater-script
 fi
 
@@ -353,26 +361,26 @@ echo -e $CL_GRN"Zipping Ganbarou $NEW_DEVICE ROM"
 echo -e $CL_GRN"============================================"$CL_RST
 ( cd $REPACK/ota; zip $QUIET -r $REPACK/update.zip . )
 if [ $NEW_DEVICE2 -eq 1 ]; then
-   echo -e $CL_GRN"============================================"$CL_RST
-   echo -e $CL_GRN"Zipping Ganbarou $NEW_DEVICE1 ROM"
-   echo -e $CL_GRN"============================================"$CL_RST
-   ( cd $REPACK/ota1; zip $QUIET -r $REPACK/update1.zip . )
+	echo -e $CL_GRN"============================================"$CL_RST
+	echo -e $CL_GRN"Zipping Ganbarou $NEW_DEVICE1 ROM"
+	echo -e $CL_GRN"============================================"$CL_RST
+	( cd $REPACK/ota1; zip $QUIET -r $REPACK/update1.zip . )
 fi
 echo -e $CL_GRN"============================================"$CL_RST
 echo -e $CL_GRN"Sign Ganbarou $NEW_DEVICE ROM"
 echo -e $CL_GRN"============================================"$CL_RST
 SECURITYDIR=$ANDROID_BUILD_TOP/build/target/product/security
-   java -Xmx1024m \
-   	-jar $ANDROID_BUILD_TOP/out/host/$OUT_TARGET_HOST/framework/signapk.jar \
+	java -Xmx1024m \
+		-jar $ANDROID_BUILD_TOP/out/host/$OUT_TARGET_HOST/framework/signapk.jar \
 	-w $SECURITYDIR/testkey.x509.pem $SECURITYDIR/testkey.pk8 \
 	$REPACK/update.zip $OUTFILE
 
 if [ $NEW_DEVICE2 -eq 1 ]; then
-   echo -e $CL_GRN"============================================"$CL_RST
-   echo -e $CL_GRN"Sign Ganbarou $NEW_DEVICE1 ROM"
-   echo -e $CL_GRN"============================================"$CL_RST
-   SECURITYDIR=$ANDROID_BUILD_TOP/build/target/product/security
-   java -Xmx1024m \
+	echo -e $CL_GRN"============================================"$CL_RST
+	echo -e $CL_GRN"Sign Ganbarou $NEW_DEVICE1 ROM"
+	echo -e $CL_GRN"============================================"$CL_RST
+	SECURITYDIR=$ANDROID_BUILD_TOP/build/target/product/security
+	java -Xmx1024m \
 	-jar $ANDROID_BUILD_TOP/out/host/$OUT_TARGET_HOST/framework/signapk.jar \
 	-w $SECURITYDIR/testkey.x509.pem $SECURITYDIR/testkey.pk8 \
 	$REPACK/update1.zip $OUTFILE1
@@ -393,21 +401,21 @@ $MD5 $img >$img.md5sum
 )
 
 if [ $NEW_DEVICE2 -eq 1 ]; then
-   echo -e $CL_GRN"============================================"$CL_RST
-   echo -e $CL_GRN"Create a md5 checksum image of the repacked $NEW_DEVICE1 package"
-   echo -e $CL_GRN"============================================"$CL_RST
-   (
-   img=`basename $OUTFILE1`
-   cd `dirname $OUTFILE1`
-   $MD5 $img >$img.md5sum
-   )
+	echo -e $CL_GRN"============================================"$CL_RST
+	echo -e $CL_GRN"Create a md5 checksum image of the repacked $NEW_DEVICE1 package"
+	echo -e $CL_GRN"============================================"$CL_RST
+	(
+	img=`basename $OUTFILE1`
+	cd `dirname $OUTFILE1`
+	$MD5 $img >$img.md5sum
+	)
 fi
 
 echo -e $CL_MAG"============================================"$CL_RST
 echo -e $CL_MAG"Package complete: $OUTFILE"
 echo -e $CL_MAG"============================================"$CL_RST
 if [ $NEW_DEVICE2 -eq 1 ]; then
-   echo -e $CL_MAG"Package complete: $OUTFILE1"
+	echo -e $CL_MAG"Package complete: $OUTFILE1"
 fi
 
 echo -e $CL_GRN"============================================"$CL_RST
@@ -416,8 +424,8 @@ echo -e $CL_GRN"============================================"$CL_RST
 mv $OUTFILE $ANDROID_BUILD_TOP/
 mv $OUTFILE.md5sum $ANDROID_BUILD_TOP/
 if [ $NEW_DEVICE2 -eq 1 ]; then
-   mv $OUTFILE1 $ANDROID_BUILD_TOP/
-   mv $OUTFILE1.md5sum $ANDROID_BUILD_TOP/
+	mv $OUTFILE1 $ANDROID_BUILD_TOP/
+	mv $OUTFILE1.md5sum $ANDROID_BUILD_TOP/
 fi
 
 echo -e $CL_GRN"============================================"$CL_RST
