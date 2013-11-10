@@ -64,7 +64,7 @@
   <!-- ################################################# -->
   <!-- N7000 & I9300 common                                    -->
   <!-- ################################################# -->
-  <project name="chasmodo/android_kernel_samsung_smdk4412" path="kernel/samsung/smdk4412" remote="github" />
+  <project name="CyanogenMod/android_kernel_samsung_smdk4412" path="kernel/samsung/smdk4412" remote="github" />
   <project name="CyanogenMod/android_packages_apps_SamsungServiceMode" path="packages/apps/SamsungServiceMode" remote="github" />
   <!-- ################################################# -->
   <!-- N7000 & I9300 & I9500 common                                    -->
