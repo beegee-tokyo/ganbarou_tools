@@ -296,14 +296,13 @@ echo -e $CL_GRN"============================================"$CL_RST
 echo -e $CL_GRN"Add new APN for Softbank BIZflat connection"
 echo -e $CL_GRN"============================================"$CL_RST
 $SED -i \
-	-e 's:</apns>:<apn carrier="Softbank (BizFlat)" mcc="440" mnc="20" apn="bizflat.softbank" user="biz@bizflat.softbank" password="biz" type="default,supl" /></apns>': \
+	-e 's:</apns>:  <apn carrier="Softbank (BizFlat)" mcc="440" mnc="20" apn="bizflat.softbank" user="biz@bizflat.softbank" password="biz" type="default,supl" />': \
 	$REPACK/ota/system/etc/apns-conf.xml
 echo -e $CL_GRN"============================================"$CL_RST
 echo -e $CL_GRN"Add new APN for Softbank 4G Smartphone connection"
 echo -e $CL_GRN"============================================"$CL_RST
-$SED -i \
-	-e 's:</apns>:<apn carrier="Softbank (4G)" mcc="440" mnc="20" apn="fourgsmartphone" type="default,supl,mms,hipri" /></apns>': \
-	$REPACK/ota/system/etc/apns-conf.xml
+echo '  <apn carrier="Softbank(4G)" mcc="440" mnc="20" apn="fourgsmartphone" mmsc="http://mms/" mmsproxy="andmms.softbank.ne.jp" mmsport="8080" type="default,supl,mms,hipri" />' >> $REPACK/ota/system/etc/apns-conf.xml
+echo "</apns>" >> $REPACK/ota/system/etc/apns-conf.xml
 
 if [ $NEW_DEVICE2 -eq 1 ] || [ $TEST_BUILD -eq 1 ]; then
 	echo -e $CL_GRN"============================================"$CL_RST

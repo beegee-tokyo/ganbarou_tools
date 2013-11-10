@@ -1,8 +1,8 @@
 VERSION_MAJOR = 4
-VERSION_MINOR = 04
+VERSION_MINOR = 05
 CHANGELOG_0 = Update: latest CM10.2 sources.
-CHANGELOG_1 = Fix for tablet: WiFi connection problems (thanks to aaccount findings)
-CHANGELOG_2 = Added build for GT-I9300 (Samsung Galaxy S3 Int.)
+CHANGELOG_1 = 
+CHANGELOG_2 = 
 CHANGELOG_3 = 
 CHANGELOG_4 = 
 CHANGELOG_5 = 
@@ -10,6 +10,11 @@ CHANGELOG_6 =
 CHANGELOG_7 = 
 CHANGELOG_8 = 
 CHANGELOG_9 = 
+
+V4.04
+Update: latest CM10.2 sources.
+Fix for tablet: WiFi connection problems (thanks to aaccount findings)
+Added build for GT-I9300 (Samsung Galaxy S3 Int.)
 
 V4.03
 Update: latest CM10.2 sources.
