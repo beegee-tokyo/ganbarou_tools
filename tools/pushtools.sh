@@ -1,10 +1,3 @@
-_CURRENTPATH=${PWD##*/}
-echo ============================================
-echo 'Clean up directories from tmp files'
-echo ============================================
-cd ../
-find ./$_CURRENTPATH -name *.*~ -exec rm -rf {} \;
-cd $_CURRENTPATH
 echo ============================================
 echo 'Copy batch files back to Ganbarou Tools'
 echo ============================================
