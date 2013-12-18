@@ -1,119 +1,13 @@
-VERSION_MAJOR = 4
-VERSION_MINOR = 05
-CHANGELOG_0 = Update: latest CM10.2 sources.
-CHANGELOG_1 = 
-CHANGELOG_2 = 
-CHANGELOG_3 = 
-CHANGELOG_4 = 
-CHANGELOG_5 = 
+VERSION_MAJOR = 1
+VERSION_MINOR = 00
+CHANGELOG_0 = Initial: Based on AOSP & broodplank1337 Android KitKat 4.4.2 AOSP sources.
+CHANGELOG_1 = Feature: Reboot in Power Menu
+CHANGELOG_2 = Feature: Recovery in Power Menu
+CHANGELOG_3 = Feature: Bootloader in Power Menu (LongPress Recovery)
+CHANGELOG_4 = Feature: Screenshot in Power Menu
+CHANGELOG_5 = Feature: QuickUnlock for lock screen
 CHANGELOG_6 = 
 CHANGELOG_7 = 
 CHANGELOG_8 = 
 CHANGELOG_9 = 
-
-V4.04
-Update: latest CM10.2 sources.
-Fix for tablet: WiFi connection problems (thanks to aaccount findings)
-Added build for GT-I9300 (Samsung Galaxy S3 Int.)
-
-V4.03
-Update: latest CM10.2 sources.
-Update: New Android version: V 4.3.1.
-Feature Tablet: Statusbar navigation menu button only visible if necessary.
-Feature Tablet: Statusbar navigation back button changes when keyboard is open.
-
-V4.02
-Update: latest CM10.2 sources.
-Feature Tablet: Navigation bar on right side of top bar in expanded desktop mode if enabled in Settings
-Feature Tablet: Brightness control by swiping on status bar enabled for tablets
-Update Tablet: Use latest infamous kernel source
-
-V4.01
-Update: latest CM10.2 sources.
-Update: latest ads free hosts file
-BugFix: Camera now working on Galaxy Tab 10.1
-
-V4.00
-Initial: first build based on CM10.2.
-Feature: Ganbarou wallpaper
-Feature: Ganbarou bootanimation
-Feature: Reboot and Recovery on top level of power menu
-
-V3.13
-Update: latest CM10.1 sources.
-Feature: added Google keyboard
-Feature: Removed TabletUI. It caused too much difficulties to maintain the CM10.1 updates.
-Added build for GT-I9505 (Samsung Galaxy S4 LTE)
-
-V3.12
-Update: latest CM10.1 sources.
-Bugfix: Settting for tablet_ui are back
-Bugfix: GPS is working again
-
-V3.11
-Update: latest CM10.1 sources.
-Kernel: Switch back to Infamous Kernel
-Feature: Profiles are available again
-
-V3.10
-Update: latest CM10.1 sources.
-BugFix: Settings->System on Galaxy Note (N7000).
-BugFix: Battery drain problem. All credits go to grzwolf from Android-Hilfe.de. Check thread http://www.android-hilfe.de/5550736-post684.html.
-Feature: Bootanimation.
-
-V3.09
-Update: latest CM10.1 sources.
-Feature: Added TV like screen-off animation
-Feature: Added Ganbarou changelog in Settings->About tablet
-
-V3.08
-Update: latest CM10.1 sources.
-BugFix: Fixed bug in System Settings
-Kernel: Switched to INFAMOUSAOKP kernel (GT-P75xx only)
-BuildChange: Changelog maintained in changelog.txt
-BuildChange: Version number maintained in changelog.txt
-
-V3.07
-New CM10.1 feature: Expanded desktop
-Latest CM10.1 sources
-
-V3.06
-Corrected problem with switch from TabletUI to PhoneUI
-Shortened URLs no loncger blocked
-Latest CM10.1 sources
-
-V3.05
-Small cosmetic changes in system settings
-Latest CM10.1 sources
-
-V3.04
-Corrected problem with TabletUI not working.
-Added option to select position of  Navigation bar (left, center, right) in the "standard" Phablet UI.
-Latest CM10.1 sources (Android 4.2.2 R1)
-Latest pershot kernel 
-Updated rom_stats to send current country, even if it is a WiFi tablet
-Updated rom_stats to send WiFi if it is a WiFi tablet instead of unknown provider
-Updated ads-free hosts file (credits to BSDgeek_Jake http://forum.xda-developers.com/showthread.php?t=1916098)
-
-V3.03
-Latest CM10.1 sources (Android 4.2.2 now!)
-Added ROMstats to get some feedback how often my ROM is used.
-Updated sources for N7000 (Samsung Galaxy Note) and P6800 (Samsung Galaxy Tab 7.7)
-MTP and ADB should now automatically be on after flashing
-Developer options and Performance tabs in Settings are now visible by default
-Removed many developer options that are not important for most users
-
-V3.02
-Added default boot into Tablet UI or Phone UI depending on build.prop entry sys.tablet.mode
-Fixed missing battery percentage
-Fixed wallpaper selection for lockscreen
-
-V3.01
-Corrected reboot bug in power menu & updated to latest Cm10.1 sources.
-Added switch for Phone UI and Tablet UI in settings. Thanks to SGT7
-
-V3.00
-Ganbarou changes in Settings: Removed profiles, updates, statistics, changelog. Enabled screen on while charging even if a max time to lock is defined.
-Ganbarou changes in Framework: Changed default wallpapers and power menu. Reboot & Reboot into Recovery direct accessible from power menu.
-
 

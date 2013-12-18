@@ -1,73 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--Please do not manually edit this file-->
 <manifest>
-  <!-- ################################################# -->
-  <!-- This is for Android 4.3                           -->
-  <!-- ################################################# -->
-  <!-- Ganbarou ROM specific build & patch tools         -->
-  <!-- ################################################# -->
-  <project name="beegee-tokyo/ganbarou_tools" path="ganbarou_tools" remote="github" revision="cm-10.2" />
-  <project name="beegee-tokyo/ganbarou_vendor_gapps_43" path="vendor/ganbarou/gapps" remote="github" revision="cm-10.2" />
-  <!-- ################################################# -->
-  <!-- Ganbarou ROM apks, framework and settings         -->
-  <!-- ################################################# -->
-  <project name="beegee-tokyo/android_packages_apps_g_Wallpapers" path="packages/apps/Wallpapers" remote="github" revision="ics" />
-  <project name="beegee-tokyo/rom_stats" path="packages/apps/rom_stats" revision="master" />
-  <remove-project name="CyanogenMod/android_packages_apps_Settings" />
-  <project name="beegee-tokyo/android_packages_apps_Settings" path="packages/apps/Settings" revision="cm-10.2" />
-  <remove-project name="CyanogenMod/android_frameworks_base" />
-  <project name="beegee-tokyo/android_frameworks_base" path="frameworks/base" revision="cm-10.2" />
-  <project name="beegee-tokyo/ganbarou_vendor_samsung" path="vendor/samsung" revision="cm-10.2" />
-  <remove-project name="CyanogenMod/android_prebuilt"/>
-  <project name="beegee-tokyo/android_prebuilt" path="prebuilt" />
-  <!-- ################################################# -->
-  <!-- Ganbarou ROM changes to CM10.2                    -->
-  <!-- ################################################# -->
-  <remove-project name="CyanogenMod/android_external_wpa_supplicant_8_ti" />
-  <remove-project name="CyanogenMod/android_packages_apps_CMAccount" />
-  <remove-project name="CyanogenMod/android_packages_apps_CMUpdater" />
-  <remove-project name="CyanogenMod/android_packages_apps_CMWallpapers" />
-  <remove-project name="CyanogenMod/android_packages_wallpapers_Basic" />
-  <remove-project name="CyanogenMod/android_packages_wallpapers_Galaxy4" />
-  <remove-project name="CyanogenMod/android_packages_wallpapers_HoloSpiral" />
-  <remove-project name="CyanogenMod/android_packages_wallpapers_MagicSmoke" />
-  <remove-project name="CyanogenMod/android_packages_wallpapers_MusicVisualization" />
-  <remove-project name="CyanogenMod/android_packages_wallpapers_NoiseField" />
-  <remove-project name="CyanogenMod/android_packages_wallpapers_PhaseBeam" />
-  <remove-project name="CyanogenMod/android_packages_inputmethods_OpenWnn" />
-  <remove-project name="CyanogenMod/android_packages_inputmethods_PinyinIME" />
-  <remove-project name="CyanogenMod/android_device_generic_x86" />
-  <!-- ################################################# -->
-  <!-- P4 & P4wifi specific                              -->
-  <!-- ################################################# -->
-  <project name="beegee-tokyo/android_device_samsung_p4" path="device/samsung/p4" remote="github" revision="cm-10.2" />
-  <project name="beegee-tokyo/android_device_samsung_p4-common" path="device/samsung/p4-common" remote="github" revision="cm-10.2" />
-  <project name="beegee-tokyo/android_device_samsung_p4wifi" path="device/samsung/p4wifi" remote="github" revision="cm-10.2" />
-  <project name="InfamousAOKP/android_kernel_samsung_p4" path="kernel/samsung/p4" remote="github" revision="infamous-jb3" />
-  <!-- ################################################# -->
-  <!-- I9300 specific                                    -->
-  <!-- ################################################# -->
-  <project name="CyanogenMod/android_device_samsung_i9300" path="device/samsung/i9300" remote="github" revision="cm-10.2" />
-  <project name="CyanogenMod/android_device_samsung_smdk4412-common" path="device/samsung/smdk4412-common" remote="github" revision="cm-10.2" />
-  <!-- ################################################# -->
-  <!-- N7000 specific                                    -->
-  <!-- ################################################# -->
-  <project name="CyanogenMod/android_device_samsung_n7000" path="device/samsung/n7000" remote="github" revision="cm-10.2" />
-  <project name="CyanogenMod/android_device_samsung_galaxys2-common" path="device/samsung/galaxys2-common" remote="github" revision="cm-10.2" />
-  <!-- ################################################# -->
-  <!-- I9505 specific                                    -->
-  <!-- ################################################# -->
-  <project name="CyanogenMod/android_device_samsung_jfltexx" path="device/samsung/jfltexx" remote="github" />
-  <project name="CyanogenMod/android_device_samsung_qcom-common" path="device/samsung/qcom-common" remote="github" />
-  <project name="CyanogenMod/android_device_samsung_msm8960-common" path="device/samsung/msm8960-common" remote="github" />
-  <project name="CyanogenMod/android_device_samsung_jf-common" path="device/samsung/jf-common" remote="github" />
-  <project name="CyanogenMod/android_kernel_samsung_jf" path="kernel/samsung/jf" remote="github" />
-  <!-- ################################################# -->
-  <!-- N7000 & I9300 common                                    -->
-  <!-- ################################################# -->
-  <project name="CyanogenMod/android_kernel_samsung_smdk4412" path="kernel/samsung/smdk4412" remote="github" />
-  <project name="CyanogenMod/android_packages_apps_SamsungServiceMode" path="packages/apps/SamsungServiceMode" remote="github" />
-  <!-- ################################################# -->
-  <!-- N7000 & I9300 & I9500 common                                    -->
-  <!-- ################################################# -->
-  <project name="CyanogenMod/android_hardware_samsung" path="hardware/samsung" remote="github" />
+
+  <remove-project name="Octo-Kat/platform_device_samsung_jfltevzw" />
+  <remove-project name="AOSP-S4-KK/platform_frameworks_base" />
+  <project path="frameworks/base" name="beegee-tokyo/platform_frameworks_base" remote="github" revision="kk-4.4" />
+  <remove-project name="AOSP-S4-KK/platform_packages_apps_settings" />
+  <project path="packages/apps/Settings" name="beegee-tokyo/platform_packages_apps_settings" remote="github" revision="kk-4.4" />
+  <remove-project name="platform/packages/wallpapers/Basic" />
+  <remove-project name="platform/packages/wallpapers/Galaxy4" />
+  <remove-project name="platform/packages/wallpapers/HoloSpiral" />
+  <remove-project name="platform/packages/wallpapers/MagicSmoke" />
+  <remove-project name="platform/packages/wallpapers/MusicVisualization" />
+  <remove-project name="platform/packages/wallpapers/NoiseField" />
+  <remove-project name="platform/packages/wallpapers/PhaseBeam" />
+  <project name="beegee-tokyo/vendor_gapps" path="vendor/gapps" remote="github" revision="android-4.4-core" />
+  <project name="beegee-tokyo/ganbarou_tools" path="ganbarou_tools" remote="github" revision="kk-4.4" />
+
 </manifest>
