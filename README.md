@@ -28,9 +28,9 @@ Then to sync up:
 
     repo sync -f
     
-** Get my ROM specific stuff**
+**Get my ROM specific stuff**
 
-To prepare to build my specific ROM you need to create a folder **local_manifests** under **.repo**. Then create a file in **local_manifests** named **roomservice.xml**. Copy the content [my roomservice.xml](https://github.com/beegee-tokyo/ganbarou_tools/blob/kk-4.4/tools/roomservice.xml) into this file.
+To prepare to build my specific ROM you need to create a folder **local_manifests** under **.repo**. Then create a file in **local_manifests** named **roomservice.xml**. Copy the content of my [roomservice.xml](https://github.com/beegee-tokyo/ganbarou_tools/blob/kk-4.4/tools/roomservice.xml) into this file.
 
 Then sync again to get my specific repositories.
 
@@ -43,7 +43,7 @@ Goto **ganbarou_tools** and start **create_links.sh**. This copies the batch fil
 *Building*
 ------------------------------------------------------------------------------------------------------
 
-Use **builds4.sh** to build the ROM.
+Use **builds4.sh** to build the ROM. The finished ROM will be on the root of your build folder.
 
 *Updating the sources*
 ------------------------------------------------------------------------------------------------------
