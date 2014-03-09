@@ -1,5 +1,6 @@
 cp -f ./tools/changelog.txt ../changelog.txt
-cp -f ./tools/build.sh ../build.sh
+cp -f ./tools/builds4.sh ../builds4.sh
+cp -f ./tools/justs4.sh ../justs4.sh
 cp -f ./tools/merge.sh ../merge.sh
 cp -f ./tools/push.sh ../push.sh
 cp -f ./tools/sync.sh ../sync.sh

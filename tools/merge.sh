@@ -4,7 +4,7 @@ echo ============================================
 cd frameworks
 cd base
 git checkout kk-4.4
-git remote add upstream git://github.com/beegee-tokyo/platform_frameworks_base.git
+git remote add upstream git://github.com/AOSP-S4-KK/platform_frameworks_base.git
 git fetch upstream
 git merge upstream/kk-4.4
 cd ../..
@@ -15,10 +15,21 @@ cd packages
 cd apps
 cd Settings
 git checkout kk-4.4
-git remote add upstream git://github.com/beegee-tokyo/platform_packages_apps_settings.git
+git remote add upstream git://github.com/AOSP-S4-KK/platform_packages_apps_settings.git
 git fetch upstream
 git merge upstream/kk-4.4
 cd ../../..
 echo ============================================
+echo 'Get latest changes from vendor'
+echo ============================================
+cd vendor
+cd samsung
+git checkout kk-4.4
+git remote add upstream git://github.com/AOSP-S4-KK/platform_vendor_samsung.git
+git fetch upstream
+git merge upstream/kk-4.4
+cd ../..
+echo ============================================
 echo 'Check output. If all ok start ./push.sh'
 echo ============================================
+

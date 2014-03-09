@@ -2,11 +2,11 @@
 <!--Please do not manually edit this file-->
 <manifest>
 
-  <remove-project name="Octo-Kat/platform_device_samsung_jfltevzw" />
-  <remove-project name="AOSP-S4-KK/platform_frameworks_base" />
-  <project path="frameworks/base" name="beegee-tokyo/platform_frameworks_base" remote="github" revision="kk-4.4" />
-  <remove-project name="AOSP-S4-KK/platform_packages_apps_settings" />
-  <project path="packages/apps/Settings" name="beegee-tokyo/platform_packages_apps_settings" remote="github" revision="kk-4.4" />
+  <!-- Unused device repositories -->
+  <remove-project name="AOSP-S4-KK/platform_device_samsung_hlte" />
+  <remove-project name="AOSP-S4-KK/platform_kernel_samsung_hlte" />
+
+  <!-- I don't need live wallpapers -->
   <remove-project name="platform/packages/wallpapers/Basic" />
   <remove-project name="platform/packages/wallpapers/Galaxy4" />
   <remove-project name="platform/packages/wallpapers/HoloSpiral" />
@@ -14,7 +14,39 @@
   <remove-project name="platform/packages/wallpapers/MusicVisualization" />
   <remove-project name="platform/packages/wallpapers/NoiseField" />
   <remove-project name="platform/packages/wallpapers/PhaseBeam" />
+
+  <!-- Stick to Android original sources -->
+  <remove-project name="AOSP-S4-KK/platform_packages_apps_DeskClock" />
+  <project path="packages/apps/DeskClock" name="platform/packages/apps/DeskClock" />
+
+  <!-- My framework base and settings forks -->
+  <remove-project name="AOSP-S4-KK/platform_frameworks_base" />
+  <project path="frameworks/base" name="beegee-tokyo/platform_frameworks_base" remote="github" revision="kk-4.4" />
+  <remove-project name="AOSP-S4-KK/platform_packages_apps_settings" />
+  <project path="packages/apps/Settings" name="beegee-tokyo/platform_packages_apps_settings" remote="github" revision="kk-4.4" />
+
+  <!-- I use a fork of the OmniROM build tools -->
+  <remove-project name="AOSP-S4-KK/platform_build" />
+  <project name="beegee-tokyo/android_build" path="build" remote="github" revision="AOSP" >
+    <copyfile src="core/root.mk" dest="Makefile" />
+  </project>
+
+  <!-- Some other BeeGee stuff -->
   <project name="beegee-tokyo/vendor_gapps" path="vendor/gapps" remote="github" revision="android-4.4-core" />
   <project name="beegee-tokyo/ganbarou_tools" path="ganbarou_tools" remote="github" revision="kk-4.4" />
+  <project name="beegee-tokyo/android_vendor_beegee" path="vendor/beegee" remote="github" revision="android-4.4" />
+  <project name="beegee-tokyo/android_packages_apps_g_Wallpapers" path="packages/apps/Wallpapers" remote="github" revision="kk-4.4" />
+  <project name="beegee-tokyo/rom_stats" path="packages/apps/rom_stats" remote="github" revision="master" />
 
+  <!-- This will be for the build of the Galaxy S3 ROM. Not working yet -->
+  <project name="SlimRoms/device_samsung_i9300" path="device/samsung/i9300" remote="github" revision="kk4.4" />
+  <project name="SlimRoms/device_samsung_smdk4412-common" path="device/samsung/smdk4412-common" remote="github" revision="kk4.4" />
+  <project name="SlimRoms/kernel_samsung_smdk4412" path="kernel/samsung/smdk4412" remote="github" revision="kk4.4" />
+  <!-- <project name="SlimRoms/hardware_samsung" path="hardware/samsung" remote="github" revision="kk4.4" /> -->
+  <project name="SlimRoms/android_prebuilt" path="prebuilt" remote="github" revision="kk4.4" />
+
+  <!-- My vendor Samsung repos, collected from different sources -->
+  <remove-project name="AOSP-S4-KK/android_vendor_samsung" />
+  <project path="vendor/samsung" name="beegee-tokyo/platform_vendor_samsung" remote="github" revision="kk-4.4" />
+  
 </manifest>
