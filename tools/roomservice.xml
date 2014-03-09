@@ -18,12 +18,20 @@
   <!-- Stick to Android original sources -->
   <remove-project name="AOSP-S4-KK/platform_packages_apps_DeskClock" />
   <project path="packages/apps/DeskClock" name="platform/packages/apps/DeskClock" />
+  <remove-project name="AOSP-S4-KK/platform_packages_apps_Browser" />
+  <project path="packages/apps/Browser" name="platform/packages/apps/Browser" />
+  <remove-project name="AOSP-S4-KK/platform_packages_apps_Camera2" />
+  <project path="packages/apps/Camera2" name="platform/packages/apps/Camera2" />
+  <remove-project name="AOSP-S4-KK/platform_packages_apps_Dialer" />
+  <project path="packages/apps/Dialer" name="platform/packages/apps/Dialer" />
 
   <!-- My framework base and settings forks -->
   <remove-project name="AOSP-S4-KK/platform_frameworks_base" />
   <project path="frameworks/base" name="beegee-tokyo/platform_frameworks_base" remote="github" revision="kk-4.4" />
   <remove-project name="AOSP-S4-KK/platform_packages_apps_settings" />
   <project path="packages/apps/Settings" name="beegee-tokyo/platform_packages_apps_settings" remote="github" revision="kk-4.4" />
+  <remove-project name="AOSP-S4-KK/platform_device_samsung_jflte" />
+  <project path="device/samsung/jflte" name="beegee-tokyo/platform_device_samsung_jflte" groups="pdk" remote="github" revision="kk-4.4" />
 
   <!-- I use a fork of the OmniROM build tools -->
   <remove-project name="AOSP-S4-KK/platform_build" />

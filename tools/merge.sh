@@ -30,6 +30,17 @@ git fetch upstream
 git merge upstream/kk-4.4
 cd ../..
 echo ============================================
+echo 'Get latest changes from device'
+echo ============================================
+cd device
+cd samsung
+cd jflte
+git checkout kk-4.4
+git remote add upstream git://github.com/AOSP-S4-KK/platform_device_samsung_jflte.git
+git fetch upstream
+git merge upstream/kk-4.4
+cd ../../..
+echo ============================================
 echo 'Check output. If all ok start ./push.sh'
 echo ============================================
 

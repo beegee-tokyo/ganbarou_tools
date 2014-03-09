@@ -66,6 +66,7 @@ Use **builds4.sh** to build the ROM. The finished ROM will be on the root of you
 - [frameworks/base](http://github.com/beegee-tokyo/platform_frameworks_base)
 - [packages/apps/Settings](http://github.com/beegee-tokyo/platform_packages_apps_settings)
 - [build](http://github.com/beegee-tokyo/android_build)
+- [device/samsung/jflte](http://github.com/beegee-tokyo/platform_device_samsung_jflte)
 
 **My own repos:**
 - [vendor/gapps](http://github.com/beegee-tokyo/vendor_gapps)
