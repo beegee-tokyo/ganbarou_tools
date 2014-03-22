@@ -1,1 +1,0 @@
-echo 1 > /sys/class/power_supply/battery/force_usb_charging

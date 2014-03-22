@@ -1,10 +1,10 @@
 _CURRENTPATH=${PWD##*/}
-echo ============================================
-echo 'Clean up directories from tmp files'
-echo ============================================
-cd ../
-find ./$_CURRENTPATH -name *.*~ -exec rm -rf {} \;
-cd $_CURRENTPATH
+#echo ============================================
+#echo 'Clean up directories from tmp files'
+#echo ============================================
+#cd ../
+#find ./$_CURRENTPATH -name *.*~ -exec rm -rf {} \;
+#cd $_CURRENTPATH
 echo ============================================
 echo 'Push latest changes done for tablet'
 echo ============================================
@@ -203,15 +203,14 @@ echo ============================================
 echo 'Push latest changes to beegee-tokyo vendor_gapps'
 echo ============================================
 cd vendor
-cd ganbarou
 cd gapps
-repo start cm-10.2 .
-git checkout cm-10.2
+repo start gapps-ganbarou-43 .
+git checkout gapps-ganbarou-43
 git pull
 git add -A
 git commit -a
-git push git@github.com:beegee-tokyo/ganbarou_vendor_gapps_43.git cm-10.2
-cd ../../..
+git push git@github.com:beegee-tokyo/ganbarou_vendor_gapps_43.git gapps-ganbarou-43
+cd ../..
 echo ============================================
 echo 'Push latest changes to beegee-tokyo prebuilt'
 echo ============================================

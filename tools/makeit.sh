@@ -205,7 +205,7 @@ echo "===============" >> $DIR/Ganbarou_Changelog.txt
 echo " " >> $DIR/Ganbarou_Changelog.txt
 
 #export changelog_old=$(cat $DIR/ganbarou_tools/tools/changelog.txt | sed -n '15,$ p')
-cat $DIR/ganbarou_tools/tools/changelog.txt | sed -n '15,$ p' >> $DIR/Ganbarou_Changelog.txt
+cat $DIR/ganbarou_tools/tools/changelog.txt | sed -n '14,$ p' >> $DIR/Ganbarou_Changelog.txt
 
 echo -e $CL_GRN"GooVersion = "$gooversion_t"."$goobuild_t""$CL_RST
 

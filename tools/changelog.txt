@@ -1,15 +1,19 @@
 VERSION_MAJOR = 4
-VERSION_MINOR = 05
+VERSION_MINOR = 06
 CHANGELOG_0 = Update: latest CM10.2 sources.
-CHANGELOG_1 = 
-CHANGELOG_2 = 
-CHANGELOG_3 = 
+CHANGELOG_1 = Feature: Use of Chainfire SU.
+CHANGELOG_2 = Feature: Use minimum Gapps (only PlayStore).
+CHANGELOG_3 = Optimization: Compiled with Linaro GCC 4.8 toolchain
 CHANGELOG_4 = 
 CHANGELOG_5 = 
 CHANGELOG_6 = 
 CHANGELOG_7 = 
 CHANGELOG_8 = 
 CHANGELOG_9 = 
+
+
+V4.05
+Update: latest CM10.2 sources.
 
 V4.04
 Update: latest CM10.2 sources.

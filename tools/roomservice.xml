@@ -6,7 +6,8 @@
   <!-- Ganbarou ROM specific build & patch tools         -->
   <!-- ################################################# -->
   <project name="beegee-tokyo/ganbarou_tools" path="ganbarou_tools" remote="github" revision="cm-10.2" />
-  <project name="beegee-tokyo/ganbarou_vendor_gapps_43" path="vendor/ganbarou/gapps" remote="github" revision="cm-10.2" />
+  <!-- <project name="beegee-tokyo/ganbarou_vendor_gapps_43" path="vendor/ganbarou/gapps" remote="github" revision="gapps-43-core" /> -->
+  <project name="beegee-tokyo/ganbarou_vendor_gapps_43" path="vendor/gapps" remote="github" revision="gapps-ganbarou-43" />
   <!-- ################################################# -->
   <!-- Ganbarou ROM apks, framework and settings         -->
   <!-- ################################################# -->
@@ -36,6 +37,10 @@
   <remove-project name="CyanogenMod/android_packages_inputmethods_OpenWnn" />
   <remove-project name="CyanogenMod/android_packages_inputmethods_PinyinIME" />
   <remove-project name="CyanogenMod/android_device_generic_x86" />
+  <remove-project name="CyanogenMod/android_external_whispersystems_TextSecure" />
+  <remove-project name="CyanogenMod/android_external_whispersystems_WhisperPush" />
+  <remove-project name="CyanogenMod/Superuser" />
+  <remove-project name="CyanogenMod/Widgets" />
   <!-- ################################################# -->
   <!-- P4 & P4wifi specific                              -->
   <!-- ################################################# -->

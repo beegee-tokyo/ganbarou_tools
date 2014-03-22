@@ -286,12 +286,9 @@ else
 fi
 
 echo -e $CL_GRN"============================================"$CL_RST
-echo -e $CL_GRN"Copy hosts, 99ganbarou and gps.conf"
+echo -e $CL_GRN"Copy extra files to system folder"
 echo -e $CL_GRN"============================================"$CL_RST
-cp -r -f -v $ANDROID_BUILD_TOP/ganbarou_tools/patches/ganbarou/etc/gps.conf $REPACK/ota/system/etc/gps.conf
-cp -r -f -v $ANDROID_BUILD_TOP/ganbarou_tools/patches/ganbarou/etc/hosts $REPACK/ota/system/etc/hosts
-cp -r -f -v $ANDROID_BUILD_TOP/ganbarou_tools/patches/ganbarou/etc/init.d/99Ganbarou $REPACK/ota/system/etc/init.d/99Ganbarou
-
+cp -r -f -v $ANDROID_BUILD_TOP/ganbarou_tools/patches/ganbarou/* $REPACK/ota/system/
 echo -e $CL_GRN"============================================"$CL_RST
 echo -e $CL_GRN"Add Japan APNs"
 echo -e $CL_GRN"============================================"$CL_RST
@@ -324,6 +321,63 @@ if [ $NEW_DEVICE == "GT-I9300" ]; then
 	echo -e $CL_GRN"============================================"$CL_RST
 	cp -r -f -v $ANDROID_BUILD_TOP/ganbarou_tools/patches/bootanimation-p3/bootanimation.zip $REPACK/ota/system/media/bootanimation.zip
 fi
+
+echo -e $CL_GRN"============================================"$CL_RST
+echo -e $CL_GRN"Add SuperUser files"
+echo -e $CL_GRN"============================================"$CL_RST
+rm -f $REPACK/ota/system/bin/su
+rm -f $REPACK/ota/system/xbin/su
+rm -f $REPACK/ota/system/xbin/daemonsu
+rm -f $REPACK/ota/system/bin/.ext/.su
+rm -f $REPACK/ota/system/etc/install-recovery.sh
+rm -f $REPACK/ota/system/etc/init.d/99SuperSUDaemon
+rm -f $REPACK/ota/system/etc/.installed_su_daemon
+rm -f $REPACK/ota/system/app/Superuser.apk
+rm -f $REPACK/ota/system/app/Superuser.odex
+rm -f $REPACK/ota/system/app/SuperUser.apk
+rm -f $REPACK/ota/system/app/SuperUser.odex
+rm -f $REPACK/ota/system/app/superuser.apk
+rm -f $REPACK/ota/system/app/superuser.odex
+rm -f $REPACK/ota/system/app/Supersu.apk
+rm -f $REPACK/ota/system/app/Supersu.odex
+rm -f $REPACK/ota/system/app/SuperSU.apk
+rm -f $REPACK/ota/system/app/SuperSU.odex
+rm -f $REPACK/ota/system/app/supersu.apk
+rm -f $REPACK/ota/system/app/supersu.odex
+rm -f $REPACK/ota/data/dalvik-cache/*com.noshufou.android.su*
+rm -f $REPACK/ota/data/dalvik-cache/*com.koushikdutta.superuser*
+rm -f $REPACK/ota/data/dalvik-cache/*com.mgyun.shua.su*
+rm -f $REPACK/ota/data/dalvik-cache/*Superuser.apk*
+rm -f $REPACK/ota/data/dalvik-cache/*SuperUser.apk*
+rm -f $REPACK/ota/data/dalvik-cache/*superuser.apk*
+rm -f $REPACK/ota/data/dalvik-cache/*eu.chainfire.supersu*
+rm -f $REPACK/ota/data/dalvik-cache/*Supersu.apk*
+rm -f $REPACK/ota/data/dalvik-cache/*SuperSU.apk*
+rm -f $REPACK/ota/data/dalvik-cache/*supersu.apk*
+rm -f $REPACK/ota/data/dalvik-cache/*.oat
+rm -f $REPACK/ota/data/app/com.noshufou.android.su-*
+rm -f $REPACK/ota/data/app/com.koushikdutta.superuser-*
+rm -f $REPACK/ota/data/app/com.mgyun.shua.su-*
+rm -f $REPACK/ota/data/app/eu.chainfire.supersu-*
+cp -r -f -v $ANDROID_BUILD_TOP/ganbarou_tools/patches/superuser/system/. $REPACK/ota/system/.
+echo 1 > $REPACK/ota/system/etc/.installed_su_daemon
+echo 1 > $REPACK/ota/system/etc/.has_su_daemon
+
+$SED -i \
+	-e 's:ui_print("All done!");: \
+ui_print("Setup Superuser"); \
+set_perm(0, 0, 0644, \"/system/app/Superuser.apk\"); \
+set_perm(0, 0, 0644, \"/system/etc/.installed_su_daemon\"); \
+set_perm(0, 0, 0755, \"/system/etc/init.d/99SuperSUDaemon\"); \
+set_perm(0, 0, 0755, \"/system/etc/install-recovery.sh\"); \
+set_perm(0, 0, 06755, \"/system/xbin/daemonsu\"); \
+set_perm(0, 0, 06755, \"/system/xbin/su\"); \
+set_perm(0, 0, 06755, \"/system/bin/.ext/.su\"); \
+set_perm(0, 0, 0777, \"/system/bin/.ext\"); \
+run_program("/sbin/rm", "-rf", "/system/xbin/su --install"); \
+ui_print("============================="); \
+ui_print("All done!");:' \
+	$REPACK/ota/META-INF/com/google/android/updater-script
 
 if [ $NEW_DEVICE2 -eq 1 ]; then
 	echo -e $CL_GRN"============================================"$CL_RST
