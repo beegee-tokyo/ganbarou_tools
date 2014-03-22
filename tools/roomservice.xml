@@ -15,7 +15,7 @@
   <remove-project name="platform/packages/wallpapers/NoiseField" />
   <remove-project name="platform/packages/wallpapers/PhaseBeam" />
 
-  <!-- Stick to Android original sources -->
+  <!-- Stick to Android original sources
   <remove-project name="AOSP-S4-KK/platform_packages_apps_DeskClock" />
   <project path="packages/apps/DeskClock" name="platform/packages/apps/DeskClock" />
   <remove-project name="AOSP-S4-KK/platform_packages_apps_Browser" />
@@ -23,7 +23,10 @@
   <remove-project name="AOSP-S4-KK/platform_packages_apps_Camera2" />
   <project path="packages/apps/Camera2" name="platform/packages/apps/Camera2" />
   <remove-project name="AOSP-S4-KK/platform_packages_apps_Dialer" />
-  <project path="packages/apps/Dialer" name="platform/packages/apps/Dialer" />
+  <project path="packages/apps/Dialer" name="platform/packages/apps/Dialer" /> -->
+
+  <!-- Some additional stuff -->
+  <project path="packages/apps/OpenCamera" name="almalence/OpenCamera" remote="github" revision="master" />
 
   <!-- My framework base and settings forks -->
   <remove-project name="AOSP-S4-KK/platform_frameworks_base" />
