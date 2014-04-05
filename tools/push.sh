@@ -73,6 +73,19 @@ git commit -a
 git push git@github.com:beegee-tokyo/platform_device_samsung_jflte.git kk-4.4
 cd ../../..
 echo ============================================
+echo 'Push latest changes to beegee-tokyo platform_kernel_samsung_jf'
+echo ============================================
+cd kernel
+cd samsung
+cd jf
+repo start kk-4.4_new .
+git checkout kk-4.4_new
+git pull
+git add -A
+git commit -a
+git push git@github.com:beegee-tokyo/platform_kernel_samsung_jf.git kk-4.4_new
+cd ../../..
+echo ============================================
 echo 'Push latest changes to beegee-tokyo ganbarou_tools'
 echo ============================================
 cd ganbarou_tools

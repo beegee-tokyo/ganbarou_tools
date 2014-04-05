@@ -41,6 +41,17 @@ git fetch upstream
 git merge upstream/kk-4.4
 cd ../../..
 echo ============================================
+echo 'Get latest changes from platform_kernel_samsung_jf'
+echo ============================================
+cd kernel
+cd samsung
+cd jf
+git checkout kk-4.4_new
+it remote add upstream git://github.com/AOSP-S4-KK/platform_kernel_samsung_jf.git
+git fetch upstream
+git merge upstream/kk-4.4_new
+cd ../../..
+echo ============================================
 echo 'Check output. If all ok start ./push.sh'
 echo ============================================
 
