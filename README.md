@@ -1,12 +1,11 @@
 Ganbarou Tools
 ======================================================================================================
-*My tools and files used to build an AOSP based ROM*
+*My tools and files used to build a ROM based on Nameless sources*
 ------------------------------------------------------------------------------------------------------
 *Credits*
 ------------------------------------------------------------------------------------------------------
-_This ROM is build based on the [repositories](https://github.com/AOSP-S4-KK) of [broodplank](https://github.com/broodplank). All credits for the basics of this ROM goes to him_
+_This ROM is build based on the [repositories](https://github.com/NamelessRom). All credits for this ROM goes to the Nameless team and kasper_h_
 
-_This ROM uses ChainFire [SuperSU](http://forum.xda-developers.com/showthread.php?t=1538053). All credits for the su functionality goes to him_
 
 _This ROM uses rom-stats from [mcbyte-it](https://github.com/mcbyte-it). All credits for rom-stats goes to him._
 
@@ -17,12 +16,12 @@ How to build:
 
 **Syncing**
 
-To get started with AOSP ROM, you'll need to get
+To get started with Nameless ROM, you'll need to get
 familiar with [Git and Repo](http://source.android.com/download/using-repo).
 
-To initialize your local repository using the [AOSP-S4-KK trees](https://github.com/AOSP-S4-KK), use a command like this:
+To initialize your local repository using the [Nameless trees](https://github.com/NamelessRom), use a command like this:
 
-    repo init -u git://github.com/AOSP-S4-KK/platform_manifest -b kk-4.4
+    repo init -u https://github.com/NamelessRom/android.git -b android-4.4
 
 Then to sync up:
 
@@ -30,7 +29,7 @@ Then to sync up:
     
 **Get my ROM specific stuff**
 
-To prepare to build my specific ROM you need to create a folder **local_manifests** under **.repo**. Then create a file in **local_manifests** named **roomservice.xml**. Copy the content of my [roomservice.xml](https://github.com/beegee-tokyo/ganbarou_tools/blob/kk-4.4/tools/roomservice.xml) into this file.
+To prepare to build my specific ROM you need to create a folder **local_manifests** under **.repo**. Then create a file in **local_manifests** named **roomservice.xml**. Copy the content of my [roomservice.xml](https://github.com/beegee-tokyo/ganbarou_tools/blob/nameless/tools/roomservice.xml) into this file.
 
 Then sync again to get my specific repositories.
 
@@ -43,7 +42,7 @@ Goto **ganbarou_tools** and start **create_links.sh**. This copies the batch fil
 *Building*
 ------------------------------------------------------------------------------------------------------
 
-Use **builds4.sh** to build the ROM. The finished ROM will be on the root of your build folder.
+Use **nameless.sh** to build the ROM. The finished ROM will be on the root of your build folder.
 
 *Updating the sources*
 ------------------------------------------------------------------------------------------------------
@@ -62,11 +61,18 @@ Use **builds4.sh** to build the ROM. The finished ROM will be on the root of you
 2. push.sh
 3. sync.sh
 
+**kasper_h's work to get KitKat running on P4 devices**
 **Forked repos:**
-- [frameworks/base](http://github.com/beegee-tokyo/platform_frameworks_base)
-- [packages/apps/Settings](http://github.com/beegee-tokyo/platform_packages_apps_settings)
-- [build](http://github.com/beegee-tokyo/android_build)
-- [device/samsung/jflte](http://github.com/beegee-tokyo/platform_device_samsung_jflte)
+- [frameworks/av](http://github.com/beegee-tokyo/nameless_android_frameworks_av)
+- [packages/apps/Settings](http://github.com/beegee-tokyo/nameless_android_packages_apps_Settings)
+- [hardware/libhardware](http://github.com/beegee-tokyo/nameless_android_hardware_libhardware)
+- [external/chromium_org](http://github.com/beegee-tokyo/nameless_android_external_chromium_org)
+- [external/skia](http://github.com/beegee-tokyo/nameless_android_external_skia)
+- [device/samsung/p4-common](http://github.com/beegee-tokyo/android_device_samsung_p4-common)
+- [device/samsung/p4](http://github.com/beegee-tokyo/android_device_samsung_p4)
+- [vendor/samsung/p4](http://github.com/beegee-tokyo/android_vendor_samsung_p4)
+- [device/samsung/p4wifi](http://github.com/beegee-tokyo/android_device_samsung_p4wifi)
+- [vendor/samsung/p4wifi](http://github.com/beegee-tokyo/android_vendor_samsung_p4wifi)
 
 **My own repos:**
 - [vendor/gapps](http://github.com/beegee-tokyo/vendor_gapps)
@@ -79,8 +85,7 @@ Use **builds4.sh** to build the ROM. The finished ROM will be on the root of you
 ------------------------------------------------------------------------------------------------------
 
 **Files description:**
-- builds4.sh ==> builds the ROM and makes the necessary patches
-- justs4.sh ==> just makes the patches to the ROM
+- nameless.sh ==> builds the ROM and makes the necessary patches (p4 for 3G ROM or p4w for Wifi ROM)
 - push.sh ==> pushes changes of forked/my own repos to github
 - merge.sh ==> merges changes on original repos to forked/my own repos
 - sync.sh ==> synces the repos with github
