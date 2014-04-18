@@ -4,7 +4,7 @@ Ganbarou Tools
 ------------------------------------------------------------------------------------------------------
 *Credits*
 ------------------------------------------------------------------------------------------------------
-_This ROM is build based on the [repositories](https://github.com/NamelessRom). All credits for this ROM goes to the Nameless team and kasper_h_
+_This ROM is build based on the [Nameless repositories](https://github.com/NamelessRom). All credits for this ROM goes to the Nameless team and kasper_h_
 
 
 _This ROM uses rom-stats from [mcbyte-it](https://github.com/mcbyte-it). All credits for rom-stats goes to him._
