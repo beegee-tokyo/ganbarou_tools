@@ -1,69 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Please do not manually edit this file-->
 <manifest>
-
-  <!-- Unused device repositories -->
-  <remove-project name="AOSP-S4-KK/platform_device_samsung_hlte" />
-  <remove-project name="AOSP-S4-KK/platform_kernel_samsung_hlte" />
-
-  <!-- Changed forked repositories -->
-  <remove-project name="AOSP-S4-KK/platform_kernel_samsung_jf" />
-  <project path="kernel/samsung/jf" name="beegee-tokyo/platform_kernel_samsung_jf" remote="github" revision="kk-4.4_new" />
-
-  <!-- I don't need live wallpapers -->
-  <remove-project name="platform/packages/wallpapers/Basic" />
-  <remove-project name="platform/packages/wallpapers/Galaxy4" />
-  <remove-project name="platform/packages/wallpapers/HoloSpiral" />
-  <remove-project name="platform/packages/wallpapers/MagicSmoke" />
-  <remove-project name="platform/packages/wallpapers/MusicVisualization" />
-  <remove-project name="platform/packages/wallpapers/NoiseField" />
-  <remove-project name="platform/packages/wallpapers/PhaseBeam" />
-
-  <!-- Stick to Android original sources
-  <remove-project name="AOSP-S4-KK/platform_packages_apps_DeskClock" />
-  <project path="packages/apps/DeskClock" name="platform/packages/apps/DeskClock" />
-  <remove-project name="AOSP-S4-KK/platform_packages_apps_Browser" />
-  <project path="packages/apps/Browser" name="platform/packages/apps/Browser" />
-  <remove-project name="AOSP-S4-KK/platform_packages_apps_Camera2" />
-  <project path="packages/apps/Camera2" name="platform/packages/apps/Camera2" />
-  <remove-project name="AOSP-S4-KK/platform_packages_apps_Dialer" />
-  <project path="packages/apps/Dialer" name="platform/packages/apps/Dialer" /> -->
-
-  <!-- My framework base and settings forks -->
-  <remove-project name="AOSP-S4-KK/platform_frameworks_base" />
-  <project path="frameworks/base" name="beegee-tokyo/platform_frameworks_base" remote="github" revision="kk-4.4" />
-  <remove-project name="AOSP-S4-KK/platform_packages_apps_settings" />
-  <project path="packages/apps/Settings" name="beegee-tokyo/platform_packages_apps_settings" remote="github" revision="kk-4.4" />
-  <remove-project name="AOSP-S4-KK/platform_device_samsung_jflte" />
-  <project path="device/samsung/jflte" name="beegee-tokyo/platform_device_samsung_jflte" groups="pdk" remote="github" revision="kk-4.4" />
-
-  <!-- I use a fork of the OmniROM build tools -->
-  <remove-project name="AOSP-S4-KK/platform_build" />
-  <project name="beegee-tokyo/android_build" path="build" remote="github" revision="AOSP" >
-    <copyfile src="core/root.mk" dest="Makefile" />
-  </project>
-
-  <!-- My vendor Samsung repos, collected from different sources -->
-  <remove-project name="AOSP-S4-KK/android_vendor_samsung" />
-  <project path="vendor/samsung" name="beegee-tokyo/platform_vendor_samsung" remote="github" revision="kk-4.4" />
+  <!-- This is for the build of the Galaxy Tab 10.1 ROM -->
+  <project name="beegee-tokyo/android_device_samsung_p4-common" path="device/samsung/p4-common" remote="github" revision="nameless" />
+  <project name="beegee-tokyo/android_device_samsung_p4" path="device/samsung/p4" remote="github" revision="nameless" />
+  <project name="beegee-tokyo/android_vendor_samsung_p4" path="vendor/samsung/p4" remote="github" revision="nameless" />
+  <project name="beegee-tokyo/android_device_samsung_p4wifi" path="device/samsung/p4wifi" remote="github" revision="nameless" />
+  <project name="beegee-tokyo/android_vendor_samsung_p4wifi" path="vendor/samsung/p4wifi" remote="github" revision="nameless" />
+  <!--
+  <project name="beegee-tokyo/android_kernel_samsung_p4" path="kernel/samsung/p4" remote="github" revision="nameless" />
+  -->
   
+  <!-- This is for the build of the Galaxy S4 ROM -->
+  <project name="namelessrom/android_device_samsung_jflte" path="device/samsung/jflte" remote="github" revision="android-4.4" />
+  <project name="namelessrom/android_device_samsung_qcom-common" path="device/samsung/qcom-common" remote="github" revision="android-4.4" />
+  <project name="namelessrom/android_device_samsung_msm8960-common" path="device/samsung/msm8960-common" remote="github" revision="android-4.4" />
+  <project name="namelessrom/android_hardware_samsung" path="hardware/samsung" remote="github" revision="android-4.4" />
+  <project name="namelessrom/android_kernel_samsung_jf" path="kernel/samsung/jf" remote="github" revision="android-4.4" />
+
+  <!-- 
+  -->
+  <remove-project name="android_frameworks_base"/>
+  <project path="frameworks/base" name="beegee-tokyo/nameless_android_frameworks_base" remote="github" revision="android-4.4" />
+  <remove-project name="android_packages_apps_Settings"/>
+  <project path="packages/apps/Settings" name="beegee-tokyo/nameless_android_packages_apps_Settings" remote="github" revision="android-4.4" />
+  <remove-project name="android_frameworks_av"/>
+  <project path="frameworks/av" name="beegee-tokyo/nameless_android_frameworks_av" remote="github" revision="android-4.4" />
+  <remove-project name="CyanogenMod/android_hardware_libhardware"/>
+  <project path="hardware/libhardware" name="beegee-tokyo/nameless_android_hardware_libhardware" remote="github" revision="cm-11.0" />
+  <remove-project name="CyanogenMod/android_external_chromium_org"/>
+  <project path="external/chromium_org" name="beegee-tokyo/nameless_android_external_chromium_org" remote="github" revision="cm-11.0" />
+  <remove-project name="CyanogenMod/android_external_skia"/>
+  <project path="external/skia" name="beegee-tokyo/nameless_android_external_skia" remote="github" revision="cm-11.0" />
+  <!--
+  <remove-project name="CyanogenMod/android_bootable_recovery"/>
+  <project path="bootable/recovery" name="beegee-tokyo/nameless_android_bootable_recovery" remote="github" revision="nameless" />
+  -->
+
   <!-- Some other BeeGee stuff -->
   <project name="beegee-tokyo/vendor_gapps" path="vendor/gapps" remote="github" revision="android-4.4-core" />
-  <project name="beegee-tokyo/ganbarou_tools" path="ganbarou_tools" remote="github" revision="kk-4.4" />
+  <project name="beegee-tokyo/ganbarou_tools" path="ganbarou_tools" remote="github" revision="nameless" />
   <project name="beegee-tokyo/android_vendor_beegee" path="vendor/beegee" remote="github" revision="android-4.4" />
   <project name="beegee-tokyo/android_packages_apps_g_Wallpapers" path="packages/apps/Wallpapers" remote="github" revision="kk-4.4" />
   <project name="beegee-tokyo/rom_stats" path="packages/apps/rom_stats" remote="github" revision="master" />
 
-  <!-- This will be for the build of the Galaxy S3 ROM. Not working yet -->
-  <project name="NamelessRom/android_device_samsung_i9300" path="device/samsung/i9300" remote="github" revision="android-4.4" />
-  <project name="CyanogenMod/android_device_samsung_smdk4412-common" path="device/samsung/smdk4412-common" remote="github" revision="cm-11.0" />
-  <project name="NamelessRom/android_kernel_samsung_smdk4412" path="kernel/samsung/smdk4412" remote="github" revision="android-4.4" />
-  <project name="CyanogenMod/android_packages_apps_SamsungServiceMode" path="packages/apps/SamsungServiceMode" remote="github" revision="cm-11.0" />
-
-  <!-- This will be for the build of the Galaxy Tab 10.1 ROM. Not working yet -->
-  <project name="kasperhettinga/android_device_samsung_p4-common" path="device/samsung/p4-common" remote="github" revision="nameless" />
-  <project name="kasperhettinga/android_device_samsung_p4" path="device/samsung/p4" remote="github" revision="nameless" />
-  <project name="kasperhettinga/android_vendor_samsung_p4" path="vendor/samsung/p4" remote="github" revision="nameless" />
-  <project name="kasperhettinga/android_kernel_samsung_p4" path="kernel/samsung/p4" remote="github" revision="nameless" />
-
+  <!-- Take out  stuff we don't want -->
+  <remove-project groups="darwin" name="platform/prebuilts/clang/darwin-x86/3.1" remote="aosp" revision="refs/tags/android-4.4.2_r1" />
+  <remove-project groups="darwin" name="platform/prebuilts/clang/darwin-x86/3.2" remote="aosp" revision="refs/tags/android-4.4.2_r1" />
+  <remove-project groups="darwin,arm" name="platform/prebuilts/clang/darwin-x86/arm/3.3" remote="aosp" revision="refs/tags/android-4.4.2_r1" />
+  <remove-project groups="darwin" name="platform/prebuilts/clang/darwin-x86/host/3.3" remote="aosp" revision="refs/tags/android-4.4.2_r1" />
+  <remove-project groups="darwin,mips" name="platform/prebuilts/clang/darwin-x86/mips/3.3" remote="aosp" revision="refs/tags/android-4.4.2_r1" />
+  <remove-project groups="darwin,x86" name="platform/prebuilts/clang/darwin-x86/x86/3.3" remote="aosp" revision="refs/tags/android-4.4.2_r1" />
+  <remove-project groups="pdk,darwin,x86" name="platform/prebuilts/gcc/darwin-x86/x86/x86_64-linux-android-4.7" remote="aosp" revision="refs/tags/android-4.4.2_r1" />
+  <remove-project groups="darwin,arm" name="platform/prebuilts/gcc/darwin-x86/arm/arm-eabi-4.6" remote="aosp" revision="refs/tags/android-4.4.2_r1" />
+  <remove-project groups="pdk,darwin,arm" name="platform/prebuilts/gcc/darwin-x86/arm/arm-eabi-4.7" remote="aosp" revision="refs/tags/android-4.4.2_r1" />
+  <remove-project groups="darwin,arm" name="platform/prebuilts/gcc/darwin-x86/arm/arm-linux-androideabi-4.6" remote="aosp" revision="refs/tags/android-4.4.2_r1" />
+  <remove-project groups="pdk,darwin,arm" name="platform/prebuilts/gcc/darwin-x86/arm/arm-linux-androideabi-4.7" remote="aosp" revision="refs/tags/android-4.4.2_r1" />
+  <remove-project groups="pdk,darwin" name="platform/prebuilts/gcc/darwin-x86/host/headers" remote="aosp" revision="refs/tags/android-4.4.2_r1" />
+  <remove-project groups="pdk,darwin" name="platform/prebuilts/gcc/darwin-x86/host/i686-apple-darwin-4.2.1" remote="aosp" revision="refs/tags/android-4.4.2_r1" />
+  <remove-project groups="darwin,mips" name="platform/prebuilts/gcc/darwin-x86/mips/mipsel-linux-android-4.6" remote="aosp" revision="refs/tags/android-4.4.2_r1" />
+  <remove-project groups="pdk,darwin,mips" name="platform/prebuilts/gcc/darwin-x86/mips/mipsel-linux-android-4.7" remote="aosp" revision="refs/tags/android-4.4.2_r1" />
+  <remove-project groups="darwin,x86" name="platform/prebuilts/gcc/darwin-x86/x86/i686-linux-android-4.6" remote="aosp" revision="refs/tags/android-4.4.2_r1" />
+  <remove-project groups="pdk,darwin,x86" name="platform/prebuilts/gcc/darwin-x86/x86/i686-linux-android-4.7" remote="aosp" revision="refs/tags/android-4.4.2_r1" />
+  <remove-project groups="darwin" name="platform/prebuilts/python/darwin-x86/2.7.5" remote="aosp" revision="refs/tags/android-4.4.2_r1" />
 </manifest>

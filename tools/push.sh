@@ -1,138 +1,135 @@
 echo ============================================
-echo 'Push latest changes to beegee-tokyo frameworks_base'
+echo 'Push latest changes to beegee-tokyo/android_device_samsung_p4-common'
 echo ============================================
-cd frameworks
-cd base
-repo start kk-4.4 .
-git checkout kk-4.4
+cd device/samsung/p4-common
+repo start nameless .
+git checkout nameless
 git pull
 git add -A
 git commit -a
-git push git@github.com:beegee-tokyo/platform_frameworks_base.git kk-4.4
-cd ../..
-echo ============================================
-echo 'Push latest changes to beegee-tokyo settings'
-echo ============================================
-cd packages
-cd apps
-cd Settings
-repo start kk-4.4 .
-git checkout kk-4.4
-git pull
-git add -A
-git commit -a
-git push git@github.com:beegee-tokyo/platform_packages_apps_settings.git kk-4.4
+git push git@github.com:beegee-tokyo/android_device_samsung_p4-common.git nameless
 cd ../../..
 echo ============================================
-echo 'Push latest changes to beegee-tokyo vendor_gapps'
+echo 'Push latest changes to beegee-tokyo/android_device_samsung_p4'
 echo ============================================
-cd vendor
-cd gapps
-repo start android-4.4-core .
-git checkout android-4.4-core
+cd device/samsung/p4
+repo start nameless .
+git checkout nameless
 git pull
 git add -A
 git commit -a
-git push git@github.com:beegee-tokyo/vendor_gapps.git android-4.4-core
-cd ../..
+git push git@github.com:beegee-tokyo/android_device_samsung_p4.git nameless
+cd ../../..
 echo ============================================
-echo 'Push latest changes to beegee-tokyo vendor_beegee'
+echo 'Push latest changes to beegee-tokyo/android_vendor_samsung_p4'
 echo ============================================
-cd vendor
-cd beegee
+cd vendor/samsung/p4
+repo start nameless .
+git checkout nameless
+git pull
+git add -A
+git commit -a
+git push git@github.com:beegee-tokyo/android_vendor_samsung_p4.git nameless
+cd ../../..
+echo ============================================
+echo 'Push latest changes to beegee-tokyo/android_device_samsung_p4wifi'
+echo ============================================
+cd device/samsung/p4wifi
+repo start nameless .
+git checkout nameless
+git pull
+git add -A
+git commit -a
+git push git@github.com:beegee-tokyo/android_device_samsung_p4wifi nameless
+cd ../../..
+echo ============================================
+echo 'Push latest changes to beegee-tokyo/android_vendor_samsung_p4wifi'
+echo ============================================
+cd vendor/samsung/p4wifi
+repo start nameless .
+git checkout nameless
+git pull
+git add -A
+git commit -a
+git push git@github.com:beegee-tokyo/android_vendor_samsung_p4wifi.git nameless
+cd ../../..
+echo ============================================
+echo 'Push latest changes to beegee-tokyo/nameless_android_frameworks_av'
+echo ============================================
+cd frameworks/av
 repo start android-4.4 .
 git checkout android-4.4
 git pull
 git add -A
 git commit -a
-git push git@github.com:beegee-tokyo/android_vendor_beegee.git android-4.4
+git push git@github.com:beegee-tokyo/nameless_android_frameworks_av.git android-4.4
 cd ../..
 echo ============================================
-echo 'Push latest changes to beegee-tokyo platform_vendor_samsung'
+echo 'Push latest changes to beegee-tokyo/nameless_android_frameworks_base'
 echo ============================================
-cd vendor
-cd samsung
-repo start kk-4.4 .
-git checkout kk-4.4
+cd frameworks/base
+repo start android-4.4 .
+git checkout android-4.4
 git pull
 git add -A
 git commit -a
-git push git@github.com:beegee-tokyo/platform_vendor_samsung.git kk-4.4
+git push git@github.com:beegee-tokyo/nameless_android_frameworks_base.git android-4.4
 cd ../..
 echo ============================================
-echo 'Push latest changes to beegee-tokyo platform_device_samsung_jflte'
+echo 'Push latest changes to beegee-tokyo/nameless_android_packages_apps_Settings'
 echo ============================================
-cd device
-cd samsung
-cd jflte
-repo start kk-4.4 .
-git checkout kk-4.4
+cd packages/apps/Settings
+repo start android-4.4 .
+git checkout android-4.4
 git pull
 git add -A
 git commit -a
-git push git@github.com:beegee-tokyo/platform_device_samsung_jflte.git kk-4.4
+git push git@github.com:beegee-tokyo/nameless_android_packages_apps_Settings.git android-4.4
 cd ../../..
 echo ============================================
-echo 'Push latest changes to beegee-tokyo platform_kernel_samsung_jf'
+echo 'Push latest changes to beegee-tokyo/nameless_android_hardware_libhardware'
 echo ============================================
-cd kernel
-cd samsung
-cd jf
-repo start kk-4.4_new .
-git checkout kk-4.4_new
+cd hardware/libhardware
+repo start cm-11.0 .
+git checkout cm-11.0
 git pull
 git add -A
 git commit -a
-git push git@github.com:beegee-tokyo/platform_kernel_samsung_jf.git kk-4.4_new
-cd ../../..
+git push git@github.com:beegee-tokyo/nameless_android_hardware_libhardware.git cm-11.0
+cd ../..
 echo ============================================
-echo 'Push latest changes to beegee-tokyo ganbarou_tools'
+echo 'Push latest changes to beegee-tokyo/nameless_android_external_chromium_org'
+echo ============================================
+cd external/chromium_org
+repo start cm-11.0 .
+git checkout cm-11.0
+git pull
+git add -A
+git commit -a
+git push git@github.com:beegee-tokyo/nameless_android_external_chromium_org.git cm-11.0
+cd ../..
+echo ============================================
+echo 'Push latest changes to beegee-tokyo/nameless_android_external_skia'
+echo ============================================
+cd external/skia
+repo start cm-11.0 .
+git checkout cm-11.0
+git pull
+git add -A
+git commit -a
+git push git@github.com:beegee-tokyo/nameless_android_external_skia.git cm-11.0
+cd ../..
+echo ============================================
+echo 'Push latest changes to beegee-tokyo/ganbarou_tools'
 echo ============================================
 cd ganbarou_tools
-repo start kk-4.4 .
-git checkout kk-4.4
+repo start nameless .
+git checkout nameless
 git pull
 git add -A
 git commit -a
-git push git@github.com:beegee-tokyo/ganbarou_tools.git kk-4.4
+git push git@github.com:beegee-tokyo/ganbarou_tools.git nameless
 cd ..
-echo ============================================
-echo 'Push latest changes to beegee-tokyo build'
-echo ============================================
-cd build
-repo start AOSP .
-git checkout AOSP
-git pull
-git add -A
-git commit -a
-git push git@github.com:beegee-tokyo/android_build.git AOSP
-cd ..
-echo ============================================
-echo 'Push latest changes to beegee-tokyo wallpapers'
-echo ============================================
-cd packages
-cd apps
-cd Wallpapers
-repo start kk-4.4 .
-git checkout kk-4.4
-git pull
-git add -A
-git commit -a
-git push git@github.com:beegee-tokyo/android_packages_apps_g_Wallpapers.git kk-4.4
-cd ../../..
-echo ============================================
-echo 'Push latest changes to beegee-tokyo romstats'
-echo ============================================
-cd packages
-cd apps
-cd rom_stats
-repo start master .
-git checkout master
-git pull
-git add -A
-git commit -a
-git push git@github.com:beegee-tokyo/rom_stats.git master
-cd ../../..
 echo ============================================
 echo 'Check output. If all ok start ./sync.sh'
 echo ============================================

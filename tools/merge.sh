@@ -1,57 +1,102 @@
 echo ============================================
-echo 'Get latest changes from framework'
+echo 'Get latest changes to beegee-tokyo/android_device_samsung_p4-common'
 echo ============================================
-cd frameworks
-cd base
-git checkout kk-4.4
-git remote add upstream git://github.com/AOSP-S4-KK/platform_frameworks_base.git
+cd device/samsung/p4-common
+git checkout nameless
+git remote add upstream git://github.com/kasperhettinga/android_device_samsung_p4-common.git 
 git fetch upstream
-git merge upstream/kk-4.4
+git merge upstream/nameless
+cd ../../..
+echo ============================================
+echo 'Get latest changes to beegee-tokyo/android_device_samsung_p4'
+echo ============================================
+cd device/samsung/p4
+git checkout nameless
+git remote add upstream git://github.com/kasperhettinga/android_device_samsung_p4.git 
+git fetch upstream
+git merge upstream/nameless
+cd ../../..
+echo ============================================
+echo 'Get latest changes to beegee-tokyo/android_vendor_samsung_p4'
+echo ============================================
+cd vendor/samsung/p4
+git checkout nameless
+git remote add upstream git://github.com/kasperhettinga/android_vendor_samsung_p4.git 
+git fetch upstream
+git merge upstream/nameless
+cd ../../..
+echo ============================================
+echo 'Get latest changes to beegee-tokyo/android_device_samsung_p4wifi'
+echo ============================================
+cd device/samsung/p4wifi
+git checkout nameless
+git remote add upstream git://github.com/kasperhettinga/android_device_samsung_p4wifi 
+git fetch upstream
+git merge upstream/nameless
+cd ../../..
+echo ============================================
+echo 'Get latest changes to beegee-tokyo/android_vendor_samsung_p4wifi'
+echo ============================================
+cd vendor/samsung/p4wifi
+git checkout nameless
+git remote add upstream git://github.com/kasperhettinga/android_vendor_samsung_p4wifi.git 
+git fetch upstream
+git merge upstream/nameless
+cd ../../..
+echo ============================================
+echo 'Get latest changes to beegee-tokyo/nameless_android_frameworks_av'
+echo ============================================
+cd frameworks/av
+git checkout android-4.4
+git remote add upstream git://github.com/NamelessRom/android_frameworks_av.git 
+git fetch upstream
+git merge upstream/android-4.4
 cd ../..
 echo ============================================
-echo 'Get latest changes from settings'
+echo 'Get latest changes to beegee-tokyo/nameless_android_frameworks_base'
 echo ============================================
-cd packages
-cd apps
-cd Settings
-git checkout kk-4.4
-git remote add upstream git://github.com/AOSP-S4-KK/platform_packages_apps_settings.git
+cd frameworks/base
+git checkout android-4.4
+git remote add upstream git://github.com/NamelessRom/android_frameworks_base.git 
 git fetch upstream
-git merge upstream/kk-4.4
-cd ../../..
-echo ============================================
-echo 'Get latest changes from vendor'
-echo ============================================
-cd vendor
-cd samsung
-git checkout kk-4.4
-git remote add upstream git://github.com/AOSP-S4-KK/platform_vendor_samsung.git
-git fetch upstream
-git merge upstream/kk-4.4
+git merge upstream/android-4.4
 cd ../..
 echo ============================================
-echo 'Get latest changes from device'
+echo 'Get latest changes to beegee-tokyo/nameless_android_packages_apps_Settings'
 echo ============================================
-cd device
-cd samsung
-cd jflte
-git checkout kk-4.4
-git remote add upstream git://github.com/AOSP-S4-KK/platform_device_samsung_jflte.git
+cd packages/apps/Settings
+git checkout android-4.4
+git remote add upstream git://github.com/NamelessRom/android_packages_apps_Settings.git 
 git fetch upstream
-git merge upstream/kk-4.4
+git merge upstream/android-4.4
 cd ../../..
 echo ============================================
-echo 'Get latest changes from platform_kernel_samsung_jf'
+echo 'Get latest changes to beegee-tokyo/nameless_android_hardware_libhardware'
 echo ============================================
-cd kernel
-cd samsung
-cd jf
-git checkout kk-4.4_new
-it remote add upstream git://github.com/AOSP-S4-KK/platform_kernel_samsung_jf.git
+cd hardware/libhardware
+git checkout cm-11.0
+git remote add upstream git://github.com/CyanogenMod/android_hardware_libhardware.git 
 git fetch upstream
-git merge upstream/kk-4.4_new
-cd ../../..
+git merge upstream/cm-11.0
+cd ../..
+echo ============================================
+echo 'Get latest changes to beegee-tokyo/nameless_android_external_chromium_org'
+echo ============================================
+cd external/chromium_org
+git checkout cm-11.0
+git remote add upstream git://github.com/CyanogenMod/android_external_chromium_org.git 
+git fetch upstream
+git merge upstream/cm-11.0
+cd ../..
+echo ============================================
+echo 'Get latest changes to beegee-tokyo/nameless_android_external_skia'
+echo ============================================
+cd external/skia
+git checkout cm-11.0
+git remote add upstream git://github.com/CyanogenMod/android_external_skia.git 
+git fetch upstream
+git merge upstream/cm-11.0
+cd ../..
 echo ============================================
 echo 'Check output. If all ok start ./push.sh'
 echo ============================================
-
