@@ -1,9 +1,9 @@
 VERSION_MAJOR = 1
 VERSION_MINOR = 01
-CHANGELOG_0 = Updated with latest Nameless & CM changes
-CHANGELOG_1 = 
-CHANGELOG_2 = 
-CHANGELOG_3 = 
+CHANGELOG_0 = Update: Latest Nameless & CM changes
+CHANGELOG_1 = Update: Added more fonts (for none latin alphabets)
+CHANGELOG_2 = Feature: Added moveable navigation button (left, middle, right)
+CHANGELOG_3 = Feature: Added navigation buttons in status bar for extended desktop
 CHANGELOG_4 = 
 CHANGELOG_5 = 
 CHANGELOG_6 = 
@@ -13,4 +13,4 @@ CHANGELOG_9 =
 
 
 V1.00
-Initt: first Nameless Android 4.4 build
+Init: first Nameless Android 4.4 build
