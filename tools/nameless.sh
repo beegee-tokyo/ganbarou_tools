@@ -4,6 +4,7 @@
 #****************************************************************
 ## Start timer:
 START=$(date +%s)
+ANDROID_BUILD_TOP="/home/$USEROLD/${PWD##*/}"
 . $ANDROID_BUILD_TOP/vendor/nameless/tools/functions
 
 #****************************************************************
@@ -51,7 +52,6 @@ fi
 ## Set basic folder parameters:
 echo "Setting folders"
 USEROLD=`whoami`;
-ANDROID_BUILD_TOP="/home/$USEROLD/${PWD##*/}"
 finalout=$ANDROID_BUILD_TOP/out/target/product/$trgt
 androidtop=$ANDROID_BUILD_TOP
 secsign=$ANDROID_BUILD_TOP/build/target/product/security
