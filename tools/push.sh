@@ -120,6 +120,17 @@ git commit -a
 git push git@github.com:beegee-tokyo/nameless_android_external_skia.git cm-11.0
 cd ../..
 echo ============================================
+echo 'Push latest changes to beegee-tokyo/bionic'
+echo ============================================
+cd bionic
+repo start android-4.4 .
+git checkout android-4.4
+git pull
+git add -A
+git commit -a
+git push git@github.com:beegee-tokyo/nameless_android_bionic.git android-4.4
+cd ..
+echo ============================================
 echo 'Push latest changes to beegee-tokyo/ganbarou_tools'
 echo ============================================
 cd ganbarou_tools

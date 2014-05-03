@@ -15,9 +15,9 @@ else
 fi
 echo ============================================
 echo 'Sync'
-echo 'repo sync -f'
+echo 'repo sync -f -j16 -c'
 echo ============================================
-repo sync -f -j16 -c
+repo sync -f -j1 -c
 echo $?
 if [ $? -eq 0 ]; then
    echo ============================================
