@@ -102,7 +102,7 @@ echo 'Get latest changes to beegee-tokyo/nameless_android_bionic'
 echo ============================================
 cd bionic
 git checkout android-4.4
-git remote add upstream git://github.com/Nameless/android_bionic.git 
+git remote add upstream git://github.com/NamelessRom/android_bionic.git 
 git fetch upstream
 git merge upstream/android-4.4
 cd ..

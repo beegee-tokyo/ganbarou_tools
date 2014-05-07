@@ -4,7 +4,20 @@
 #****************************************************************
 ## Start timer:
 START=$(date +%s)
+
+#****************************************************************
+## Set basic folder parameters:
+echo "Setting folders"
+USEROLD=`whoami`;
 ANDROID_BUILD_TOP="/home/$USEROLD/${PWD##*/}"
+androidtop=$ANDROID_BUILD_TOP
+secsign=$ANDROID_BUILD_TOP/build/target/product/security
+OUT_TARGET_HOST="linux-x86"
+MD5=md5sum
+NOW=$(date +"%Y-%m-%d")
+NOWORG=$(date +"%Y%m%d")
+SECURITYDIR="$ANDROID_BUILD_TOP/build/target/product/security"
+
 . $ANDROID_BUILD_TOP/vendor/nameless/tools/functions
 
 #****************************************************************
@@ -48,23 +61,13 @@ then
 clean=c
 fi
 
-#****************************************************************
-## Set basic folder parameters:
-echo "Setting folders"
-USEROLD=`whoami`;
-finalout=$ANDROID_BUILD_TOP/out/target/product/$trgt
-androidtop=$ANDROID_BUILD_TOP
-secsign=$ANDROID_BUILD_TOP/build/target/product/security
+## set output folder
 OUT="$ANDROID_BUILD_TOP/out/target/product/$OLD_DEVICE"
 REPACK="$OUT/repack.d"
-OUT_TARGET_HOST="linux-x86"
-MD5=md5sum
-NOW=$(date +"%Y-%m-%d")
-NOWORG=$(date +"%Y%m%d")
-SECURITYDIR="$ANDROID_BUILD_TOP/build/target/product/security"
+finalout=$ANDROID_BUILD_TOP/out/target/product/$trgt
 
 ## in case out folder was deleted!!!
-mkdir $ANDROID_BUILD_TOP/out/target/product/$trgt
+mkdir -p $ANDROID_BUILD_TOP/out/target/product/$trgt
 
 #****************************************************************
 ## Start the build:
@@ -91,6 +94,7 @@ if [ $? -eq 0 ]; then
 	echo -e $CL_MAG"=============================================="$CL_RST
 	#****************************************************************
 	## Copy the build:
+	NOWORG=$(date +"%Y%m%d")
 	if [ $trgt == "p4" ] || [ $trgt == "p4wifi" ]; then
 		#****************************************************************
 		## Make the GT-P7501 or GT-P7511 variants
@@ -109,6 +113,12 @@ if [ $? -eq 0 ]; then
 		sed -i \
 			-e "s:${NEW_DEVICE}:${NEW_DEVICE1}:" \
 			$REPACK/ota1/system/build.prop
+		echo -e $CL_GRN"============================================"$CL_RST
+		echo -e $CL_GRN"Change $NEW_DEVICE to $NEW_DEVICE1 in updater-script"
+		echo -e $CL_GRN"============================================"$CL_RST
+		sed -i \
+			-e "s:${NEW_DEVICE}:${NEW_DEVICE1}:" \
+			$REPACK/ota1/META-INF/com/google/android/updater-script
 		echo -e $CL_GRN"============================================"$CL_RST
 		echo -e $CL_GRN"Zipping Ganbarou $NEW_DEVICE1 ROM"
 		echo -e $CL_GRN"============================================"$CL_RST
@@ -130,6 +140,7 @@ if [ $? -eq 0 ]; then
 		$MD5 $img >$img.md5sum
 		)
 		ZIPSIZE=`ls -lah $OUT/nameless-4.4.2-$NOWORG-$OLD_DEVICE1-HOMEMADE.zip | awk '{ print $5}' `
+                rm -f -r -d $REPACK
 		echo -e
 		echo -e $CL_CYN"===========-Package complete-==========="$CL_RST
 		echo -e $CL_CYN"zip:"$CL_MAG" $OUT/nameless-4.4.2-$NOWORG-$OLD_DEVICE1-HOMEMADE.zip"$CL_RST
