@@ -1,7 +1,7 @@
 VERSION_MAJOR = 1
-VERSION_MINOR = 01
+VERSION_MINOR = 03
 CHANGELOG_0 = Update: Latest Nameless & CM changes
-CHANGELOG_1 = Update: Multiuser: User icon in quick settings corrected
+CHANGELOG_1 = 
 CHANGELOG_2 = 
 CHANGELOG_3 = 
 CHANGELOG_4 = 
@@ -11,6 +11,11 @@ CHANGELOG_7 =
 CHANGELOG_8 = 
 CHANGELOG_9 = 
 
+
+V1.02
+Update: Latest Nameless & CM changes
+Update: Multiuser: User icon in quick settings corrected
+Fix: Separate background picture for lock screen
 
 V1.01
 Update: Latest Nameless & CM changes
