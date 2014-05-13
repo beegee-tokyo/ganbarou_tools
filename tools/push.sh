@@ -48,44 +48,6 @@ git commit -a
 git push git@github.com:beegee-tokyo/android_vendor_beegee.git android-4.4
 cd ../..
 echo ============================================
-echo 'Push latest changes to beegee-tokyo platform_vendor_samsung'
-echo ============================================
-cd vendor
-cd samsung
-repo start kk-4.4 .
-git checkout kk-4.4
-git pull
-git add -A
-git commit -a
-git push git@github.com:beegee-tokyo/platform_vendor_samsung.git kk-4.4
-cd ../..
-echo ============================================
-echo 'Push latest changes to beegee-tokyo platform_device_samsung_jflte'
-echo ============================================
-cd device
-cd samsung
-cd jflte
-repo start kk-4.4 .
-git checkout kk-4.4
-git pull
-git add -A
-git commit -a
-git push git@github.com:beegee-tokyo/platform_device_samsung_jflte.git kk-4.4
-cd ../../..
-echo ============================================
-echo 'Push latest changes to beegee-tokyo platform_kernel_samsung_jf'
-echo ============================================
-cd kernel
-cd samsung
-cd jf
-repo start kk-4.4_new .
-git checkout kk-4.4_new
-git pull
-git add -A
-git commit -a
-git push git@github.com:beegee-tokyo/platform_kernel_samsung_jf.git kk-4.4_new
-cd ../../..
-echo ============================================
 echo 'Push latest changes to beegee-tokyo ganbarou_tools'
 echo ============================================
 cd ganbarou_tools
@@ -95,17 +57,6 @@ git pull
 git add -A
 git commit -a
 git push git@github.com:beegee-tokyo/ganbarou_tools.git kk-4.4
-cd ..
-echo ============================================
-echo 'Push latest changes to beegee-tokyo build'
-echo ============================================
-cd build
-repo start AOSP .
-git checkout AOSP
-git pull
-git add -A
-git commit -a
-git push git@github.com:beegee-tokyo/android_build.git AOSP
 cd ..
 echo ============================================
 echo 'Push latest changes to beegee-tokyo wallpapers'

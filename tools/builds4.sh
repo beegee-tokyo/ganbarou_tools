@@ -229,16 +229,10 @@ cp -r -f -v $ANDROID_BUILD_TOP/ganbarou_tools/patches/datap/app/. $REPACK/ota/da
 cp -r -f -v $ANDROID_BUILD_TOP/ganbarou_tools/patches/systemapp-p/. $REPACK/ota/system/app/.
 
 echo -e $CL_GRN"============================================"$CL_RST
-echo -e $CL_GRN"Add alukernel"
+echo -e $CL_GRN"Copy hosts, 98ganbarou and gps.conf"
 echo -e $CL_GRN"============================================"$CL_RST
-cp -r -f -v $ANDROID_BUILD_TOP/ganbarou_tools/patches/alu_kernel/system/. $REPACK/ota/system/.
-cp -r -f -v $ANDROID_BUILD_TOP/ganbarou_tools/patches/alu_kernel/boot.img $REPACK/ota/boot.img
-
-#echo -e $CL_GRN"============================================"$CL_RST
-#echo -e $CL_GRN"Copy hosts, 98ganbarou and gps.conf"
-#echo -e $CL_GRN"============================================"$CL_RST
 #cp -r -f -v $ANDROID_BUILD_TOP/ganbarou_tools/patches/ganbarou/etc/gps.conf $REPACK/ota/system/etc/gps.conf
-#cp -r -f -v $ANDROID_BUILD_TOP/ganbarou_tools/patches/ganbarou/etc/hosts $REPACK/ota/system/etc/hosts
+cp -r -f -v $ANDROID_BUILD_TOP/ganbarou_tools/patches/ganbarou/etc/hosts $REPACK/ota/system/etc/hosts
 #cp -r -f -v $ANDROID_BUILD_TOP/ganbarou_tools/patches/ganbarou/etc/init.d/98Ganbarou $REPACK/ota/system/etc/init.d/97Ganbarou
 
 #echo -e $CL_GRN"============================================"$CL_RST
