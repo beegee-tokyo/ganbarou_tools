@@ -1,5 +1,5 @@
 VERSION_MAJOR = 1
-VERSION_MINOR = 03
+VERSION_MINOR = 04
 CHANGELOG_0 = Update: Latest Nameless & CM changes
 CHANGELOG_1 = 
 CHANGELOG_2 = 
@@ -11,6 +11,12 @@ CHANGELOG_7 =
 CHANGELOG_8 = 
 CHANGELOG_9 = 
 
+
+V1.03
+Update: Latest Nameless & CM changes
+Feature: Enable MTP by default (after full wipe installation)
+Feature: Developer options allways visible
+App: Added BeeGee Stats for feedback about ROM installations
 
 V1.02
 Update: Latest Nameless & CM changes
