@@ -40,24 +40,25 @@
   <project name="beegee-tokyo/android_vendor_beegee" path="vendor/beegee" remote="github" revision="android-4.4" />
   <project name="beegee-tokyo/android_packages_apps_g_Wallpapers" path="packages/apps/Wallpapers" remote="github" revision="kk-4.4" />
   <project name="beegee-tokyo/rom_stats" path="packages/apps/rom_stats" remote="github" revision="master" />
+  <project name="DF1E/SimpleExplorer" path="packages/apps/SimpleExplorer" remote="github" revision="version-2" />
 
   <!-- Take out  stuff we don't want -->
-  <remove-project groups="darwin" name="platform/prebuilts/clang/darwin-x86/3.1" remote="aosp" revision="refs/tags/android-4.4.2_r1" />
-  <remove-project groups="darwin" name="platform/prebuilts/clang/darwin-x86/3.2" remote="aosp" revision="refs/tags/android-4.4.2_r1" />
-  <remove-project groups="darwin,arm" name="platform/prebuilts/clang/darwin-x86/arm/3.3" remote="aosp" revision="refs/tags/android-4.4.2_r1" />
-  <remove-project groups="darwin" name="platform/prebuilts/clang/darwin-x86/host/3.3" remote="aosp" revision="refs/tags/android-4.4.2_r1" />
-  <remove-project groups="darwin,mips" name="platform/prebuilts/clang/darwin-x86/mips/3.3" remote="aosp" revision="refs/tags/android-4.4.2_r1" />
-  <remove-project groups="darwin,x86" name="platform/prebuilts/clang/darwin-x86/x86/3.3" remote="aosp" revision="refs/tags/android-4.4.2_r1" />
-  <remove-project groups="pdk,darwin,x86" name="platform/prebuilts/gcc/darwin-x86/x86/x86_64-linux-android-4.7" remote="aosp" revision="refs/tags/android-4.4.2_r1" />
-  <remove-project groups="darwin,arm" name="platform/prebuilts/gcc/darwin-x86/arm/arm-eabi-4.6" remote="aosp" revision="refs/tags/android-4.4.2_r1" />
-  <remove-project groups="pdk,darwin,arm" name="platform/prebuilts/gcc/darwin-x86/arm/arm-eabi-4.7" remote="aosp" revision="refs/tags/android-4.4.2_r1" />
-  <remove-project groups="darwin,arm" name="platform/prebuilts/gcc/darwin-x86/arm/arm-linux-androideabi-4.6" remote="aosp" revision="refs/tags/android-4.4.2_r1" />
-  <remove-project groups="pdk,darwin,arm" name="platform/prebuilts/gcc/darwin-x86/arm/arm-linux-androideabi-4.7" remote="aosp" revision="refs/tags/android-4.4.2_r1" />
-  <remove-project groups="pdk,darwin" name="platform/prebuilts/gcc/darwin-x86/host/headers" remote="aosp" revision="refs/tags/android-4.4.2_r1" />
-  <remove-project groups="pdk,darwin" name="platform/prebuilts/gcc/darwin-x86/host/i686-apple-darwin-4.2.1" remote="aosp" revision="refs/tags/android-4.4.2_r1" />
-  <remove-project groups="darwin,mips" name="platform/prebuilts/gcc/darwin-x86/mips/mipsel-linux-android-4.6" remote="aosp" revision="refs/tags/android-4.4.2_r1" />
-  <remove-project groups="pdk,darwin,mips" name="platform/prebuilts/gcc/darwin-x86/mips/mipsel-linux-android-4.7" remote="aosp" revision="refs/tags/android-4.4.2_r1" />
-  <remove-project groups="darwin,x86" name="platform/prebuilts/gcc/darwin-x86/x86/i686-linux-android-4.6" remote="aosp" revision="refs/tags/android-4.4.2_r1" />
-  <remove-project groups="pdk,darwin,x86" name="platform/prebuilts/gcc/darwin-x86/x86/i686-linux-android-4.7" remote="aosp" revision="refs/tags/android-4.4.2_r1" />
-  <remove-project groups="darwin" name="platform/prebuilts/python/darwin-x86/2.7.5" remote="aosp" revision="refs/tags/android-4.4.2_r1" />
+  <remove-project name="platform/prebuilts/clang/darwin-x86/3.1" />
+  <remove-project name="platform/prebuilts/clang/darwin-x86/3.2" />
+  <remove-project name="platform/prebuilts/clang/darwin-x86/arm/3.3" />
+  <remove-project name="platform/prebuilts/clang/darwin-x86/host/3.3" />
+  <remove-project name="platform/prebuilts/clang/darwin-x86/mips/3.3" />
+  <remove-project name="platform/prebuilts/clang/darwin-x86/x86/3.3" />
+  <!-- <remove-project name="platform/prebuilts/gcc/darwin-x86/x86/x86_64-linux-android-4.7" />
+  <remove-project name="platform/prebuilts/gcc/darwin-x86/arm/arm-eabi-4.6" />
+  <remove-project name="platform/prebuilts/gcc/darwin-x86/arm/arm-eabi-4.7" />
+  <remove-project name="platform/prebuilts/gcc/darwin-x86/arm/arm-linux-androideabi-4.6" />
+  <remove-project name="platform/prebuilts/gcc/darwin-x86/arm/arm-linux-androideabi-4.7" />
+  <remove-project name="platform/prebuilts/gcc/darwin-x86/host/headers" />
+  <remove-project name="platform/prebuilts/gcc/darwin-x86/host/i686-apple-darwin-4.2.1" />
+  <remove-project name="platform/prebuilts/gcc/darwin-x86/mips/mipsel-linux-android-4.6" />
+  <remove-project name="platform/prebuilts/gcc/darwin-x86/mips/mipsel-linux-android-4.7" />
+  <remove-project name="platform/prebuilts/gcc/darwin-x86/x86/i686-linux-android-4.6" />
+  <remove-project name="platform/prebuilts/gcc/darwin-x86/x86/i686-linux-android-4.7" />
+  <remove-project name="platform/prebuilts/python/darwin-x86/2.7.5" /> -->
 </manifest>
