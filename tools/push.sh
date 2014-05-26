@@ -1,4 +1,15 @@
 echo ============================================
+echo 'Push latest changes to beegee-tokyo build'
+echo ============================================
+cd build
+repo start kk-4.4 .
+git checkout kk-4.4
+git pull
+git add -A
+git commit -a
+git push git@github.com:beegee-tokyo/platform_build.git kk-4.4
+cd ..
+echo ============================================
 echo 'Push latest changes to beegee-tokyo frameworks_base'
 echo ============================================
 cd frameworks

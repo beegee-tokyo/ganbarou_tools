@@ -23,9 +23,16 @@
   <remove-project name="AOSP-S4-KK/platform_packages_apps_settings" />
   <project path="packages/apps/Settings" name="beegee-tokyo/platform_packages_apps_settings" remote="github" revision="kk-4.4" />
 
+  <!-- My build with slight adaption for my ROM -->
+  <remove-project name="AOSP-S4-KK/platform_build" />
+  <project path="build" name="beegee-tokyo/platform_build" remote="github" revision="kk-4.4" >
+    <copyfile src="core/root.mk" dest="Makefile" />
+  </project>
   <!-- Some other BeeGee stuff -->
   <project name="beegee-tokyo/vendor_gapps" path="vendor/gapps" remote="github" revision="android-4.4-core" />
-  <project name="beegee-tokyo/ganbarou_tools" path="ganbarou_tools" remote="github" revision="kk-4.4" />
+  <project name="beegee-tokyo/ganbarou_tools" path="ganbarou_tools" remote="github" revision="kk-4.4" >
+    <copyfile src="copytools.sh" dest="copytools.sh" />
+  </project>
   <project name="beegee-tokyo/android_vendor_beegee" path="vendor/beegee" remote="github" revision="android-4.4" />
   <project name="beegee-tokyo/android_packages_apps_g_Wallpapers" path="packages/apps/Wallpapers" remote="github" revision="kk-4.4" />
   <project name="beegee-tokyo/rom_stats" path="packages/apps/rom_stats" remote="github" revision="master" />
