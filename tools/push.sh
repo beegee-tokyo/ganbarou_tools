@@ -98,17 +98,6 @@ git commit -a
 git push git@github.com:beegee-tokyo/nameless_android_hardware_libhardware.git cm-11.0
 cd ../..
 echo ============================================
-echo 'Push latest changes to beegee-tokyo/nameless_android_external_chromium_org'
-echo ============================================
-cd external/chromium_org
-repo start cm-11.0 .
-git checkout cm-11.0
-git pull
-git add -A
-git commit -a
-git push git@github.com:beegee-tokyo/nameless_android_external_chromium_org.git cm-11.0
-cd ../..
-echo ============================================
 echo 'Push latest changes to beegee-tokyo/nameless_android_external_skia'
 echo ============================================
 cd external/skia

@@ -27,8 +27,6 @@
   <project path="frameworks/av" name="beegee-tokyo/nameless_android_frameworks_av" remote="github" revision="android-4.4" />
   <remove-project name="CyanogenMod/android_hardware_libhardware"/>
   <project path="hardware/libhardware" name="beegee-tokyo/nameless_android_hardware_libhardware" remote="github" revision="cm-11.0" />
-  <remove-project name="CyanogenMod/android_external_chromium_org"/>
-  <project path="external/chromium_org" name="beegee-tokyo/nameless_android_external_chromium_org" remote="github" revision="cm-11.0" />
   <remove-project name="CyanogenMod/android_external_skia"/>
   <project path="external/skia" name="beegee-tokyo/nameless_android_external_skia" remote="github" revision="cm-11.0" />
   <remove-project name="android_bionic"/>

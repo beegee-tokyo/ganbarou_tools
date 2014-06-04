@@ -80,15 +80,6 @@ git fetch upstream
 git merge upstream/cm-11.0
 cd ../..
 echo ============================================
-echo 'Get latest changes to beegee-tokyo/nameless_android_external_chromium_org'
-echo ============================================
-cd external/chromium_org
-git checkout cm-11.0
-git remote add upstream git://github.com/CyanogenMod/android_external_chromium_org.git 
-git fetch upstream
-git merge upstream/cm-11.0
-cd ../..
-echo ============================================
 echo 'Get latest changes to beegee-tokyo/nameless_android_external_skia'
 echo ============================================
 cd external/skia
