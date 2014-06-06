@@ -90,23 +90,23 @@ echo ============================================
 echo 'Push latest changes to beegee-tokyo/nameless_android_hardware_libhardware'
 echo ============================================
 cd hardware/libhardware
-repo start cm-11.0 .
-git checkout cm-11.0
+repo start android-4.4 .
+git checkout android-4.4
 git pull
 git add -A
 git commit -a
-git push git@github.com:beegee-tokyo/nameless_android_hardware_libhardware.git cm-11.0
+git push git@github.com:beegee-tokyo/nameless_android_hardware_libhardware.git android-4.4
 cd ../..
 echo ============================================
 echo 'Push latest changes to beegee-tokyo/nameless_android_external_skia'
 echo ============================================
 cd external/skia
-repo start cm-11.0 .
-git checkout cm-11.0
+repo start android-4.4 .
+git checkout android-4.4
 git pull
 git add -A
 git commit -a
-git push git@github.com:beegee-tokyo/nameless_android_external_skia.git cm-11.0
+git push git@github.com:beegee-tokyo/nameless_android_external_skia.git android-4.4
 cd ../..
 echo ============================================
 echo 'Push latest changes to beegee-tokyo/bionic'

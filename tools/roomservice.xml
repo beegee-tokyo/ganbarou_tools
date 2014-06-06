@@ -25,10 +25,10 @@
   <project path="packages/apps/Settings" name="beegee-tokyo/nameless_android_packages_apps_Settings" remote="github" revision="android-4.4" />
   <remove-project name="android_frameworks_av"/>
   <project path="frameworks/av" name="beegee-tokyo/nameless_android_frameworks_av" remote="github" revision="android-4.4" />
-  <remove-project name="CyanogenMod/android_hardware_libhardware"/>
-  <project path="hardware/libhardware" name="beegee-tokyo/nameless_android_hardware_libhardware" remote="github" revision="cm-11.0" />
-  <remove-project name="CyanogenMod/android_external_skia"/>
-  <project path="external/skia" name="beegee-tokyo/nameless_android_external_skia" remote="github" revision="cm-11.0" />
+  <remove-project name="android_hardware_libhardware"/>
+  <project path="hardware/libhardware" name="beegee-tokyo/nameless_android_hardware_libhardware" groups="pdk" remote="github" revision="android-4.4" />
+  <remove-project name="android_external_skia"/>
+  <project path="external/skia" name="beegee-tokyo/nameless_android_external_skia" remote="github" revision="android-4.4" />
   <remove-project name="android_bionic"/>
   <project path="bionic" name="beegee-tokyo/nameless_android_bionic" remote="github" revision="android-4.4" />
 
