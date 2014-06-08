@@ -1,8 +1,8 @@
 VERSION_MAJOR = 1
-VERSION_MINOR = 05
+VERSION_MINOR = 06
 CHANGELOG_0 = Update: Latest Nameless & CM changes
-CHANGELOG_1 = Clean-up of the code
-CHANGELOG_2 = Android 4.4.3_r1.1 update
+CHANGELOG_1 = 
+CHANGELOG_2 = 
 CHANGELOG_3 = 
 CHANGELOG_4 = 
 CHANGELOG_5 = 
@@ -11,6 +11,11 @@ CHANGELOG_7 =
 CHANGELOG_8 = 
 CHANGELOG_9 = 
 
+
+V1.05
+Update: Latest Nameless & CM changes
+Update: Clean-up of the code
+Update: Android 4.4.3_r1.1 update
 
 V1.04
 Update: Latest Nameless & CM changes
