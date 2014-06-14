@@ -1,8 +1,8 @@
 VERSION_MAJOR = 1
 VERSION_MINOR = 06
 CHANGELOG_0 = Update: Latest Nameless & CM changes
-CHANGELOG_1 = 
-CHANGELOG_2 = 
+CHANGELOG_1 = Update: Phone APK working again
+CHANGELOG_2 = Update: CWM recovery should work again (not tested)
 CHANGELOG_3 = 
 CHANGELOG_4 = 
 CHANGELOG_5 = 
