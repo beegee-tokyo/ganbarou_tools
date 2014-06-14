@@ -3,10 +3,11 @@
   <!-- This is for the build of the Galaxy Tab 10.1 ROM -->
   <project name="beegee-tokyo/android_device_samsung_p4-common" path="device/samsung/p4-common" remote="github" revision="nameless" />
   <project name="beegee-tokyo/android_device_samsung_p4" path="device/samsung/p4" remote="github" revision="nameless" />
-  <project name="beegee-tokyo/android_vendor_samsung_p4" path="vendor/samsung/p4" remote="github" revision="nameless" />
+  <project name="beegee-tokyo/proprietary_vendor_samsung" path="vendor/samsung" remote="github" revision="android-4.4" />
   <project name="beegee-tokyo/android_device_samsung_p4wifi" path="device/samsung/p4wifi" remote="github" revision="nameless" />
-  <project name="beegee-tokyo/android_vendor_samsung_p4wifi" path="vendor/samsung/p4wifi" remote="github" revision="nameless" />
   <!--
+  <project name="beegee-tokyo/android_vendor_samsung_p4" path="vendor/samsung/p4" remote="github" revision="nameless" />
+  <project name="beegee-tokyo/android_vendor_samsung_p4wifi" path="vendor/samsung/p4wifi" remote="github" revision="nameless" />
   <project name="beegee-tokyo/android_kernel_samsung_p4" path="kernel/samsung/p4" remote="github" revision="nameless" />
   -->
   
@@ -23,6 +24,7 @@
   <project path="frameworks/base" name="beegee-tokyo/nameless_android_frameworks_base" remote="github" revision="android-4.4" />
   <remove-project name="android_packages_apps_Settings"/>
   <project path="packages/apps/Settings" name="beegee-tokyo/nameless_android_packages_apps_Settings" remote="github" revision="android-4.4" />
+  <!-- 
   <remove-project name="android_frameworks_av"/>
   <project path="frameworks/av" name="beegee-tokyo/nameless_android_frameworks_av" remote="github" revision="android-4.4" />
   <remove-project name="android_hardware_libhardware"/>
@@ -31,6 +33,7 @@
   <project path="external/skia" name="beegee-tokyo/nameless_android_external_skia" remote="github" revision="android-4.4" />
   <remove-project name="android_bionic"/>
   <project path="bionic" name="beegee-tokyo/nameless_android_bionic" remote="github" revision="android-4.4" />
+  -->
 
   <!-- Some other BeeGee stuff -->
   <project name="beegee-tokyo/vendor_gapps" path="vendor/gapps" remote="github" revision="android-4.4-core" />
