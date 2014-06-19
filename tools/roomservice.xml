@@ -1,47 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
   <!-- This is for the build of the Galaxy Tab 10.1 ROM -->
-  <project name="beegee-tokyo/android_device_samsung_p4-common" path="device/samsung/p4-common" remote="github" revision="nameless" />
-  <project name="beegee-tokyo/android_device_samsung_p4" path="device/samsung/p4" remote="github" revision="nameless" />
-  <project name="beegee-tokyo/proprietary_vendor_samsung" path="vendor/samsung" remote="github" revision="android-4.4" />
-  <project name="beegee-tokyo/android_device_samsung_p4wifi" path="device/samsung/p4wifi" remote="github" revision="nameless" />
-  <!--
-  <project name="beegee-tokyo/android_vendor_samsung_p4" path="vendor/samsung/p4" remote="github" revision="nameless" />
-  <project name="beegee-tokyo/android_vendor_samsung_p4wifi" path="vendor/samsung/p4wifi" remote="github" revision="nameless" />
-  <project name="beegee-tokyo/android_kernel_samsung_p4" path="kernel/samsung/p4" remote="github" revision="nameless" />
-  -->
+  <project name="beegee-tokyo/android_device_samsung_p4-common" path="device/samsung/p4-common" remote="github" revision="ganbarou-5" />
+  <project name="beegee-tokyo/android_device_samsung_p4" path="device/samsung/p4" remote="github" revision="ganbarou-5" />
+  <project name="beegee-tokyo/android_vendor_samsung_p4" path="vendor/samsung/p4" remote="github" revision="ganbarou-5" />
+  <project name="beegee-tokyo/android_device_samsung_p4wifi" path="device/samsung/p4wifi" remote="github" revision="ganbarou-5" />
+  <project name="beegee-tokyo/android_vendor_samsung_p4wifi" path="vendor/samsung/p4wifi" remote="github" revision="ganbarou-5" />
+  <project name="beegee-tokyo/android_kernel_samsung_p4" path="kernel/samsung/p4" remote="github" revision="ganbarou-5" />
   
-  <!-- This is for the build of the Galaxy S4 ROM -->
-  <project name="namelessrom/android_device_samsung_jflte" path="device/samsung/jflte" remote="github" revision="android-4.4" />
-  <project name="namelessrom/android_device_samsung_qcom-common" path="device/samsung/qcom-common" remote="github" revision="android-4.4" />
-  <project name="namelessrom/android_device_samsung_msm8960-common" path="device/samsung/msm8960-common" remote="github" revision="android-4.4" />
-  <project name="namelessrom/android_hardware_samsung" path="hardware/samsung" remote="github" revision="android-4.4" />
-  <project name="namelessrom/android_kernel_samsung_jf" path="kernel/samsung/jf" remote="github" revision="android-4.4" />
-
-  <!-- 
-  -->
   <remove-project name="android_frameworks_base"/>
   <project path="frameworks/base" name="beegee-tokyo/nameless_android_frameworks_base" remote="github" revision="android-4.4" />
   <remove-project name="android_packages_apps_Settings"/>
   <project path="packages/apps/Settings" name="beegee-tokyo/nameless_android_packages_apps_Settings" remote="github" revision="android-4.4" />
-  <!-- 
-  <remove-project name="android_frameworks_av"/>
-  <project path="frameworks/av" name="beegee-tokyo/nameless_android_frameworks_av" remote="github" revision="android-4.4" />
-  <remove-project name="android_hardware_libhardware"/>
-  <project path="hardware/libhardware" name="beegee-tokyo/nameless_android_hardware_libhardware" groups="pdk" remote="github" revision="android-4.4" />
-  <remove-project name="android_external_skia"/>
-  <project path="external/skia" name="beegee-tokyo/nameless_android_external_skia" remote="github" revision="android-4.4" />
-  <remove-project name="android_bionic"/>
-  <project path="bionic" name="beegee-tokyo/nameless_android_bionic" remote="github" revision="android-4.4" />
-  -->
 
   <!-- Some other BeeGee stuff -->
   <project name="beegee-tokyo/vendor_gapps" path="vendor/gapps" remote="github" revision="android-4.4-core" />
   <project name="beegee-tokyo/ganbarou_tools" path="ganbarou_tools" remote="github" revision="nameless" />
+  <!-- 
   <project name="beegee-tokyo/android_vendor_beegee" path="vendor/beegee" remote="github" revision="android-4.4" />
   <project name="beegee-tokyo/android_packages_apps_g_Wallpapers" path="packages/apps/Wallpapers" remote="github" revision="kk-4.4" />
+  -->
   <project name="beegee-tokyo/rom_stats" path="packages/apps/rom_stats" remote="github" revision="master" />
-  <project name="DF1E/SimpleExplorer" path="packages/apps/SimpleExplorer" remote="github" revision="version-2" />
+  <!--
+  <project name="DF1E/SimpleExplorer" path="packages/apps/SimpleExplorer" remote="github" revision="master" />
+  -->
 
   <!-- Take out  stuff we don't want -->
   <remove-project name="platform/prebuilts/clang/darwin-x86/3.1" />

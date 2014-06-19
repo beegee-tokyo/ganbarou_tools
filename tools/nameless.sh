@@ -18,6 +18,13 @@ NOW=$(date +"%Y-%m-%d")
 NOWORG=$(date +"%Y%m%d")
 SECURITYDIR="$ANDROID_BUILD_TOP/build/target/product/security"
 
+#****************************************************************
+## Set ROM version
+export ROM_VERSION=$(grep VERSION_ROMSTAT changelog.txt | cut -d \" -f2)
+echo "ROM_VERSION = "$ROM_VERSION
+export ROM_MOD=$(grep VERSION_GOO changelog.txt | cut -d \" -f2)
+echo "ROM_MOD = "$ROM_MOD
+
 . $ANDROID_BUILD_TOP/vendor/nameless/tools/functions
 
 #****************************************************************

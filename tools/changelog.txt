@@ -1,46 +1,23 @@
-VERSION_MAJOR = 1
-VERSION_MINOR = 06
-CHANGELOG_0 = Update: Latest Nameless & CM changes
-CHANGELOG_1 = Update: Phone APK working again
-CHANGELOG_2 = Update: CWM recovery should work again (not tested)
-CHANGELOG_3 = 
-CHANGELOG_4 = 
-CHANGELOG_5 = 
-CHANGELOG_6 = 
-CHANGELOG_7 = 
+VERSION_ROMSTAT = "5.00"
+VERSION_GOO = "500"
+CHANGELOG_0 = Initial: This is a private branch of the NamelessROM
+CHANGELOG_1 = Feature: Reboot into recovery on top level of power menu 
+CHANGELOG_2 = -- Reboot: short press == reboot, long press == reboot save mode
+CHANGELOG_3 = -- Recovery: short press == recovery, long press == bootloader
+CHANGELOG_4 = Feature: Developer options allways visible
+CHANGELOG_5 = Feature: Enable MTP by default 
+CHANGELOG_6 = Apps: Simple Explorer replaces NamelessROMs internal 'Documents' file explorer (credits to DF1E)
+CHANGELOG_7 = Apps: Added BeeGee Stats for feedback about ROM installations
 CHANGELOG_8 = 
 CHANGELOG_9 = 
 
 
-V1.05
-Update: Latest Nameless & CM changes
-Update: Clean-up of the code
-Update: Android 4.4.3_r1.1 update
-
-V1.04
-Update: Latest Nameless & CM changes
-Apps: Simple Explorer replaces NamelessROMs internal 'Documents' file explorer (credits to DF1E)
+V5.00
+Initial: This is a private branch of the NamelessROM
 Feature: Reboot into recovery on top level of power menu 
-         Reboot: short press == reboot, long press == reboot save mode
-         Recovery: short press == recovery, long press == bootloader
-Performance: Archidroid optimizations (as implemented by NamelessROM sources)
-
-V1.03
-Update: Latest Nameless & CM changes
-Feature: Enable MTP by default (after full wipe installation)
+Reboot: short press == reboot, long press == reboot save mode
+Recovery: short press == recovery, long press == bootloader
 Feature: Developer options allways visible
-App: Added BeeGee Stats for feedback about ROM installations
-
-V1.02
-Update: Latest Nameless & CM changes
-Update: Multiuser: User icon in quick settings corrected
-Fix: Separate background picture for lock screen
-
-V1.01
-Update: Latest Nameless & CM changes
-Update: Added more fonts (for none latin alphabets)
-Feature: Added moveable navigation button (left, middle, right)
-Feature: Added navigation buttons in status bar for extended desktop
-
-V1.00
-Init: first Nameless Android 4.4 build
+Feature: Enable MTP by default 
+Apps: Simple Explorer replaces NamelessROMs internal 'Documents' file explorer (credits to DF1E)
+Apps: Added BeeGee Stats for feedback about ROM installations
