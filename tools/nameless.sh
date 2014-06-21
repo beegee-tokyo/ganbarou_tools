@@ -17,6 +17,7 @@ MD5=md5sum
 NOW=$(date +"%Y-%m-%d")
 NOWORG=$(date +"%Y%m%d")
 SECURITYDIR="$ANDROID_BUILD_TOP/build/target/product/security"
+export ROM_BUILDTIME_CUSTOM=$NOWORG
 
 #****************************************************************
 ## Set ROM version
@@ -108,7 +109,7 @@ if [ $? -eq 0 ]; then
 		echo -e $CL_MAG"=============================================="$CL_RST
 		echo -e $CL_RED"Making p4n / p4nwifi versions"$CL_RST
 		echo -e $CL_MAG"=============================================="$CL_RST
-		OTAPACKAGE="$OUT/nameless-4.4.3-$NOWORG-$OLD_DEVICE-HOMEMADE.zip"
+		OTAPACKAGE="$OUT/nameless-4.4.4-$NOWORG-$OLD_DEVICE-HOMEMADE.zip"
 		mkdir $REPACK
 		mkdir $REPACK/ota1
 		cd $REPACK/ota1
@@ -137,21 +138,21 @@ if [ $? -eq 0 ]; then
 		java -Xmx1024m \
 		-jar $ANDROID_BUILD_TOP/out/host/$OUT_TARGET_HOST/framework/signapk.jar \
 		-w $SECURITYDIR/testkey.x509.pem $SECURITYDIR/testkey.pk8 \
-		$REPACK/update1.zip $OUT/nameless-4.4.3-$NOWORG-$OLD_DEVICE1-HOMEMADE.zip
+		$REPACK/update1.zip $OUT/nameless-4.4.4-$NOWORG-$OLD_DEVICE1-HOMEMADE.zip
 		echo -e $CL_GRN"============================================"$CL_RST
 		echo -e $CL_GRN"Create a md5 checksum image of the repacked $NEW_DEVICE1 package"
 		echo -e $CL_GRN"============================================"$CL_RST
 		(
-		img=`basename $OUT/nameless-4.4.3-$NOWORG-$OLD_DEVICE1-HOMEMADE.zip`
-		cd `dirname $OUT/nameless-4.4.3-$NOWORG-$OLD_DEVICE1-HOMEMADE.zip`
+		img=`basename $OUT/nameless-4.4.4-$NOWORG-$OLD_DEVICE1-HOMEMADE.zip`
+		cd `dirname $OUT/nameless-4.4.4-$NOWORG-$OLD_DEVICE1-HOMEMADE.zip`
 		$MD5 $img >$img.md5sum
 		)
-		ZIPSIZE=`ls -lah $OUT/nameless-4.4.3-$NOWORG-$OLD_DEVICE1-HOMEMADE.zip | awk '{ print $5}' `
+		ZIPSIZE=`ls -lah $OUT/nameless-4.4.4-$NOWORG-$OLD_DEVICE1-HOMEMADE.zip | awk '{ print $5}' `
                 rm -f -r -d $REPACK
 		echo -e
 		echo -e $CL_CYN"===========-Package complete-==========="$CL_RST
-		echo -e $CL_CYN"zip:"$CL_MAG" $OUT/nameless-4.4.3-$NOWORG-$OLD_DEVICE1-HOMEMADE.zip"$CL_RST
-		echo -e $CL_CYN"md5:"$CL_MAG" $(cat $OUT/nameless-4.4.3-$NOWORG-$OLD_DEVICE1-HOMEMADE.zip.md5sum | awk '{ print $1 }')"$CL_RST
+		echo -e $CL_CYN"zip:"$CL_MAG" $OUT/nameless-4.4.4-$NOWORG-$OLD_DEVICE1-HOMEMADE.zip"$CL_RST
+		echo -e $CL_CYN"md5:"$CL_MAG" $(cat $OUT/nameless-4.4.4-$NOWORG-$OLD_DEVICE1-HOMEMADE.zip.md5sum | awk '{ print $1 }')"$CL_RST
 		echo -e $CL_CYN"size:"$CL_MAG" $ZIPSIZE"$CL_RST
 		echo -e $CL_CYN"========================================"$CL_RST
 		echo -e

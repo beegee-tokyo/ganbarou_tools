@@ -1,25 +1,30 @@
 VERSION_ROMSTAT = "1.07"
 VERSION_GOO = "107"
-CHANGELOG_0 = Initial: This is a private branch of the NamelessROM
-CHANGELOG_1 = Feature: Reboot into recovery on top level of power menu 
-CHANGELOG_2 = -- Reboot: short press == reboot, long press == reboot save mode
-CHANGELOG_3 = -- Recovery: short press == recovery, long press == bootloader
-CHANGELOG_4 = Feature: Developer options allways visible
-CHANGELOG_5 = Feature: Enable MTP by default 
-CHANGELOG_6 = Apps: Simple Explorer replaces NamelessROMs internal 'Documents' file explorer (credits to DF1E)
-CHANGELOG_7 = Apps: Added BeeGee Stats for feedback about ROM installations
-CHANGELOG_8 = 
-CHANGELOG_9 = 
+CHANGELOG_0 = Latest Nameless & CM changes
+CHANGELOG_1 = Version: Android KitKat 4.4.4
+CHANGELOG_2 = Version: This is a private branch of the NamelessROM
+CHANGELOG_3 = Feature: Reboot into recovery on top level of power menu 
+CHANGELOG_4 = -- Reboot: short press == reboot, long press == reboot save mode
+CHANGELOG_5 = -- Recovery: short press == recovery, long press == bootloader
+CHANGELOG_6 = Feature: Developer options allways visible
+CHANGELOG_7 = Feature: Enable MTP by default 
+CHANGELOG_8 = Apps: Simple Explorer replaces NamelessROMs internal 'Documents' file explorer (credits to DF1E)
+CHANGELOG_9 = Apps: Added BeeGee Stats for feedback about ROM installations
+CHANGELOG_10 = Feature: Rotateable lockscreen
+CHANGELOG_11 = 
 
 V1.07
-Initial: This is a private branch of the NamelessROM
+Latest Nameless & CM changes
+Version: Android KitKat 4.4.4
+Version: This is a private branch of the NamelessROM
 Feature: Reboot into recovery on top level of power menu 
-Reboot: short press == reboot, long press == reboot save mode
-Recovery: short press == recovery, long press == bootloader
+ -- Reboot: short press == reboot, long press == reboot save mode
+ -- Recovery: short press == recovery, long press == bootloader
 Feature: Developer options allways visible
 Feature: Enable MTP by default 
 Apps: Simple Explorer replaces NamelessROMs internal 'Documents' file explorer (credits to DF1E)
 Apps: Added BeeGee Stats for feedback about ROM installations
+Feature: Rotateable lockscreen
 
 V1.06
 Update: Latest Nameless & CM changes
