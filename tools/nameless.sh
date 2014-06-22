@@ -17,7 +17,11 @@ MD5=md5sum
 NOW=$(date +"%Y-%m-%d")
 NOWORG=$(date +"%Y%m%d")
 SECURITYDIR="$ANDROID_BUILD_TOP/build/target/product/security"
+
+#****************************************************************
+## Some stuff for the build tools:
 export ROM_BUILDTIME_CUSTOM=$NOWORG
+export USE_SQUISHER=yes
 
 #****************************************************************
 ## Set ROM version
