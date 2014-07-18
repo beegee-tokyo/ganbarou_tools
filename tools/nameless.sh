@@ -14,7 +14,7 @@ androidtop=$ANDROID_BUILD_TOP
 secsign=$ANDROID_BUILD_TOP/build/target/product/security
 OUT_TARGET_HOST="linux-x86"
 MD5=md5sum
-NOW=$(date +"%Y-%m-%d")
+export NOW=$(date +"%Y-%m-%d")
 NOWORG=$(date +"%Y%m%d")
 SECURITYDIR="$ANDROID_BUILD_TOP/build/target/product/security"
 
