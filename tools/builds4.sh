@@ -33,8 +33,8 @@ TEST_BUILD=1
 
 # other global variables that usually come from makeit.sh but are missing for the tests
 gooversion_t="1"
-goobuild_t="00"
-gooversion_build_t="100"
+goobuild_t="20"
+gooversion_build_t="120"
 export USEROLD=`whoami`;
 
 # build with colors!

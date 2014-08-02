@@ -1,5 +1,5 @@
 VERSION_MAJOR = 1
-VERSION_MINOR = 00
+VERSION_MINOR = 20
 CHANGELOG_0 = Initial: Based on AOSP & broodplank1337 Android KitKat 4.4.2 AOSP sources.
 CHANGELOG_1 = Feature: Reboot in Power Menu
 CHANGELOG_2 = Feature: Recovery in Power Menu
