@@ -1,7 +1,7 @@
-VERSION_ROMSTAT = "1.10"
-VERSION_GOO = "110"
+VERSION_ROMSTAT = "1.11"
+VERSION_GOO = "111"
 CHANGELOG_0 = Update: Latest Nameless & CM changes
-CHANGELOG_1 = Bugfix: Reboot menu working again
+CHANGELOG_1 = 
 CHANGELOG_2 = 
 CHANGELOG_3 = 
 CHANGELOG_4 = 
@@ -10,6 +10,10 @@ CHANGELOG_6 =
 CHANGELOG_7 = 
 CHANGELOG_8 = 
 CHANGELOG_9 = 
+
+V1.10
+Update: Latest Nameless & CM changes
+Bugfix: Reboot menu working again
 
 V1.09
 Update: Latest Nameless & CM changes
