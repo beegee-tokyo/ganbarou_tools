@@ -1,7 +1,7 @@
-VERSION_ROMSTAT = "1.12"
-VERSION_GOO = "112"
+VERSION_ROMSTAT = "1.14"
+VERSION_GOO = "114"
 CHANGELOG_0 = Update: Latest Nameless & CM changes
-CHANGELOG_1 = 
+CHANGELOG_1 = Update: Latest SimpleExplorer 2.0.5
 CHANGELOG_2 = 
 CHANGELOG_3 = 
 CHANGELOG_4 = 
@@ -10,6 +10,13 @@ CHANGELOG_6 =
 CHANGELOG_7 = 
 CHANGELOG_8 = 
 CHANGELOG_9 = 
+
+V1.13
+Update: Latest Nameless & CM changes
+Bugfix: Dialer FC fixed
+
+V1.12
+Update: Latest Nameless & CM changes
 
 V1.11
 Update: Latest Nameless & CM changes
