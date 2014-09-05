@@ -7,7 +7,17 @@
   <project name="beegee-tokyo/android_device_samsung_p4wifi" path="device/samsung/p4wifi" remote="github" revision="nameless" />
   <project name="beegee-tokyo/android_vendor_samsung_p4wifi" path="vendor/samsung/p4wifi" remote="github" revision="nameless" />
   <project name="loosethisskin/android_kernel_samsung_p4" path="kernel/samsung/p4" remote="github" revision="cm-11.0-dev" />
-  
+
+  <!-- This is for the build of the Galaxy S4 ROM -->
+  <project name="NamelessRom/android_device_samsung_jflte" path="device/samsung/jflte" remote="github" revision="android-4.4" />
+  <project name="beegee-tokyo/android_vendor_samsung_jflte" path="vendor/samsung/jflte" remote="github" revision="nameless" /> 
+  <project name="NamelessRom/android_kernel_samsung_jf" path="kernel/samsung/jf" remote="github" revision="android-4.4" />
+  <project name="NamelessRom/android_device_samsung_qcom-common" path="device/samsung/qcom-common" remote="github" revision="android-4.4" />
+  <project name="NamelessRom/android_device_samsung_msm8960-common" path="device/samsung/msm8960-common" remote="github" revision="android-4.4" />
+  <project name="NamelessRom/android_hardware_samsung" path="hardware/samsung" remote="github" revision="android-4.4" />
+  }
+]
+  <!-- Stuff I changed -->
   <remove-project name="android_frameworks_base"/>
   <project path="frameworks/base" name="beegee-tokyo/nameless_android_frameworks_base" remote="github" revision="android-4.4" />
   <remove-project name="android_packages_apps_Settings"/>

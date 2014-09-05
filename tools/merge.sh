@@ -1,3 +1,8 @@
+echo ============================================
+echo 'Init sync with Github'
+echo 'repo init -u https://github.com/NamelessRom/android.git -b android-4.4'
+echo ============================================
+repo init -u https://github.com/NamelessRom/android.git -b android-4.4
 #echo ============================================
 #echo 'Get latest changes to beegee-tokyo/android_device_samsung_p4-common'
 #echo ============================================

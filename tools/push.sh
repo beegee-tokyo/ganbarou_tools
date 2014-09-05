@@ -1,4 +1,9 @@
 echo ============================================
+echo 'Init sync with Github'
+echo 'repo init -u https://github.com/NamelessRom/android.git -b android-4.4'
+echo ============================================
+repo init -u https://github.com/NamelessRom/android.git -b android-4.4
+echo ============================================
 echo 'Push latest changes to beegee-tokyo/android_device_samsung_p4-common'
 echo ============================================
 cd device/samsung/p4-common
@@ -52,6 +57,17 @@ git pull
 git add -A
 git commit -a
 git push git@github.com:beegee-tokyo/android_vendor_samsung_p4wifi.git nameless
+cd ../../..
+echo ============================================
+echo 'Push latest changes to beegee-tokyo/android_vendor_samsung_jflte'
+echo ============================================
+cd vendor/samsung/jflte
+repo start nameless .
+git checkout nameless
+git pull
+git add -A
+git commit -a
+git push git@github.com:beegee-tokyo/android_vendor_samsung_jflte.git nameless
 cd ../../..
 echo ============================================
 echo 'Push latest changes to beegee-tokyo/nameless_android_frameworks_base'

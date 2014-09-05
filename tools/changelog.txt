@@ -1,7 +1,7 @@
-VERSION_ROMSTAT = "1.14"
-VERSION_GOO = "114"
+VERSION_ROMSTAT = "1.15"
+VERSION_GOO = "115"
 CHANGELOG_0 = Update: Latest Nameless & CM changes
-CHANGELOG_1 = Update: Latest SimpleExplorer 2.0.5
+CHANGELOG_1 = 
 CHANGELOG_2 = 
 CHANGELOG_3 = 
 CHANGELOG_4 = 
@@ -10,6 +10,10 @@ CHANGELOG_6 =
 CHANGELOG_7 = 
 CHANGELOG_8 = 
 CHANGELOG_9 = 
+
+V1.14
+Update: Latest Nameless & CM changes
+Update: Latest SimpleExplorer 2.0.5
 
 V1.13
 Update: Latest Nameless & CM changes
