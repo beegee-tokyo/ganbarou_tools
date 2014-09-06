@@ -105,8 +105,38 @@ if [ $? -eq 0 ]; then
 	echo -e $CL_RED"Build successfull"$CL_RST
 	echo -e $CL_MAG"=============================================="$CL_RST
 	#****************************************************************
-	## Copy the build:
+	## Correct filename if necessary:
 	NOWORG=$(date +"%Y%m%d")
+        YDAYORG=$(date --date="yesterday" +"%Y%m%d")
+        # If build is from yesterday and HOMEMADE is missing in filename
+        if [ -f $OUT/nameless-4.4.4-$YDAYORG-$OLD_DEVICE.zip ]; then
+		echo -e $CL_MAG"=============================================="$CL_RST
+		echo -e $CL_RED"Build is from yesterday and HOMEMADE is missing in filename"$CL_RST
+		echo -e $CL_MAG"=============================================="$CL_RST
+                ORGNAME="$OUT/nameless-4.4.4-$YDAYORG-$OLD_DEVICE.zip"
+                NEWNAME="$OUT/nameless-4.4.4-$NOWORG-$OLD_DEVICE-HOMEMADE.zip"
+                mv $ORGNAME $NEWNAME
+        fi
+        # If build is from yesterday
+        if [ -f $OUT/nameless-4.4.4-$YDAYORG-$OLD_DEVICE-HOMEMADE.zip ]; then
+		echo -e $CL_MAG"=============================================="$CL_RST
+		echo -e $CL_RED"Build is from yesterday"$CL_RST
+		echo -e $CL_MAG"=============================================="$CL_RST
+                ORGNAME="$OUT/nameless-4.4.4-$YDAYORG-$OLD_DEVICE-HOMEMADE.zip"
+                NEWNAME="$OUT/nameless-4.4.4-$NOWORG-$OLD_DEVICE-HOMEMADE.zip"
+                mv $ORGNAME $NEWNAME
+        fi
+        # If HOMEMADE is missing in filename
+        if [ -f $OUT/nameless-4.4.4-$NOWORG-$OLD_DEVICE.zip ]; then
+		echo -e $CL_MAG"=============================================="$CL_RST
+		echo -e $CL_RED"HOMEMADE is missing in filename"$CL_RST
+		echo -e $CL_MAG"=============================================="$CL_RST
+                ORGNAME="$OUT/nameless-4.4.4-$NOWORG-$OLD_DEVICE.zip"
+                NEWNAME="$OUT/nameless-4.4.4-$NOWORG-$OLD_DEVICE-HOMEMADE.zip"
+                mv $ORGNAME $NEWNAME
+        fi
+	#****************************************************************
+	## Copy the build if it is for a tablet:
 	if [ $trgt == "p4" ] || [ $trgt == "p4wifi" ]; then
 		#****************************************************************
 		## Make the GT-P7501 or GT-P7511 variants
