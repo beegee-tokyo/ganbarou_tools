@@ -1,5 +1,5 @@
-VERSION_ROMSTAT = "1.21"
-VERSION_GOO = "121"
+VERSION_ROMSTAT = "1.23"
+VERSION_GOO = "123"
 CHANGELOG_0 = Update: Latest Nameless & CM changes
 CHANGELOG_1 = 
 CHANGELOG_2 = 
@@ -10,6 +10,12 @@ CHANGELOG_6 =
 CHANGELOG_7 = 
 CHANGELOG_8 = 
 CHANGELOG_9 = 
+
+V1.22
+Update: Latest Nameless & CM changes
+
+V1.21
+Update: Latest Nameless & CM changes
 
 V1.20
 Update: Latest Nameless & CM changes

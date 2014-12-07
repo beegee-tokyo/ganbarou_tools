@@ -35,7 +35,7 @@ echo "ROM_MOD = "$ROM_MOD
 #****************************************************************
 ## Check for missing parameters:
 
-if [ "$1" != "p4w"  ] && [ "$1" != "p4"  ] && [ "$1" != "s4"  ]
+if [ "$1" != "p4w"  ] && [ "$1" != "p4"  ] && [ "$1" != "s4"  ] && [ "$1" != "p600"  ]
 then
   echo "No target device defined"
   exit 0
@@ -66,6 +66,12 @@ if [ "$1" = "s4" ]
 then
 trgt=jflte
 OLD_DEVICE="jflte"
+fi
+
+if [ "$1" = "p600" ]
+then
+trgt=lt03wifi
+OLD_DEVICE="lt03wifi"
 fi
 
 clean=n
