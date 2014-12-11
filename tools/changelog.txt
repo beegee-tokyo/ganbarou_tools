@@ -1,6 +1,6 @@
-VERSION_ROMSTAT = "1.23"
-VERSION_GOO = "123"
-CHANGELOG_0 = Update: Latest Nameless & CM changes
+VERSION_ROMSTAT = "0.01"
+VERSION_GOO = "001"
+CHANGELOG_0 = Initial setup of Nameless Lollipop ROM
 CHANGELOG_1 = 
 CHANGELOG_2 = 
 CHANGELOG_3 = 
@@ -11,103 +11,6 @@ CHANGELOG_7 =
 CHANGELOG_8 = 
 CHANGELOG_9 = 
 
-V1.22
-Update: Latest Nameless & CM changes
+V0.01
+Initial setup of Nameless Lollipop ROM
 
-V1.21
-Update: Latest Nameless & CM changes
-
-V1.20
-Update: Latest Nameless & CM changes
-
-V1.19
-Update: Latest Nameless & CM changes
-
-V1.18
-Update: Latest Nameless & CM changes
-
-V1.17
-Update: Latest Nameless & CM changes
-
-V1.16
-Update: Latest Nameless & CM changes
-
-V1.15
-Update: Latest Nameless & CM changes
-
-V1.14
-Update: Latest Nameless & CM changes
-Update: Latest SimpleExplorer 2.0.5
-
-V1.13
-Update: Latest Nameless & CM changes
-Bugfix: Dialer FC fixed
-
-V1.12
-Update: Latest Nameless & CM changes
-
-V1.11
-Update: Latest Nameless & CM changes
-
-V1.10
-Update: Latest Nameless & CM changes
-Bugfix: Reboot menu working again
-
-V1.09
-Update: Latest Nameless & CM changes
-Feature: Switch to twa_priv kernel (experimental)
-
-V1.08
-Latest Nameless & CM changes
-Bugfix: FC in Settings->AnimationControl->Keyboard fixed
-
-V1.07
-Latest Nameless & CM changes
-Version: Android KitKat 4.4.4_r1
-Version: This is a private branch of the NamelessROM
-Feature: Reboot into recovery on top level of power menu 
- -- Reboot: short press == reboot, long press == reboot save mode
- -- Recovery: short press == recovery, long press == bootloader
-Feature: Developer options allways visible
-Feature: Enable MTP by default 
-Apps: Simple Explorer replaces NamelessROMs internal 'Documents' file explorer (credits to DF1E)
-Apps: Added BeeGee Stats for feedback about ROM installations
-Feature: Rotateable lockscreen
-
-V1.06
-Update: Latest Nameless & CM changes
-Update: Phone APK working again
-Update: CWM recovery should work again (not tested)
-
-V1.05
-Update: Latest Nameless & CM changes
-Update: Clean-up of the code
-Update: Android 4.4.3_r1.1 update
-
-V1.04
-Update: Latest Nameless & CM changes
-Apps: Simple Explorer replaces NamelessROMs internal 'Documents' file explorer (credits to DF1E)
-Feature: Reboot into recovery on top level of power menu 
-         Reboot: short press == reboot, long press == reboot save mode
-         Recovery: short press == recovery, long press == bootloader
-Performance: Archidroid optimizations (as implemented by NamelessROM sources)
-
-V1.03
-Update: Latest Nameless & CM changes
-Feature: Enable MTP by default (after full wipe installation)
-Feature: Developer options allways visible
-App: Added BeeGee Stats for feedback about ROM installations
-
-V1.02
-Update: Latest Nameless & CM changes
-Update: Multiuser: User icon in quick settings corrected
-Fix: Separate background picture for lock screen
-
-V1.01
-Update: Latest Nameless & CM changes
-Update: Added more fonts (for none latin alphabets)
-Feature: Added moveable navigation button (left, middle, right)
-Feature: Added navigation buttons in status bar for extended desktop
-
-V1.00
-Init: first Nameless Android 4.4 build
