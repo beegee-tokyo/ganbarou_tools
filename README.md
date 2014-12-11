@@ -1,6 +1,6 @@
 Ganbarou Tools
 ======================================================================================================
-*My tools and files used to build a ROM based on Nameless sources*
+*My tools and files used to build a Lollipop ROM based on Nameless sources*
 ------------------------------------------------------------------------------------------------------
 *Credits*
 ------------------------------------------------------------------------------------------------------
@@ -21,7 +21,7 @@ familiar with [Git and Repo](http://source.android.com/download/using-repo).
 
 To initialize your local repository using the [Nameless trees](https://github.com/NamelessRom), use a command like this:
 
-    repo init -u https://github.com/NamelessRom/android.git -b android-4.4
+    repo init -u https://github.com/NamelessRom/android.git -b n-2.0
 
 Then to sync up:
 
@@ -29,7 +29,7 @@ Then to sync up:
     
 **Get my ROM specific stuff**
 
-To prepare to build my specific ROM you need to create a folder **local_manifests** under **.repo**. Then create a file in **local_manifests** named **roomservice.xml**. Copy the content of my [roomservice.xml](https://github.com/beegee-tokyo/ganbarou_tools/blob/nameless/tools/roomservice.xml) into this file.
+To prepare to build my specific ROM you need to create a folder **local_manifests** under **.repo**. Then create a file in **local_manifests** named **roomservice.xml**. Copy the content of my [roomservice.xml](https://github.com/beegee-tokyo/ganbarou_tools/blob/n-2.0/tools/roomservice.xml) into this file.
 
 Then sync again to get my specific repositories.
 
